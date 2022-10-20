@@ -1,6 +1,6 @@
 //
 //  RaychelQiuApp.swift
-//  Shared
+//  RaychelQiu
 //
 //  Created by Jonathan Kevin on 20/10/22.
 //

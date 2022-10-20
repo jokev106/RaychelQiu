@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  Shared
+//  RaychelQiu
 //
 //  Created by Jonathan Kevin on 20/10/22.
 //
@@ -29,11 +29,9 @@ struct ContentView: View {
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
-#if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
-#endif
                 ToolbarItem {
                     Button(action: addItem) {
                         Label("Add Item", systemImage: "plus")

@@ -1,13 +1,13 @@
 //
-//  Tests_iOSLaunchTests.swift
-//  Tests iOS
+//  RaychelQiuUITestsLaunchTests.swift
+//  RaychelQiuUITests
 //
 //  Created by Jonathan Kevin on 20/10/22.
 //
 
 import XCTest
 
-class Tests_iOSLaunchTests: XCTestCase {
+class RaychelQiuUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
