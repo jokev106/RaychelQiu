@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B509290291EC00AA916E /* Scene2_Testing.swift */; };
+		013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */; };
+		013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */; };
+		01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01776CB02907E3430010B9A6 /* SceneMultiple.swift */; };
+		01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384A29013F1B00092EEC /* Scene_Testing.swift */; };
+		01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384C290142E400092EEC /* SwiftUIView.swift */; };
+		01F1903229091C4300426F03 /* SceneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1903129091C4300426F03 /* SceneTabView.swift */; };
 		B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */; };
 		B32BB5B229012E4900B812CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5B129012E4900B812CF /* ContentView.swift */; };
 		B32BB5B429012E4A00B812CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32BB5B329012E4A00B812CF /* Assets.xcassets */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0114B509290291EC00AA916E /* Scene2_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2_Testing.swift; sourceTree = "<group>"; };
+		013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Scene1_Kelas_Selesai.swift; sourceTree = "<group>"; };
+		013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Collection.swift; sourceTree = "<group>"; };
+		01776CB02907E3430010B9A6 /* SceneMultiple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMultiple.swift; sourceTree = "<group>"; };
+		01A3384A29013F1B00092EEC /* Scene_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_Testing.swift; sourceTree = "<group>"; };
+		01A3384C290142E400092EEC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		01F1903129091C4300426F03 /* SceneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTabView.swift; sourceTree = "<group>"; };
 		B32BB5AC29012E4900B812CF /* RaychelQiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaychelQiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuApp.swift; sourceTree = "<group>"; };
 		B32BB5B129012E4900B812CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +89,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01A3384229013D0B00092EEC /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				01A3384929013F0A00092EEC /* Testing */,
+				01A3384629013D4900092EEC /* Chapter1 */,
+				01A3384529013D3E00092EEC /* Prologue */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		01A3384529013D3E00092EEC /* Prologue */ = {
+			isa = PBXGroup;
+			children = (
+				013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */,
+				013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */,
+			);
+			path = Prologue;
+			sourceTree = "<group>";
+		};
+		01A3384629013D4900092EEC /* Chapter1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chapter1;
+			sourceTree = "<group>";
+		};
+		01A3384929013F0A00092EEC /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				01A3384A29013F1B00092EEC /* Scene_Testing.swift */,
+				0114B509290291EC00AA916E /* Scene2_Testing.swift */,
+				01776CB02907E3430010B9A6 /* SceneMultiple.swift */,
+				01F1903129091C4300426F03 /* SceneTabView.swift */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 		B32BB5A329012E4900B812CF = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +149,13 @@
 		B32BB5AE29012E4900B812CF /* RaychelQiu */ = {
 			isa = PBXGroup;
 			children = (
+				01A3384229013D0B00092EEC /* Scenes */,
 				B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */,
 				B32BB5B129012E4900B812CF /* ContentView.swift */,
 				B32BB5B329012E4A00B812CF /* Assets.xcassets */,
 				B32BB5B829012E4A00B812CF /* Persistence.swift */,
 				B32BB5BA29012E4A00B812CF /* RaychelQiu.xcdatamodeld */,
+				01A3384C290142E400092EEC /* SwiftUIView.swift */,
 				B32BB5B529012E4A00B812CF /* Preview Content */,
 			);
 			path = RaychelQiu;
@@ -263,9 +316,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */,
+				01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */,
+				01F1903229091C4300426F03 /* SceneTabView.swift in Sources */,
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
+				01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
+				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
+				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
+				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
