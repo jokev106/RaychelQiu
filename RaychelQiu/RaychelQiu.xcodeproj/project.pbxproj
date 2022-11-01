@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
+		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
+		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
+		705EDA6229067202001008E1 /* PunyaLeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705EDA6129067202001008E1 /* PunyaLeoView.swift */; };
+		70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97460290D70D000ED63F8 /* Game4_1View.swift */; };
+		70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97464290FD48700ED63F8 /* Game4_2View.swift */; };
 		B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */; };
 		B32BB5B229012E4900B812CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5B129012E4900B812CF /* ContentView.swift */; };
 		B32BB5B429012E4A00B812CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32BB5B329012E4A00B812CF /* Assets.xcassets */; };
@@ -36,6 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
+		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
+		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
+		705EDA6129067202001008E1 /* PunyaLeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PunyaLeoView.swift; sourceTree = "<group>"; };
+		70F97460290D70D000ED63F8 /* Game4_1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_1View.swift; sourceTree = "<group>"; };
+		70F97464290FD48700ED63F8 /* Game4_2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_2View.swift; sourceTree = "<group>"; };
 		B32BB5AC29012E4900B812CF /* RaychelQiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaychelQiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuApp.swift; sourceTree = "<group>"; };
 		B32BB5B129012E4900B812CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +87,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		70F97463290FD46500ED63F8 /* Game4 */ = {
+			isa = PBXGroup;
+			children = (
+				702514B929014A74002E4988 /* Game4Model.swift */,
+				702514BB29014E22002E4988 /* Game4ViewModel.swift */,
+				70F97460290D70D000ED63F8 /* Game4_1View.swift */,
+				70F97464290FD48700ED63F8 /* Game4_2View.swift */,
+			);
+			path = Game4;
+			sourceTree = "<group>";
+		};
 		B32BB5A329012E4900B812CF = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +127,9 @@
 				B32BB5B829012E4A00B812CF /* Persistence.swift */,
 				B32BB5BA29012E4A00B812CF /* RaychelQiu.xcdatamodeld */,
 				B32BB5B529012E4A00B812CF /* Preview Content */,
+				702514B329012EC7002E4988 /* Game2View.swift */,
+				70F97463290FD46500ED63F8 /* Game4 */,
+				705EDA6129067202001008E1 /* PunyaLeoView.swift */,
 			);
 			path = RaychelQiu;
 			sourceTree = "<group>";
@@ -264,9 +290,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
+				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
+				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
+				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
+				70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */,
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
+				70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */,
+				705EDA6229067202001008E1 /* PunyaLeoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
