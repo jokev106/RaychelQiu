@@ -36,6 +36,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var raychel_stand_opac = 0.0
     @State var raychel_stand_x = 0.0
     @State var raychel_opac = 1.0
+    @Binding var scene1_Prologue_Final: Bool
     
     var body: some View {
         GeometryReader{ geometry in
@@ -280,8 +281,13 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeInOut(duration: 1)) {
-                raychel_opac -= 1
                 raychel_stand_opac += 1
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeIn(duration: 0.7)) {
+                raychel_opac -= 1
             }
         }
         
@@ -296,6 +302,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
 
 struct Prologue_Scene1_Kelas_Selesai_Previews: PreviewProvider {
     static var previews: some View {
-        Prologue_Scene1_Kelas_Selesai()
+        Prologue_Scene1_Kelas_Selesai(scene1_Prologue_Final: .constant(false))
     }
 }

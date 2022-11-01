@@ -12,10 +12,12 @@ struct Prologue_Collection: View {
     @State var scene = 1
     @State var onTap = true
     
+    @State var scene1_Prologue_Final = false
+    
     var body: some View {
         GeometryReader{ geometry in
             if scene == 1 {
-                    Prologue_Scene1_Kelas_Selesai()
+                Prologue_Scene1_Kelas_Selesai(scene1_Prologue_Final: $scene1_Prologue_Final)
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
                             onTap = true
