@@ -29,6 +29,8 @@
 		B32BB5C629012E4A00B812CF /* RaychelQiuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5C529012E4A00B812CF /* RaychelQiuTests.swift */; };
 		B32BB5D029012E4A00B812CF /* RaychelQiuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */; };
 		B32BB5D229012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */; };
+		B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */; };
+		B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		B32BB5CB29012E4A00B812CF /* RaychelQiuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaychelQiuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITests.swift; sourceTree = "<group>"; };
 		B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game1_CaptchaPuzzle.swift; sourceTree = "<group>"; };
+		B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame1_BackpackSchool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,14 +206,51 @@
 			path = RaychelQiuUITests;
 			sourceTree = "<group>";
 		};
-		B3DBB85D2911088C00A29E45 /* GameScenes */ = {
+		B3DBB8542910FE8200A29E45 /* GameScenes */ = {
 			isa = PBXGroup;
 			children = (
+				B3DBB85A2911000900A29E45 /* MiniGame1 */,
+				B3DBB8552910FE9B00A29E45 /* Game1 */,
+				B3DBB8562910FEB300A29E45 /* Game2 */,
+				B3DBB8572910FECE00A29E45 /* Game4 */,
 				702514B329012EC7002E4988 /* Game2View.swift */,
 				70F974662910DFD100ED63F8 /* Game5View.swift */,
-				70F97463290FD46500ED63F8 /* Game4 */,
 			);
 			path = GameScenes;
+			sourceTree = "<group>";
+		};
+		B3DBB8552910FE9B00A29E45 /* Game1 */ = {
+			isa = PBXGroup;
+			children = (
+				B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */,
+			);
+			path = Game1;
+			sourceTree = "<group>";
+		};
+		B3DBB8562910FEB300A29E45 /* Game2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Game2;
+			sourceTree = "<group>";
+		};
+		B3DBB8572910FECE00A29E45 /* Game4 */ = {
+			isa = PBXGroup;
+			children = (
+				702514B929014A74002E4988 /* Game4Model.swift */,
+				702514BB29014E22002E4988 /* Game4ViewModel.swift */,
+				70F97460290D70D000ED63F8 /* Game4_1View.swift */,
+				70F97464290FD48700ED63F8 /* Game4_2View.swift */,
+			);
+			path = Game4;
+			sourceTree = "<group>";
+		};
+		B3DBB85A2911000900A29E45 /* MiniGame1 */ = {
+			isa = PBXGroup;
+			children = (
+				B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */,
+			);
+			path = MiniGame1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +388,7 @@
 				01F1903229091C4300426F03 /* SceneTabView.swift in Sources */,
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
+				B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */,
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
 				70F974672910DFD100ED63F8 /* Game5View.swift in Sources */,
@@ -359,6 +401,7 @@
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
+				B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */,
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
 				70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */,
 			);
