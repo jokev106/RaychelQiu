@@ -95,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				01A3384929013F0A00092EEC /* Testing */,
-				01A3384629013D4900092EEC /* Chapter1 */,
 				01A3384529013D3E00092EEC /* Prologue */,
 			);
 			path = Scenes;
@@ -109,13 +108,6 @@
 				013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */,
 			);
 			path = Prologue;
-			sourceTree = "<group>";
-		};
-		01A3384629013D4900092EEC /* Chapter1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Chapter1;
 			sourceTree = "<group>";
 		};
 		01A3384929013F0A00092EEC /* Testing */ = {
