@@ -30,6 +30,7 @@
 		B32BB5C629012E4A00B812CF /* RaychelQiuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5C529012E4A00B812CF /* RaychelQiuTests.swift */; };
 		B32BB5D029012E4A00B812CF /* RaychelQiuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */; };
 		B32BB5D229012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */; };
+		B39AC84D291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */; };
 		B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */; };
 		B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		B32BB5CB29012E4A00B812CF /* RaychelQiuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaychelQiuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITests.swift; sourceTree = "<group>"; };
 		B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGame2_MomBubbleChat.swift; sourceTree = "<group>"; };
 		B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game1_CaptchaPuzzle.swift; sourceTree = "<group>"; };
 		B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame1_BackpackSchool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */,
+				B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */,
 			);
 			path = MiniGame1;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
+				B39AC84D291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift in Sources */,
 				B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */,
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
