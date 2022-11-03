@@ -11,6 +11,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     
     @State var scene = 1
     @State var onTap = false
+    @Binding var mainOnTap: Bool
     
     //Scene1
     @State var raychel_1_x = 300.0
@@ -41,140 +42,153 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     var body: some View {
         GeometryReader{ geometry in
             ZStack{
-                Image("School_BG")
+                Image("Border")
                     .resizable()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                
-                //Scene1
-                if scene == 1{
-                    ZStack{
-                        Image("School_Bulletin")
-                            .resizable()
-                            .scaledToFit()
-                            .opacity(bulletin_1_opacity)
-                        Image("School_Table")
-                            .resizable()
-                            .frame(width: geometry.size.width, height: geometry.size.height)
-                            .opacity(table_1_opacity)
-                            .offset(y: table_1_y)
-                        Image("School_Paper")
-                            .resizable()
-                            .scaledToFit()
-                        //                        .opacity(paper_1_opacity)
-                            .offset(x: paper_1_x, y: paper_1_y)
-                        Image("School_Raychel")
-                            .resizable()
-                            .scaledToFit()
-                            .offset(x: raychel_1_x, y: raychel_1_y)
+                    .scaledToFit()
+                    .scaleEffect(0.932)
+                    .offset(y: -geometry.size.height * 0.150)
+                ZStack{
+                    Image("School_BG")
+                        .resizable()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                    
+                    //Scene1
+                    if scene == 1{
+                        ZStack{
+                            Image("School_Bulletin")
+                                .resizable()
+                                .scaledToFit()
+                                .opacity(bulletin_1_opacity)
+                            Image("School_Table")
+                                .resizable()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .opacity(table_1_opacity)
+                                .offset(y: table_1_y)
+                            Image("School_Paper")
+                                .resizable()
+                                .scaledToFit()
+                            //                        .opacity(paper_1_opacity)
+                                .offset(x: paper_1_x, y: paper_1_y)
+                            Image("School_Raychel")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(x: raychel_1_x, y: raychel_1_y)
+                            
+                        }
+                        .onAppear{
+                            prologue_scene1_animation_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                                onTap = true
+                            }
+                        }
+                        .onTapGesture {
+                            if onTap == true {
+                                onTap = false
+                                prologue_scene1_animation_out()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                                    scene += 1
+                                }
+                            }
+                        }
                         
                     }
-                    .onAppear{
-                        prologue_scene1_animation_in()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                            onTap = true
+                    
+                    //Scene2
+                    if scene == 2{
+                        ZStack{
+                            Image("Clock")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(x: clock_2_x, y: clock_2_y)
+                            Image("Clock_LongPoint")
+                                .resizable()
+                                .scaledToFit()
+                            //                        .frame(width: 15)
+                                .frame(width: geometry.size.width * 0.039)
+                                .scaleEffect(1)
+                                .rotationEffect(.degrees(long_2_rotation), anchor: .bottom)
+                            //                        .position(x: 196.5, y: 242)
+                                .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.318)
+                                .offset(x: long_2_x_offset, y: long_2_y_offset)
+                            
+                            Image("Clock_ShortPoint")
+                                .resizable()
+                                .scaledToFit()
+                            //                        .frame(width: 11)
+                                .frame(width: geometry.size.width * 0.028)
+                                .scaleEffect(1)
+                                .offset(x: short_2_x_offset, y: short_2_y_offset)
+                                .rotationEffect(.degrees(short_2_rotation), anchor: .bottom)
+                            //                        .background(.red)
+                            //                        .position(x: 196.5, y: 242)
+                                .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.331)
+                            
                         }
-                    }
-                    .onTapGesture {
-                        if onTap == true {
-                            prologue_scene1_animation_out()
-                            onTap = false
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                        .onAppear{
+                            prologue_scene2_animation_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
                                 scene += 1
                             }
                         }
                     }
                     
-                }
-                
-                
-                //Scene2
-                if scene == 2{
-                    ZStack{
-                        Image("Clock")
-                            .resizable()
-                            .scaledToFit()
-                            .offset(x: clock_2_x, y: clock_2_y)
-                        Image("Clock_LongPoint")
-                            .resizable()
-                            .scaledToFit()
-                        //                        .frame(width: 15)
-                            .frame(width: geometry.size.width * 0.039)
-                            .scaleEffect(1)
-                            .rotationEffect(.degrees(long_2_rotation), anchor: .bottom)
-                        //                        .position(x: 196.5, y: 242)
-                            .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.318)
-                            .offset(x: long_2_x_offset, y: long_2_y_offset)
-                        
-                        Image("Clock_ShortPoint")
-                            .resizable()
-                            .scaledToFit()
-                        //                        .frame(width: 11)
-                            .frame(width: geometry.size.width * 0.028)
-                            .scaleEffect(1)
-                            .offset(x: short_2_x_offset, y: short_2_y_offset)
-                            .rotationEffect(.degrees(short_2_rotation), anchor: .bottom)
-                        //                        .background(.red)
-                        //                        .position(x: 196.5, y: 242)
-                            .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.331)
-                        
-                    }
-                    .onAppear{
-                        prologue_scene2_animation_in()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-                            scene += 1
+                    //Scene3
+                    if scene == 3{
+                        ZStack{
+                            Image("School_Bulletin")
+                                .resizable()
+                                .scaledToFit()
+                                .opacity(bulletin_1_opacity)
+                            Image("School_Raychel_Stand")
+                                .resizable()
+                                .scaledToFit()
+                                .opacity(raychel_stand_opac)
+                                .offset(x: raychel_stand_x)
+                            Image("School_Table")
+                                .resizable()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                                .opacity(table_1_opacity)
+                                .offset(y: table_1_y)
+                            Image("School_Paper")
+                                .resizable()
+                                .scaledToFit()
+                            //                        .opacity(paper_1_opacity)
+                                .offset(x: paper_1_x, y: paper_1_y)
+                            Image("School_Raychel")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(x: raychel_1_x, y: raychel_1_y)
+                                .opacity(raychel_opac)
+                            
+                        }
+                        .onAppear{
+                            prologue_scene3_animation_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+                                prologue_scene1_animation_out()
+                                mainOnTap = true
+                            }
                         }
                     }
+                    
+                    
                 }
+                .mask {
+                    Image("Day")
+                        .resizable()
+                        .scaledToFit()
+                }
+                .scaleEffect(geometry.size.width * 0.00356)
+                .offset(y: geometry.size.height * 0.026)
+//                .background(Color.white)
+    //            .mask{
+    //                Image("FullScreen_Mask")
+    //                    .resizable()
+    //                    .scaledToFit()
+    //            }
                 
-                //Scene3
-                if scene == 3{
-                    ZStack{
-                        Image("School_Bulletin")
-                            .resizable()
-                            .scaledToFit()
-                            .opacity(bulletin_1_opacity)
-                        Image("School_Raychel_Stand")
-                            .resizable()
-                            .scaledToFit()
-                            .opacity(raychel_stand_opac)
-                            .offset(x: raychel_stand_x)
-                        Image("School_Table")
-                            .resizable()
-                            .frame(width: geometry.size.width, height: geometry.size.height)
-                            .opacity(table_1_opacity)
-                            .offset(y: table_1_y)
-                        Image("School_Paper")
-                            .resizable()
-                            .scaledToFit()
-                        //                        .opacity(paper_1_opacity)
-                            .offset(x: paper_1_x, y: paper_1_y)
-                        Image("School_Raychel")
-                            .resizable()
-                            .scaledToFit()
-                            .offset(x: raychel_1_x, y: raychel_1_y)
-                            .opacity(raychel_opac)
-                        
-                    }
-                    .onAppear{
-                        prologue_scene3_animation_in()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                            onTap = true
-                        }
-                    }
-                    .onTapGesture {
-                        if onTap == true {
-                            prologue_scene1_animation_out()
-                            onTap = false
-                        }
-                    }
-                }
+                
             }
-            .mask {
-                Image("School_BG")
-                    .resizable()
-                    .scaledToFit()
-            }
-            .scaleEffect(CGFloat(1))
+            
         }
     }
     
@@ -302,6 +316,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
 
 struct Prologue_Scene1_Kelas_Selesai_Previews: PreviewProvider {
     static var previews: some View {
-        Prologue_Scene1_Kelas_Selesai(scene1_Prologue_Final: .constant(false))
+        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), scene1_Prologue_Final: .constant(false))
     }
 }
