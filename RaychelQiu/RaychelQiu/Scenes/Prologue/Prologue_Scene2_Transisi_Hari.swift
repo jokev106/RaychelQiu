@@ -86,14 +86,14 @@ struct Prologue_Scene2_Transisi_Hari: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            withAnimation(.easeInOut(duration: 1)) {
+            withAnimation(.easeInOut(duration: 1.5)) {
                
                 sun_angle += 70
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            withAnimation(.easeInOut(duration: 2)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            withAnimation(.easeInOut(duration: 2.5)) {
                 night_opac += 1
                 moon_angle += 140
             }

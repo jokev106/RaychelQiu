@@ -35,7 +35,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     
     //Scene3
     @State var raychel_stand_opac = 0.0
-    @State var raychel_stand_x = 0.0
+    @Binding var raychel_stand_x: Double
     @State var raychel_opac = 1.0
     @Binding var scene1_Prologue_Final: Bool
     
@@ -77,7 +77,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         }
                         .onAppear{
                             prologue_scene1_animation_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                                 onTap = true
                             }
                         }
@@ -126,7 +126,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         }
                         .onAppear{
                             prologue_scene2_animation_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
                                 scene += 1
                             }
                         }
@@ -163,8 +163,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         }
                         .onAppear{
                             prologue_scene3_animation_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-                                prologue_scene1_animation_out()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
+//                                prologue_scene1_animation_out()
                                 mainOnTap = true
                             }
                         }
@@ -207,13 +207,13 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            withAnimation(.easeInOut(duration: 1)) {
+            withAnimation(.easeInOut(duration: 1.8)) {
                 raychel_1_x -= 300
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            withAnimation(.easeInOut(duration: 1)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
+            withAnimation(.easeInOut(duration: 1.7)) {
 //                paper_1_opacity = 1
                 paper_1_x += 115
                 paper_1_y -= 60
@@ -270,7 +270,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
-            withAnimation(.easeIn(duration: 0.5)) {
+            withAnimation(.easeIn(duration: 1)) {
                 clock_2_y -= 300.0
                 long_2_y_offset -= 300.0
                 short_2_y_offset -= 300.0
@@ -286,36 +286,36 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            withAnimation(.easeOut(duration: 1.0)) {
+            withAnimation(.easeOut(duration: 1.5)) {
                 raychel_1_y -= 300
                 table_1_y -= 300
                 paper_1_y -= 300
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             withAnimation(.easeInOut(duration: 1)) {
                 raychel_stand_opac += 1
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             withAnimation(.easeIn(duration: 0.7)) {
                 raychel_opac -= 1
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            withAnimation(.easeInOut(duration: 1.5)) {
-                raychel_stand_x += 300
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+//            withAnimation(.easeInOut(duration: 2.0)) {
+//                raychel_stand_x += 300
+//            }
+//        }
         
     }
 }
 
 struct Prologue_Scene1_Kelas_Selesai_Previews: PreviewProvider {
     static var previews: some View {
-        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), scene1_Prologue_Final: .constant(false))
+        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), raychel_stand_x: .constant(0), scene1_Prologue_Final: .constant(false))
     }
 }
