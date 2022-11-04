@@ -304,7 +304,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					B32BB5AB29012E4900B812CF = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -387,8 +387,6 @@
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
 				70F974672910DFD100ED63F8 /* Game5View.swift in Sources */,
-				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
-				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */,
 				B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */,
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
