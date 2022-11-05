@@ -37,7 +37,8 @@ struct Game4_1View: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .offset(x: 0, y: -70)
+//                .offset(x: 0, y: -70)
+                .scaleEffect(geometry.size.height * 0.0015)
 
 //                if viewmodel.currentRound < 5 {
                     VStack {
@@ -46,6 +47,7 @@ struct Game4_1View: View {
                             Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate)
                                 .frame(width: 400, height: 400)
                         }
+                        .background(.white)
                         .border(.black, width: 2)
                         .scaleEffect(geometry.size.height * 0.001)
                     }
