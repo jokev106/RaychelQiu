@@ -41,14 +41,15 @@ struct Prologue_Room: View {
                 Image("Border")
                     .resizable()
                     .scaledToFit()
-                    .scaleEffect(0.932)
-                    .offset(y: -geometry.size.height * 0.150)
+                    .frame(width: 361, height: 491)
+                    .offset(y: -114)
                 
                 
                 ZStack{
                     Image("Prologue_Door_BG")
                         .resizable()
                         .scaledToFit()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
                                  
                     //Scene2
                     ZStack{
@@ -137,9 +138,6 @@ struct Prologue_Room: View {
                                 Image("Prologue_Room2_Raychel")
                                     .resizable()
                                     .scaledToFit()
-                                Image("Prologue_Room_Lamp")
-                                    .resizable()
-                                    .scaledToFit()
                                 Image("Prologue_Room2_Pen")
                                     .resizable()
                                     .scaledToFit()
@@ -147,6 +145,9 @@ struct Prologue_Room: View {
                                     .resizable()
                                     .scaledToFit()
                                     .opacity(light_opac)
+                                Image("Prologue_Room_Lamp")
+                                    .resizable()
+                                    .scaledToFit()
                                 
                             }
                             .scaleEffect(scene3_scale)
@@ -160,6 +161,7 @@ struct Prologue_Room: View {
                             }
                             .onTapGesture{
                                 if onTap == true{
+                                    onTap = false
                                     prologue_room_scene3_transition()
                                 }
                             }

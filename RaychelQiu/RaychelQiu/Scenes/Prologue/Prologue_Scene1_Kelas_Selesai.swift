@@ -44,9 +44,10 @@ struct Prologue_Scene1_Kelas_Selesai: View {
             ZStack{
                 Image("Border")
                     .resizable()
-                    .scaledToFit()
-                    .scaleEffect(0.932)
-                    .offset(y: -geometry.size.height * 0.150)
+//                    .scaledToFit()
+//                    .scaleEffect(0.92)
+                    .frame(width: 361, height: 491)
+                    .offset(y: -114)
                 ZStack{
                     Image("School_BG")
                         .resizable()
