@@ -28,26 +28,13 @@ struct Game1_CaptchaPuzzle: View {
     
     var body: some View {
         
-        let dragBook = DragGesture(coordinateSpace: .local)
-            .onChanged({ gesture in
-                if moveableBook == false {
-                    self.positionChevronButton = gesture.location
-                }
-            })
-               .onEnded {gesture in
-                   if self.positionChevronButton.x > 250 {
-                       self.moveableBook = true
-                       book = true
-                       
-                   }
-               }
-        
         GeometryReader {geo in
             ZStack{
                 Image("CaptchaPhone2")
                     .resizable()
                     .frame(width: 630, height: 800)
                     .position(self.positionPhone)
+                    .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                 
                 if isWinter1 == false || isWinter2 == false || isWinter3 == false {
                     ZStack{

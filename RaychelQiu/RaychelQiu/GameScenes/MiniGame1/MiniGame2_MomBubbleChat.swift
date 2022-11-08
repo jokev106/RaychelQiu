@@ -186,6 +186,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 175, height: 150)
                             .position(self.positionHeart)
                             .modifier(Shake(animatableData: CGFloat(shakes)))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isHeartBroken_1 == true {
                         Image("HeartBroken_1")
@@ -193,6 +194,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 175, height: 150)
                             .position(self.positionHeart)
                             .modifier(Shake(animatableData: CGFloat(shakes)))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isHeartBroken_2 == true {
                         Image("HeartBroken_2")
@@ -200,6 +202,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 175, height: 150)
                             .position(self.positionHeart)
                             .modifier(Shake(animatableData: CGFloat(shakes)))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isHeartBroken_3 == true {
                         Image("HeartBroken_3")
@@ -207,6 +210,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 175, height: 150)
                             .position(self.positionHeart)
                             .modifier(Shake(animatableData: CGFloat(shakes)))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isHeartBroken_4 == true {
                         Image("HeartBroken_4")
@@ -214,6 +218,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 175, height: 150)
                             .position(self.positionHeart)
                             .modifier(Shake(animatableData: CGFloat(shakes)))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isHeartBroken_5 == true {
                         Image(heartBrokenMax ?? "HeartBroken_5")
@@ -221,6 +226,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 175, height: 150)
                             .position(self.positionHeart)
                             .modifier(Shake(animatableData: CGFloat(shakes)))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                 }.onReceive(timer) { _ in
                     if isHeartBroken_5 == true {
@@ -245,6 +251,8 @@ struct MiniGame2_MomBubbleChat: View {
                                 .frame(width: 100, height: 60)
                                 .position(self.positionTextBox_1)
                                 .gesture(textBoxDrag_1)
+                                .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                        
                     }
                     if isTextBox_2 == true {
                         Image("TextBoxAnger")
@@ -253,6 +261,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .position(self.positionTextBox_2)
                             .gesture(textBoxDrag_2)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isTextBox_3 == true {
                         Image("TextBoxAnger")
@@ -261,6 +270,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .position(self.positionTextBox_3)
                             .gesture(textBoxDrag_3)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isTextBox_4 == true {
                         Image("TextBoxAnger")
@@ -268,6 +278,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .frame(width: 120, height: 70)
                             .position(self.positionTextBox_4)
                             .gesture(textBoxDrag_4)
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
                     if isTextBox_5 == true {
                         Image("TextBoxAnger")
@@ -276,6 +287,7 @@ struct MiniGame2_MomBubbleChat: View {
                             .position(self.positionTextBox_5)
                             .gesture(textBoxDrag_5)
                             .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
                     }
 
                 }

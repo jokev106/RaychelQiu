@@ -163,32 +163,43 @@ struct Minigame3_Packing: View {
                     .resizable()
                     .frame(width: 425, height: 330)
                     .position(self.positionSuitCase)
+                    .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                
                 Image("Clothes")
                     .resizable()
                     .frame(width: 113, height: 79)
                     .position(self.positionClothes)
                     .gesture(clothesDrag)
+                    .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
+                
                 Image("SketchBook")
                     .resizable()
                     .frame(width: 56, height: 69)
                     .position(self.positionSketchBook)
                     .gesture(sketchDrag)
+                    .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
+                
                 Image("PencilCase")
                     .resizable()
                     .frame(width: 93, height: 77)
                     .rotationEffect(Angle(degrees: 10))
                     .position(self.positionPencilCase)
                     .gesture(pencilCaseDrag)
+                    .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
+                
                 Image("Camera")
                     .resizable()
                     .frame(width: 43, height: 32)
                     .position(self.positionCamera)
                     .gesture(cameraDrag)
+                    .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
+                
                 Image("MakeUp")
                     .resizable()
                     .frame(width: 59, height: 34)
                     .position(self.positionMakeUp)
                     .gesture(makeUpDrag)
+                    .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
             }
         }.background(Color("CreamBG"))
     }
