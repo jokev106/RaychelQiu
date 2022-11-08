@@ -143,6 +143,14 @@
 			path = Testing;
 			sourceTree = "<group>";
 		};
+		701E52D12913A31100E25FF1 /* Game2 */ = {
+			isa = PBXGroup;
+			children = (
+				702514B329012EC7002E4988 /* Game2View.swift */,
+			);
+			path = Game2;
+			sourceTree = "<group>";
+		};
 		B32BB5A329012E4900B812CF = {
 			isa = PBXGroup;
 			children = (
@@ -209,8 +217,8 @@
 			children = (
 				B3DBB85A2911000900A29E45 /* MiniGame1 */,
 				B3DBB8552910FE9B00A29E45 /* Game1 */,
+				701E52D12913A31100E25FF1 /* Game2 */,
 				B3DBB8572910FECE00A29E45 /* Game4 */,
-				702514B329012EC7002E4988 /* Game2View.swift */,
 				70F974662910DFD100ED63F8 /* Game5View.swift */,
 			);
 			path = GameScenes;
