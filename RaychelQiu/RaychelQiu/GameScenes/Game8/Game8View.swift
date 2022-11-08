@@ -15,7 +15,7 @@ struct Game8VIew: View {
     @State var position = CGPoint(x: 190, y: 1200)
     @State var currentPosition = CGPoint(x: 212, y: -490)
     
-    @State var needlePosition = CGPoint(x: 0, y: -220)
+    @State var needlePosition = CGPoint(x: 0, y: -215)
     
     @State var targetPosition = [CGPoint(x: 310, y: 0), CGPoint(x: 320, y: 100), CGPoint(x: 320, y: 200), CGPoint(x: 310, y: 300), CGPoint(x: 280, y: 400), CGPoint(x: 190, y: 510), CGPoint(x: 190, y: 600), CGPoint(x: 205, y: 700), CGPoint(x: 195, y: 800), CGPoint(x: 140, y: 900), CGPoint(x: 70, y: 1000), CGPoint(x: 10, y: 1100), CGPoint(x: 50, y: 1200), CGPoint(x: 160, y: 1250), CGPoint(x: 270, y: 1290), CGPoint(x: 350, y: 1400), CGPoint(x: 370, y: 1500), CGPoint(x: 150, y: 0), CGPoint(x: 160, y: 100), CGPoint(x: 160, y: 200), CGPoint(x: 150, y: 300), CGPoint(x: 110, y: 380), CGPoint(x: 10, y: 490), CGPoint(x: 30, y: 600), CGPoint(x: 45, y: 700), CGPoint(x: 15, y: 800), CGPoint(x: -50, y: 900), CGPoint(x: -110, y: 1000), CGPoint(x: -170, y: 1100), CGPoint(x: -140, y: 1220), CGPoint(x: -40, y: 1330), CGPoint(x: 60, y: 1380), CGPoint(x: 160, y: 1410), CGPoint(x: 200, y: 1500)]
     
@@ -23,24 +23,14 @@ struct Game8VIew: View {
     
     @State var trigger = false
     
-    let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
-    func setupGame() {
+    func resetGame() {
         position = CGPoint(x: 190, y: 1200)
         currentPosition = CGPoint(x: 212, y: -490)
         trigger = false
         
         targetPosition = [CGPoint(x: 310, y: 0), CGPoint(x: 320, y: 100), CGPoint(x: 320, y: 200), CGPoint(x: 310, y: 300), CGPoint(x: 280, y: 400), CGPoint(x: 190, y: 510), CGPoint(x: 190, y: 600), CGPoint(x: 205, y: 700), CGPoint(x: 195, y: 800), CGPoint(x: 140, y: 900), CGPoint(x: 70, y: 1000), CGPoint(x: 10, y: 1100), CGPoint(x: 50, y: 1200), CGPoint(x: 160, y: 1250), CGPoint(x: 270, y: 1290), CGPoint(x: 350, y: 1400), CGPoint(x: 370, y: 1500), CGPoint(x: 150, y: 0), CGPoint(x: 160, y: 100), CGPoint(x: 160, y: 200), CGPoint(x: 150, y: 300), CGPoint(x: 110, y: 380), CGPoint(x: 10, y: 490), CGPoint(x: 30, y: 600), CGPoint(x: 45, y: 700), CGPoint(x: 15, y: 800), CGPoint(x: -50, y: 900), CGPoint(x: -110, y: 1000), CGPoint(x: -170, y: 1100), CGPoint(x: -140, y: 1220), CGPoint(x: -40, y: 1330), CGPoint(x: 60, y: 1380), CGPoint(x: 160, y: 1410), CGPoint(x: 200, y: 1500)]
-        
-        movements()
-    }
-    
-    func movements() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.linear(duration: trigger ? 0 : 60)) {
-                position = CGPoint(x: 190, y: -1800)
-            }
-        }
     }
     
     func sewing() {
@@ -154,26 +144,22 @@ struct Game8VIew: View {
                                 .position(targetPosition[index])
                                 .opacity(0.0)
                         }
-                    }
-                    
-                    Circle()
-                        .fill(.red)
-                        .frame(width: 30)
-                        .position(currentPosition)
                         .onReceive(timer) { time in
                             if currentPosition.y >= 2600 {
                                 timer.upstream.connect().cancel()
                             } else {
 //                                print("The time is now \(time)")
                             }
-                            currentPosition.y += 10
+                            position.y -= 0.5
+                            currentPosition.y += 0.5
                             collision(position: currentPosition)
-
-//                            if trigger == true {
-//                                timer.upstream.connect().cancel()
-//                                setupGame()
-//                            }
                         }
+                    }
+                    
+                    Circle()
+                        .fill(.red)
+                        .frame(width: 30)
+                        .position(currentPosition)
                         .opacity(0.0)
 
 //                    ForEach(0 ..< 3, id: \.self) { index in
@@ -191,13 +177,6 @@ struct Game8VIew: View {
                 .frame(maxWidth: 400, maxHeight: 800, alignment: .center)
                 .position(position)
 //                .rotationEffect(currentAngle)
-                
-                .onAppear {
-                    movements()
-//                    while currentPosition.y < 2100 {
-//                        currentPosition.y += 10
-//                    }
-                }
                 
                 Image("sewing")
                     .resizable()
@@ -224,9 +203,9 @@ struct Game8VIew: View {
             .gesture(drag)
 //            .scaleEffect(0.4)
             .onChange(of: trigger) { _ in
-                setupGame()
-                trigger = false
+                resetGame()
             }
+            .ignoresSafeArea()
 //            .offset(y: -400)
 //            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
