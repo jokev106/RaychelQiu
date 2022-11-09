@@ -17,8 +17,8 @@ struct Minigame1_BackpackSchool: View {
     @State var kotak = CGPoint(x: 360, y: 635)
     @State var kotak1 = CGPoint(x: 250, y: 720)
 
-    @State var moveableBook: Bool = false
-    @State var moveablePencil: Bool = false
+    @State var moveableBook: Bool = true
+    @State var moveablePencil: Bool = true
     @State var moveableBottle: Bool = false
     
     @State var book: Bool = false
@@ -29,6 +29,8 @@ struct Minigame1_BackpackSchool: View {
     @State var isBook:Bool = true
     @State var isPencil:Bool = true
     @State var isBottle:Bool = true
+    
+    //
     
     var body: some View {
         //Dragable for Book
@@ -66,6 +68,7 @@ struct Minigame1_BackpackSchool: View {
                    self.moveablePencil = true
                    pencil = true
                    isPencil = false
+                   self.moveableBook = false
                }else {
                    withAnimation(.default){
                        self.positionPencil.x = 80
@@ -90,6 +93,7 @@ struct Minigame1_BackpackSchool: View {
                        self.moveableBottle = true
                        bottle = true
                        isBottle = false
+                       self.moveablePencil = false
                    }else {
                        withAnimation(.default){
                            self.positionBootle.x = 155
@@ -106,11 +110,36 @@ struct Minigame1_BackpackSchool: View {
                     .position(self.positionPlayBox)
                 
 //                    ZStack{
-                Image("Bag")
-                    .resizable()
-                    .frame(width: 140, height: 190)
-                    .position(self.positionBag)
-                    .clipped()
+                Group{
+                    if isBottle == false {
+                        Image("Bag1")
+                            .resizable()
+                            .frame(width: 140, height: 190)
+                            .position(self.positionBag)
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                    }
+                    if isPencil == false {
+                        Image("Bag2")
+                            .resizable()
+                            .frame(width: 140, height: 190)
+                            .position(self.positionBag)
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                    }
+                    if isBook == false {
+                        Image("Bag3")
+                            .resizable()
+                            .frame(width: 140, height: 190)
+                            .position(self.positionBag)
+                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                    }
+                    if isBook == true && isPencil == true && isBottle == true {
+                            Image("Bag")
+                                .resizable()
+                                .frame(width: 140, height: 190)
+                                .position(self.positionBag)
+                                .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                    }
+                }
                 
                 if isBook == true {
                     Image("Books")
@@ -118,7 +147,7 @@ struct Minigame1_BackpackSchool: View {
                         .frame(width: 100, height: 90)
                         .position(self.positionBook)
                         .gesture(dragBook)
-                        .clipped()
+                        .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
                 }
                 if isPencil == true {
                     Image("PencilCase")
@@ -126,7 +155,7 @@ struct Minigame1_BackpackSchool: View {
                         .frame(width: 80, height: 80)
                         .position(self.positionPencil)
                         .gesture(dragPencil)
-                        .clipped()
+                        .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
                     
                 }
                 if isBottle == true {
@@ -135,7 +164,7 @@ struct Minigame1_BackpackSchool: View {
                         .frame(width: 40, height: 100)
                         .position(self.positionBootle)
                         .gesture(dragBottle)
-                        .clipped()
+                        .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
                 }
             }
         }
