@@ -16,7 +16,7 @@ struct Game5View: View {
     
     @State var done = false
     
-    var colors = [Color(.gray), Color("Game5_Color1"), Color("Game5_Color2"), Color("Game5_Color3"), Color("Game5_Color4"), Color("Game5_Color5")]
+    var colors = [Color(.lightGray), Color("Game5_Color1"), Color("Game5_Color2"), Color("Game5_Color3"), Color("Game5_Color4"), Color("Game5_Color5")]
     
     var parts = Game5.pieces
     
