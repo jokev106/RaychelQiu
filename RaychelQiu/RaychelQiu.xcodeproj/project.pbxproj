@@ -31,6 +31,7 @@
 		B32BB5D029012E4A00B812CF /* RaychelQiuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */; };
 		B32BB5D229012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */; };
 		B37AE9332918DA2E004FD63F /* Minigame3_Packing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37AE9322918DA2E004FD63F /* Minigame3_Packing.swift */; };
+		B37AE936291A326E004FD63F /* Game7_Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37AE935291A326E004FD63F /* Game7_Shopping.swift */; };
 		B39AC84D291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */; };
 		B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */; };
 		B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */; };
@@ -81,6 +82,7 @@
 		B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITests.swift; sourceTree = "<group>"; };
 		B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B37AE9322918DA2E004FD63F /* Minigame3_Packing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame3_Packing.swift; sourceTree = "<group>"; };
+		B37AE935291A326E004FD63F /* Game7_Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game7_Shopping.swift; sourceTree = "<group>"; };
 		B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGame2_MomBubbleChat.swift; sourceTree = "<group>"; };
 		B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game1_CaptchaPuzzle.swift; sourceTree = "<group>"; };
 		B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame1_BackpackSchool.swift; sourceTree = "<group>"; };
@@ -202,9 +204,18 @@
 			path = RaychelQiuUITests;
 			sourceTree = "<group>";
 		};
+		B37AE934291A325E004FD63F /* Game7 */ = {
+			isa = PBXGroup;
+			children = (
+				B37AE935291A326E004FD63F /* Game7_Shopping.swift */,
+			);
+			path = Game7;
+			sourceTree = "<group>";
+		};
 		B3DBB8542910FE8200A29E45 /* GameScenes */ = {
 			isa = PBXGroup;
 			children = (
+				B37AE934291A325E004FD63F /* Game7 */,
 				B3DBB85A2911000900A29E45 /* MiniGame1 */,
 				B3DBB8552910FE9B00A29E45 /* Game1 */,
 				B3DBB8572910FECE00A29E45 /* Game4 */,
@@ -383,6 +394,7 @@
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				B37AE9332918DA2E004FD63F /* Minigame3_Packing.swift in Sources */,
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
+				B37AE936291A326E004FD63F /* Game7_Shopping.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
