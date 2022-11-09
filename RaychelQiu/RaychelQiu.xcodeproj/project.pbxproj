@@ -14,6 +14,8 @@
 		01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01776CB02907E3430010B9A6 /* SceneMultiple.swift */; };
 		01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384A29013F1B00092EEC /* Scene_Testing.swift */; };
 		01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384C290142E400092EEC /* SwiftUIView.swift */; };
+		01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */; };
+		01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A59F412914E1DA001CBB83 /* Prologue_Room.swift */; };
 		01F1903229091C4300426F03 /* SceneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1903129091C4300426F03 /* SceneTabView.swift */; };
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
@@ -61,6 +63,8 @@
 		01776CB02907E3430010B9A6 /* SceneMultiple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMultiple.swift; sourceTree = "<group>"; };
 		01A3384A29013F1B00092EEC /* Scene_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_Testing.swift; sourceTree = "<group>"; };
 		01A3384C290142E400092EEC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner.swift; sourceTree = "<group>"; };
+		01A59F412914E1DA001CBB83 /* Prologue_Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Room.swift; sourceTree = "<group>"; };
 		01F1903129091C4300426F03 /* SceneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTabView.swift; sourceTree = "<group>"; };
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */,
 				013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */,
 				013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */,
+				01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */,
+				01A59F412914E1DA001CBB83 /* Prologue_Room.swift */,
 			);
 			path = Prologue;
 			sourceTree = "<group>";
@@ -391,10 +397,12 @@
 			files = (
 				01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */,
 				01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */,
+				01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */,
 				01F1903229091C4300426F03 /* SceneTabView.swift in Sources */,
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
 				01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */,
 				013EAE85290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift in Sources */,
+				01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
@@ -571,7 +579,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaychelQiu/Preview Content\"";
-				DEVELOPMENT_TEAM = CPL7SYMZ7D;
+				DEVELOPMENT_TEAM = JRS36H7H6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -600,7 +608,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaychelQiu/Preview Content\"";
-				DEVELOPMENT_TEAM = CPL7SYMZ7D;
+				DEVELOPMENT_TEAM = JRS36H7H6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
