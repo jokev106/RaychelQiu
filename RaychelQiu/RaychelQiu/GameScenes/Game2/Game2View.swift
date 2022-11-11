@@ -52,12 +52,21 @@ struct Game2View: View {
                     .scaledToFit()
                     .frame(width: .infinity)
                     .padding(.bottom)
+                    .padding(.top, 25)
                 
                 ForEach(0 ..< 5, id: \.self) { index in
                     Image(image[index])
                         .resizable()
                         .scaledToFit()
                         .frame(width: .infinity)
+                        .onTapGesture(count: 2) {
+                            if likes[index] == false {
+                                likes[index] = true
+                                if bookmarks[index] == false {
+                                    count += 1
+                                }
+                            }
+                        }
                     
                     HStack {
                         Button {
