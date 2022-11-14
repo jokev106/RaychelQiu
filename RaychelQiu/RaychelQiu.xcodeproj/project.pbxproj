@@ -25,6 +25,8 @@
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
 		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
+		70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */; };
+		70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE6291A318B00CD7687 /* Game5Model.swift */; };
 		70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97460290D70D000ED63F8 /* Game4_1View.swift */; };
 		70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97464290FD48700ED63F8 /* Game4_2View.swift */; };
 		70F974672910DFD100ED63F8 /* Game5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F974662910DFD100ED63F8 /* Game5View.swift */; };
@@ -77,6 +79,8 @@
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
 		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
+		70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5ViewModel.swift; sourceTree = "<group>"; };
+		70B0FEE6291A318B00CD7687 /* Game5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5Model.swift; sourceTree = "<group>"; };
 		70F97460290D70D000ED63F8 /* Game4_1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_1View.swift; sourceTree = "<group>"; };
 		70F97464290FD48700ED63F8 /* Game4_2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_2View.swift; sourceTree = "<group>"; };
 		70F974662910DFD100ED63F8 /* Game5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5View.swift; sourceTree = "<group>"; };
@@ -174,6 +178,16 @@
 			path = Game2;
 			sourceTree = "<group>";
 		};
+		70B0FEE3291A315700CD7687 /* Game5 */ = {
+			isa = PBXGroup;
+			children = (
+				70F974662910DFD100ED63F8 /* Game5View.swift */,
+				70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */,
+				70B0FEE6291A318B00CD7687 /* Game5Model.swift */,
+			);
+			path = Game5;
+			sourceTree = "<group>";
+		};
 		B32BB5A329012E4900B812CF = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +256,7 @@
 				B3DBB8552910FE9B00A29E45 /* Game1 */,
 				701E52D12913A31100E25FF1 /* Game2 */,
 				B3DBB8572910FECE00A29E45 /* Game4 */,
-				70F974662910DFD100ED63F8 /* Game5View.swift */,
+				70B0FEE3291A315700CD7687 /* Game5 */,
 			);
 			path = GameScenes;
 			sourceTree = "<group>";
@@ -420,11 +434,13 @@
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
+				70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
 				01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */,
 				B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */,
 				01E41AE3291A58A2008A04AC /* Prologue_Clock.swift in Sources */,
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
+				70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */,
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
 				70F974672910DFD100ED63F8 /* Game5View.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
