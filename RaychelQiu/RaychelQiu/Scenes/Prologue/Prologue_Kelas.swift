@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Chapter1_Kelas: View {
+struct Prologue_Kelas: View {
     
     @State var scene = 1
     @State var onTap = false
@@ -32,9 +32,13 @@ struct Chapter1_Kelas: View {
     //Scene3
     @State var item_scale = 1.0
     @State var item_y = 0.0
+    @State var item_x = 0.0
     @State var item_opac = 1.0
     @State var raychel_small_opac = 0.0
     @State var friend_1_x = 120.0
+    @State var bulletin_scale = 1.32
+    @State var bulletin_x = 40.0
+    @State var bulletin_2_opac = 0.0
     
     //Scene4
     @State var friend_1_opac = 1.0
@@ -62,6 +66,12 @@ struct Chapter1_Kelas: View {
                                 .resizable()
                                 .scaledToFit()
                                 .opacity(bulletin_1_opacity)
+                            Image("School_Bulletin_Small")
+                                .resizable()
+                                .scaledToFit()
+                                .opacity(bulletin_2_opac)
+//                                .scaleEffect(bulletin_scale)
+//                                .offset(x: bulletin_x)
                             ZStack{
                                 Image("School_Table")
                                     .resizable()
@@ -74,8 +84,8 @@ struct Chapter1_Kelas: View {
                                     .opacity(paper_1_opacity)
                                     .offset(x: paper_1_x, y: paper_1_y)
                             }
-                            .scaleEffect(item_scale, anchor: .bottomLeading)
-                            .offset(y: item_y)
+//                            .scaleEffect(item_scale, anchor: .bottomLeading)
+//                            .offset(y: item_y)
                             .opacity(item_opac)
                             Image("School_Raychel")
                                 .resizable()
@@ -114,8 +124,8 @@ struct Chapter1_Kelas: View {
                                 .resizable()
                                 .scaledToFit()
                                 .opacity(raychel_hi_opac)
-                                .scaleEffect(item_scale, anchor: .bottomLeading)
-                                .offset(y: item_y)
+//                                .scaleEffect(item_scale, anchor: .bottomLeading)
+//                                .offset(y: item_y)
                                 .opacity(item_opac)
                         }
                         .onAppear{
@@ -146,6 +156,13 @@ struct Chapter1_Kelas: View {
                                 .scaledToFit()
                                 .opacity(raychel_small_opac)
                                 .offset(x: friend_2_x)
+                            Image("School_Paper")
+                                .resizable()
+                                .scaledToFit()
+                                .opacity(raychel_small_opac)
+                                .offset(x: paper_1_x, y: paper_1_y)
+                                .scaleEffect(item_scale, anchor: .bottomLeading)
+                                .offset(x: item_x, y: item_y)
                             Image("School_Friend_Paper")
                                 .resizable()
                                 .scaledToFit()
@@ -154,7 +171,7 @@ struct Chapter1_Kelas: View {
                         }
                         .onAppear{
                             chapter1_kelas_scene3_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 6.7) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
                                 onTap = true
                             }
                         }
@@ -251,26 +268,29 @@ struct Chapter1_Kelas: View {
     }
     
     func chapter1_kelas_scene3_in() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            withAnimation(.easeInOut(duration: 2)) {
-                item_scale -= 0.32
-                item_y -= 93.0
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//            withAnimation(.easeInOut(duration: 2)) {
+//                item_scale -= 0.32
+//                item_y -= 93.0
+//                bulletin_scale -= 0.32
+//                bulletin_x -= 40
+//            }
+//        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        item_scale -= 0.36
+        item_y -= 103.0
+        item_x += 30.0
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             withAnimation(.easeInOut(duration: 1)) {
                 item_opac -= 1.0
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            withAnimation(.easeInOut(duration: 1)) {
                 raychel_small_opac += 1.0
+                bulletin_1_opacity -= 1.0
+                bulletin_2_opac += 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             withAnimation(.easeInOut(duration: 2)) {
                 friend_1_x -= 120
             }
@@ -288,8 +308,8 @@ struct Chapter1_Kelas: View {
     }
 }
 
-struct Chapter1_Kelas_Previews: PreviewProvider {
+struct Prologue_Kelas_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter1_Kelas(mainOnTap: .constant(false), friend_2_x: .constant(0.0))
+        Prologue_Kelas(mainOnTap: .constant(false), friend_2_x: .constant(0.0))
     }
 }

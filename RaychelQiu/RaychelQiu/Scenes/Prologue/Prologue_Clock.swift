@@ -1,5 +1,5 @@
 //
-//  Chapter1_Clock.swift
+//  Prologue_Clock.swift
 //  RaychelQiu
 //
 //  Created by Vincent Leonard on 08/11/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Chapter1_Clock: View {
+struct Prologue_Clock: View {
     
     @State var scene = 1
     @State var onTap = false
@@ -111,8 +111,8 @@ struct Chapter1_Clock: View {
     }
 }
 
-struct Chapter1_Clock_Previews: PreviewProvider {
+struct Prologue_Clock_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter1_Clock(mainOnTap: .constant(false))
+        Prologue_Clock(mainOnTap: .constant(false))
     }
 }

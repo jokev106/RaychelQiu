@@ -26,7 +26,7 @@ struct Chapter1_Collection: View {
     var body: some View {
         GeometryReader{ geometry in
             if scene == 1 || scene == 2 {
-                Chapter1_Kelas(mainOnTap: $mainOnTap, friend_2_x: $friend_2_x)
+                Prologue_Kelas(mainOnTap: $mainOnTap, friend_2_x: $friend_2_x)
                     .onTapGesture{
                         if mainOnTap == true{
                             mainOnTap = false
@@ -48,7 +48,7 @@ struct Chapter1_Collection: View {
             }
             
             if scene == 2 || scene == 3 {
-                Chapter1_Clock(mainOnTap: $mainOnTap)
+                Prologue_Clock(mainOnTap: $mainOnTap)
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
                             withAnimation(.easeInOut(duration: 2)) {
@@ -81,7 +81,7 @@ struct Chapter1_Collection: View {
                 }
             
             if scene == 3 {
-                Chapter1_Dinner(mainOnTap: $mainOnTap, parent_visible_x: $parent_visible_x)
+                Prologue_Dinner2(mainOnTap: $mainOnTap, parent_visible_x: $parent_visible_x)
                     .onAppear{
                         scene1_offset_x = 400
                         DispatchQueue.main.asyncAfter(deadline: .now()) {

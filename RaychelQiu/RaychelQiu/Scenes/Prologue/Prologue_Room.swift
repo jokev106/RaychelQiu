@@ -35,6 +35,8 @@ struct Prologue_Room: View {
     @State var table_x = 0.0
     @State var day_opac = 0.0
     
+    @Binding var scene_change_x: Double
+    
     var body: some View {
         GeometryReader{geometry in
             ZStack{
@@ -129,25 +131,32 @@ struct Prologue_Room: View {
                                 Image("Prologue_Room2_Table")
                                     .resizable()
                                     .scaledToFit()
+                                    .offset(x: scene_change_x)
                                 Image("Prologue_Room2_Books")
                                     .resizable()
                                     .scaledToFit()
+                                    .offset(x: scene_change_x)
                                 Image("Prologue_Room2_Paper")
                                     .resizable()
                                     .scaledToFit()
+                                    .offset(x: scene_change_x)
                                 Image("Prologue_Room2_Raychel")
                                     .resizable()
                                     .scaledToFit()
+                                    .offset(x: scene_change_x)
                                 Image("Prologue_Room2_Pen")
                                     .resizable()
                                     .scaledToFit()
+                                    .offset(x: scene_change_x)
                                 Image("Prologue_Room_Light")
                                     .resizable()
                                     .scaledToFit()
                                     .opacity(light_opac)
+                                    .offset(x: scene_change_x)
                                 Image("Prologue_Room_Lamp")
                                     .resizable()
                                     .scaledToFit()
+                                    .offset(x: scene_change_x)
                                 
                             }
                             .scaleEffect(scene3_scale)
@@ -158,13 +167,22 @@ struct Prologue_Room: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 7.2) {
                                     onTap = true
                                 }
-                            }
-                            .onTapGesture{
-                                if onTap == true{
-                                    onTap = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 7.7) {
                                     prologue_room_scene3_transition()
                                 }
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 12.6) {
+                                    mainOnTap = true
+                                }
                             }
+//                            .onTapGesture{
+//                                if onTap == true{
+//                                    onTap = false
+//                                    prologue_room_scene3_transition()
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
+//                                        mainOnTap = true
+//                                    }
+//                                }
+//                            }
                         }
                     
                 }
@@ -247,6 +265,6 @@ struct Prologue_Room: View {
 
 struct Prologue_Room_Previews: PreviewProvider {
     static var previews: some View {
-        Prologue_Room(mainOnTap: .constant(false))
+        Prologue_Room(mainOnTap: .constant(false), scene_change_x: .constant(0))
     }
 }

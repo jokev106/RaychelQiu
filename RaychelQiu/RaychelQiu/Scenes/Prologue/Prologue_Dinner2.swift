@@ -1,5 +1,5 @@
 //
-//  Chapter1_Dinner.swift
+//  Prologue_Dinner2.swift
 //  RaychelQiu
 //
 //  Created by Vincent Leonard on 08/11/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Chapter1_Dinner: View {
+struct Prologue_Dinner2: View {
     
     @Binding var mainOnTap: Bool
     
@@ -164,7 +164,7 @@ struct Chapter1_Dinner: View {
                                 .opacity(raychel_back_opac)
                                 .onAppear{
                                     prologue_dinner_scene4_in()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 9.7) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.7) {
                                         mainOnTap = true
                                     }
                                 }
@@ -300,8 +300,8 @@ struct Chapter1_Dinner: View {
     
 }
 
-struct Chapter1_Dinner_Previews: PreviewProvider {
+struct Prologue_Dinner2_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter1_Dinner(mainOnTap: .constant(false), parent_visible_x: .constant(0.0))
+        Prologue_Dinner2(mainOnTap: .constant(false), parent_visible_x: .constant(0.0))
     }
 }
