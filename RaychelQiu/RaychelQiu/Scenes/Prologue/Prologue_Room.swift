@@ -128,6 +128,7 @@ struct Prologue_Room: View {
                                         .scaledToFit()
                                         .offset(x: sun_x, y:sun_y)
                                 }
+                                .offset(x: scene_change_x)
                                 Image("Prologue_Room2_Table")
                                     .resizable()
                                     .scaledToFit()

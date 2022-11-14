@@ -114,13 +114,16 @@ struct Prologue_Dinner2: View {
                                     }
                                 }
                                 .onTapGesture{
-                                    if onTap == true{
-                                        onTap = false
-                                        prologue_dinner_scene2_out()
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
-                                            scene += 1
+                                    if scene == 2{
+                                        if onTap == true{
+                                            onTap = false
+                                            prologue_dinner_scene2_out()
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
+                                                scene += 1
+                                            }
                                         }
                                     }
+                                    
                                 }
                         }
                         

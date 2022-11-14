@@ -21,10 +21,12 @@ struct Prologue_Room_Mad: View {
     @State var scene2_opac = 1.0
     
     //Scene3
-    @State var nyfw_opacity = 0.0
+    @State var nyfw_opacity = 1.0
     @State var nyfw_scale = 0.0
     @State var nyfw_y = 0.0
     @State var nyfw_x = 0.0
+    @State var nyfw_blur = 0.0
+    @State var nyfw_paper_opac = 1.0
     
     //Scene4
     @State var raychel_normal_opac = 0.0
@@ -59,7 +61,7 @@ struct Prologue_Room_Mad: View {
                             Image("Prologue_Room_NYFW_Book")
                                 .resizable()
                                 .scaledToFit()
-                                .opacity(raychel_papers_opac)
+                                .opacity(nyfw_paper_opac)
                             Image("Prologue_Room_Raychel_Mad")
                                 .resizable()
                                 .scaledToFit()
@@ -86,6 +88,7 @@ struct Prologue_Room_Mad: View {
                                 .scaledToFit()
                         }
                         .opacity(scene2_opac)
+                        .blur(radius: nyfw_blur)
                         .onTapGesture{
                             if scene == 2 {
                                 if onTap == true{
@@ -126,13 +129,16 @@ struct Prologue_Room_Mad: View {
                             Image("Prologue_Room_NYFW")
                                 .resizable()
                                 .scaledToFit()
-                                .scaleEffect(nyfw_scale, anchor: .bottomTrailing)
+                                .scaleEffect(nyfw_scale)
                                 .offset(x: nyfw_x, y: nyfw_y)
                                 .opacity(nyfw_opacity)
+                            Image("Night")
+                                .scaledToFit()
+                                .opacity(0.0)
                         }
                         .onAppear{
                             prologue_room_scene3_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
                                 onTap = true
                             }
                         }
@@ -178,22 +184,34 @@ struct Prologue_Room_Mad: View {
     
     func prologue_room_scene3_in(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            withAnimation(.easeInOut(duration: 1.0)) {
+                nyfw_paper_opac -= 1.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             withAnimation(.easeInOut(duration: 2.0)) {
-                nyfw_opacity += 1.0
-                nyfw_scale += 0.67
-                nyfw_y -= 175
-                nyfw_x -= 69
+                nyfw_scale += 0.45
+                nyfw_y -= 95
+                nyfw_blur += 5
             }
         }
     }
     
     func prologue_room_scene4_in(){
-        raychel_papers_opac = 0.0
         raychel_normal_opac = 1.0
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            withAnimation(.easeInOut(duration: 1.0)) {
+                raychel_papers_opac -= 1.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeInOut(duration: 2.0)) {
-//                scene_4_opac += 1.0
-                nyfw_opacity -= 1.0
+                nyfw_scale -= 0.45
+                nyfw_y += 95
+                nyfw_blur -= 5.0
             }
         }
     }
