@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Prologue_Collection: View {
     
-    @State var scene = 7
+    @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
     
