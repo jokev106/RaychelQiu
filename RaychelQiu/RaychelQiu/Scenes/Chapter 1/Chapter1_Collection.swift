@@ -19,9 +19,8 @@ struct Chapter1_Collection: View {
     
     //Scene2
     @State var scene2_offset_x = 400.0
+    @State var mom_scaled_x = 0.0
     
-    //Scene3
-    @State var parent_visible_x = 0.0
     
     var body: some View {
         GeometryReader{ geometry in
@@ -48,7 +47,7 @@ struct Chapter1_Collection: View {
             }
             
             if scene == 2 || scene == 3 {
-                Chapter1_Mom(mainOnTap: $mainOnTap)
+                Chapter1_Mom(mainOnTap: $mainOnTap, mom_scaled_x: $mom_scaled_x)
                     .onAppear{
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
                             withAnimation(.easeInOut(duration: 2)) {
@@ -68,6 +67,7 @@ struct Chapter1_Collection: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                     withAnimation(.easeInOut(duration: 2)) {
                                         scene2_offset_x -= 400
+                                        mom_scaled_x += 70
                                     }
                                 }
                                 
@@ -81,7 +81,7 @@ struct Chapter1_Collection: View {
                 }
             
             if scene == 3 {
-                Prologue_Dinner2(mainOnTap: $mainOnTap, parent_visible_x: $parent_visible_x)
+                Chapter1_Sketch(mainOnTap: $mainOnTap)
                     .onAppear{
                         scene1_offset_x = 400
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -99,13 +99,8 @@ struct Chapter1_Collection: View {
 //                            mainOnTap = false
 //                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
 //                                withAnimation(.easeInOut(duration: 2)) {
-//                                    scene1_offset_x -= 400
-//                                    parent_visible_x += 50.0
+////                                    scene1_offset_x -= 400
 //                                }
-//                            }
-//
-//                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                                scene += 1
 //                            }
 //                        }
 
