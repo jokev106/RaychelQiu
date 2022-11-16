@@ -10,6 +10,7 @@ import SwiftUI
 struct Minigame3_Packing: View {
     
     @State var positionPackingBox = CGPoint(x: 198, y: 635)
+    @State var positionBackground = CGPoint(x: 198, y: 275)
     @State var positionBorder = CGPoint(x: 198, y: 275)
     @State var positionSuitCase = CGPoint(x: 193, y: 400)
     @State var positionClothes = CGPoint(x: 110.6, y: 676.3)
@@ -148,6 +149,10 @@ struct Minigame3_Packing: View {
         
         GeometryReader{geo in
             ZStack{
+                Image("PackingBG")
+                    .resizable()
+                    .frame(width: 330, height: 449.6)
+                    .position(self.positionBackground)
                 Image("Border")
                     .resizable()
                     .frame(width: 330, height: 449.6)

@@ -7,25 +7,31 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct Prologue_Scene2_Transisi_Hari: View {
     
     
+    @available(iOS 15.0, *)
     var body: some View {
         GeometryReader{geometry in
-            ZStack{
-                Image("Day")
-                    .resizable()
-//                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .scaledToFit()
-                
-                
+            if #available(iOS 15.0, *) {
+                ZStack{
+                    Image("Day")
+                        .resizable()
+                    //                    .frame(width: geometry.size.width, height: geometry.size.height)
+                        .scaledToFit()
+                    
+                    
+                }
+                .mask {
+                    Image("Day")
+                        .resizable()
+                        .scaledToFit()
+                }
+                .scaleEffect(CGFloat(1))
+            } else {
+                // Fallback on earlier versions
             }
-            .mask {
-                Image("Day")
-                    .resizable()
-                    .scaledToFit()
-            }
-            .scaleEffect(CGFloat(1))
         }
     }
 }
