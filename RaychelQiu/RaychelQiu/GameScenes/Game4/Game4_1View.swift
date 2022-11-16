@@ -12,17 +12,11 @@ struct Game4_1View: View {
     @State var position = CGPoint()
     @State var success = false
     @State var animate = [false, false, false, false, false]
-    @State var nextScene = false
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Image("Game_Border")
-                    .resizable()
-                    .frame(width: 330, height: 449.6)
-                    .position(x: 198, y: 275)
-
-                Group {
+                ZStack {
                     Image("Game4_image")
                         .resizable()
                         .scaledToFit()
@@ -33,35 +27,31 @@ struct Game4_1View: View {
                             .scaledToFit()
                             .opacity(animate[round] ? 1.0 : 0.0)
                     }
-
+                    Text("\(viewmodel.currentRound)")
+                    
                     Image("Game4_image2")
                         .resizable()
                         .scaledToFit()
-
+                    
                     Image("Game4_image3")
                         .resizable()
                         .scaledToFit()
                 }
-                .offset(y: 14)
-                .scaleEffect(1.27)
+                .offset(x: 0, y: -70)
 
-                if nextScene == false {
-                    Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, nextScene: $nextScene)
-                        .frame(height: 400)
-                        .background(.white)
+//                if viewmodel.currentRound < 5 {
+                    VStack {
+                        Spacer()
+                        ZStack {
+                            Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate)
+                                .frame(width: 400, height: 400)
+                        }
                         .border(.black, width: 2)
                         .scaleEffect(geometry.size.height * 0.001)
-                        .offset(y: 200)
-                } else {
-                    Button {} label: {
-                        Image(systemName: "chevron.right.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 50)
-                            .foregroundColor(.black)
                     }
-                    .offset(x: 0, y: 250)
-                }
+//                } else {
+//                    Image(systemName: "chevron.right.circle")
+//                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
@@ -73,7 +63,6 @@ struct Game4_1: View {
     @Binding var position: CGPoint
     @Binding var success: Bool
     @Binding var animate: [Bool]
-    @Binding var nextScene: Bool
 
     func animation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -84,46 +73,46 @@ struct Game4_1: View {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            if viewmodel.currentRound < 4 {
-                viewmodel.currentRound += 1
-                success.toggle()
-                position = viewmodel.ronde[viewmodel.currentRound].startPosition
-            } else {
-                nextScene.toggle()
-            }
-            
+            viewmodel.currentRound += 1
+            success.toggle()
+//            if viewmodel.currentRound < 4 {
+
+            position = viewmodel.ronde[viewmodel.currentRound].startPosition
+//            }
         }
     }
 
     var drag: some Gesture {
-        DragGesture()
-            .onChanged {
-                value in
-                position = value.location
-                viewmodel.collision(position: position)
-            }
-            .onEnded {
-                _ in
-                if viewmodel.ronde[viewmodel.currentRound].success[viewmodel.ronde[viewmodel.currentRound].success.count - 1] == true {
-                    animation()
+        DragGesture(
+            //            minimumDistance: 0,
+//            coordinateSpace: .global
+        )
+        .onChanged {
+            value in
+            position = value.location
+            viewmodel.collision(position: position)
+        }
+        .onEnded {
+            _ in
+            if viewmodel.ronde[viewmodel.currentRound].success[viewmodel.ronde[viewmodel.currentRound].success.count - 1] == true {
+                animation()
 
-                } else {
-                    withAnimation(.spring()) {
-                        position.x = viewmodel.ronde[viewmodel.currentRound].startPosition.x
-                        position.y = viewmodel.ronde[viewmodel.currentRound].startPosition.y
-                    }
+            } else {
+                withAnimation(.spring()) {
+                    position.x = viewmodel.ronde[viewmodel.currentRound].startPosition.x
+                    position.y = viewmodel.ronde[viewmodel.currentRound].startPosition.y
+                }
 
-                    for index in 0 ..< viewmodel.ronde[viewmodel.currentRound].success.count {
-                        viewmodel.ronde[viewmodel.currentRound].success[index] = false
-                    }
+                for index in 0 ..< viewmodel.ronde[viewmodel.currentRound].success.count {
+                    viewmodel.ronde[viewmodel.currentRound].success[index] = false
                 }
             }
+        }
     }
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                // Pattern
                 Image(viewmodel.ronde[viewmodel.currentRound].image)
                     .resizable()
                     .scaledToFit()
@@ -131,18 +120,16 @@ struct Game4_1: View {
                     .position(CGPoint(x: 200 + viewmodel.ronde[viewmodel.currentRound].x, y: 200 + viewmodel.ronde[viewmodel.currentRound].y))
                     .opacity(animate[viewmodel.currentRound] ? 0.0 : 1.0)
 
-                // Target
                 ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
                     Group {
                         Circle()
                             .fill(viewmodel.ronde[viewmodel.currentRound].success[index] == true ? .green : .red)
                             .frame(width: geometry.size.width * 0.1)
                             .position(viewmodel.ronde[viewmodel.currentRound].targetPosition[index])
-                            .opacity(0.0)
+                            .opacity(success ? 0.0 : 1.0)
                     }
                 }
 
-                // Gesture
                 Circle()
                     .fill(.yellow)
                     .frame(width: geometry.size.width * 0.1)
@@ -158,8 +145,49 @@ struct Game4_1: View {
 //                        .fill(.red)
 //                        .frame(width: 50, height: 50)
 //                        .position(CGPoint(x: 60, y: 290))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 170, y: 280))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 210, y: 310))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 260, y: 290))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 330, y: 310))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 300, y: 430))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 210, y: 400))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 80, y: 440))
+//
+//                    Circle()
+//                        .fill(.red)
+//                        .frame(width: 50, height: 50)
+//                        .position(CGPoint(x: 90, y: 370))
 //                }
             }
+//            .background(.gray)
         }
     }
 }

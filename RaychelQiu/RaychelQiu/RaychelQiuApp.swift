@@ -13,7 +13,8 @@ struct RaychelQiuApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Game5View()
+            Scene_Testing()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
