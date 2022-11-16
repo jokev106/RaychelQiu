@@ -322,6 +322,7 @@ struct Game7_Shopping: View {
                         Image("MeasuringTape")
                             .resizable()
                             .frame(width: 120, height: 90)
+                            .scaledToFit()
                             .position(self.positionMeasuringTape)
                     }
                 }
