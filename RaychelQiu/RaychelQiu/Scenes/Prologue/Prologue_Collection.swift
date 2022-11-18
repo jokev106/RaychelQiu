@@ -26,6 +26,12 @@ struct Prologue_Collection: View {
     //Scene3
     @State var parent_visible_x = -250.0
     
+    //Scene4
+    @State var scene_change_x = 0.0
+    
+    //Scene5
+    @State var friend_2_x = 0.0
+    
     var body: some View {
         GeometryReader{ geometry in
             if scene == 1 || scene == 2 {
@@ -62,10 +68,6 @@ struct Prologue_Collection: View {
                                 scene2_offset_x -= 400
                             }
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                            onTap = true
-                        }
                     }
                     .offset(x: scene2_offset_x)
                     .onTapGesture {
@@ -98,10 +100,6 @@ struct Prologue_Collection: View {
                                 scene1_offset_x -= 400
                             }
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                            onTap = true
-                        }
                     }
                     .onTapGesture{
                         if mainOnTap == true{
@@ -123,7 +121,7 @@ struct Prologue_Collection: View {
             }
             
             if scene == 4 || scene == 5 {
-                Prologue_Room(mainOnTap: $mainOnTap)
+                Prologue_Room(mainOnTap: $mainOnTap, scene_change_x: $scene_change_x)
                     .onAppear{
                         scene2_offset_x = 400
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -131,13 +129,143 @@ struct Prologue_Collection: View {
                                 scene2_offset_x -= 400
                             }
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                            onTap = true
+                    }
+                    .onTapGesture{
+                        if mainOnTap == true{
+                            mainOnTap = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.easeInOut(duration: 2)) {
+                                    scene2_offset_x -= 400
+                                    scene_change_x += 50
+                                }
+                            }
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                scene += 1
+                            }
                         }
+
                     }
                     .offset(x: scene2_offset_x)
                 }
+            
+            if scene == 5 || scene == 6 {
+                Prologue_Kelas(mainOnTap: $mainOnTap, friend_2_x: $friend_2_x)
+                    .onAppear{
+                        scene1_offset_x = 400
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene1_offset_x -= 400
+                            }
+                        }
+                    }
+                    .onTapGesture{
+                        if mainOnTap == true{
+                            mainOnTap = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.easeInOut(duration: 2)) {
+                                    friend_2_x += 70
+                                    scene1_offset_x -= 400
+                                }
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                scene += 1
+                            }
+                        }
+                        
+                    }
+                    .offset(x: scene1_offset_x)
+            }
+            
+            if scene == 6 || scene == 7 {
+                Prologue_Clock(mainOnTap: $mainOnTap)
+                    .onAppear{
+                        scene2_offset_x = 400
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene2_offset_x -= 400
+                            }
+                        }
+                    }
+                    .offset(x: scene2_offset_x)
+                    .onTapGesture {
+                        withAnimation{
+                            if mainOnTap == true{
+                                mainOnTap = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    withAnimation(.easeInOut(duration: 2)) {
+                                        scene2_offset_x -= 400
+                                    }
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    scene += 1
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            
+            if scene == 7 || scene == 8 {
+                Prologue_Dinner2(mainOnTap: $mainOnTap, parent_visible_x: $parent_visible_x)
+                    .onAppear{
+                        scene1_offset_x = 400
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene1_offset_x -= 400
+                            }
+                        }
+                    }
+                    .onTapGesture{
+                        if mainOnTap == true{
+                            mainOnTap = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.easeInOut(duration: 2)) {
+                                    scene1_offset_x -= 400
+                                    parent_visible_x += 50.0
+                                }
+                            }
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                scene += 1
+                            }
+                        }
+
+                    }
+                    .offset(x: scene1_offset_x)
+            }
+            
+            if scene == 8 {
+                Prologue_Room_Mad(mainOnTap: $mainOnTap)
+                    .onAppear{
+                        scene2_offset_x = 400
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene2_offset_x -= 400
+                            }
+                        }
+                    }
+                    .offset(x: scene2_offset_x)
+                    .onTapGesture {
+                        withAnimation{
+                            if mainOnTap == true{
+                                mainOnTap = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    withAnimation(.easeInOut(duration: 2)) {
+                                        scene2_offset_x -= 400
+                                    }
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    scene += 1
+                                }
+                            }
+                            
+                        }
+                    }
+            }
         }
     }
 }
