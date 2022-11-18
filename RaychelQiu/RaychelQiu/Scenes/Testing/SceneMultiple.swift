@@ -40,107 +40,107 @@ struct SceneMultiple: View {
     
     var body: some View {
         GeometryReader{ geometry in
-            if scene == 1 {
-                    SceneTabView()
-     //                .transition(.opacity)
-                    .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
-                            onTap = true
-                        }
-                    }
-                    .onTapGesture {
-                        withAnimation{
-                            if onTap == true {
-                                scene += 1
-                                onTap = false
-                            }
-                        }
-                    }
-                }
-            
-            
-            if scene == 2 {
-                ZStack{
-                    Image("Night")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-                        .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
-                        .scaleEffect(CGFloat(bgScale2))
-                        .position(x: CGFloat(bgX2), y: 400)
-                        .opacity(bgOpac2)
-                        .border(.green)
-                        .onAppear{
-                            setAnimation2()
-                        }
-                    
-                    VStack{
-                        Spacer()
-                        HStack{
-                            Spacer()
-                            ZStack{
-                                Image("Knight")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomLeading)
-                                    .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
-                                    .opacity(opac2)
-                                    .scaleEffect(CGFloat(scaleXY2))
-                                    .rotationEffect(.degrees(rotation2))
-                                    .position(x: CGFloat(knightx), y: 300)
-                            }
-                        }
-                        Spacer()
-                    }
-                }
-//                .transition(.asymmetric(insertion: .scale, removal: .opacity))
-                .onTapGesture {
-                    outAnimation2()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                        scene += 1
-                    }
-                    
-                }
-            }
-            
-            if scene == 3 {
-                ZStack{
-                    Image("Testing")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .edgesIgnoringSafeArea(.all)
-                        .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
-                        .scaleEffect(CGFloat(bgScale3))
-                        .position(x: CGFloat(bgX3), y: 400)
-                        .opacity(1)
-                        .onAppear{
-                            setAnimation3()
-                        }
-                    
-                    VStack{
-                        Spacer()
-                        HStack{
-                            Spacer()
-                            ZStack{
-                                Image("Knight")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomTrailing)
-                                    .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
-                                    .opacity(opac3)
-                                    .scaleEffect(CGFloat(scaleXY3))
-                                    .rotationEffect(.degrees(rotation3))
-                            }
-                        }
-                    }
-                }
-//                .transition(.opacity)
-                .onTapGesture {
-                    withAnimation{
-                        scene += 1
-                    }
-                }
-            }
+//            if scene == 1 {
+//                    SceneTabView()
+//     //                .transition(.opacity)
+//                    .onAppear{
+//                        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+//                            onTap = true
+//                        }
+//                    }
+//                    .onTapGesture {
+//                        withAnimation{
+//                            if onTap == true {
+//                                scene += 1
+//                                onTap = false
+//                            }
+//                        }
+//                    }
+//                }
+//
+//
+//            if scene == 2 {
+//                ZStack{
+//                    Image("Night")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
+//                        .scaleEffect(CGFloat(bgScale2))
+//                        .position(x: CGFloat(bgX2), y: 400)
+//                        .opacity(bgOpac2)
+//                        .border(.green)
+//                        .onAppear{
+//                            setAnimation2()
+//                        }
+//
+//                    VStack{
+//                        Spacer()
+//                        HStack{
+//                            Spacer()
+//                            ZStack{
+//                                Image("Knight")
+//                                    .resizable()
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomLeading)
+//                                    .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
+//                                    .opacity(opac2)
+//                                    .scaleEffect(CGFloat(scaleXY2))
+//                                    .rotationEffect(.degrees(rotation2))
+//                                    .position(x: CGFloat(knightx), y: 300)
+//                            }
+//                        }
+//                        Spacer()
+//                    }
+//                }
+////                .transition(.asymmetric(insertion: .scale, removal: .opacity))
+//                .onTapGesture {
+//                    outAnimation2()
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+//                        scene += 1
+//                    }
+//
+//                }
+//            }
+//
+//            if scene == 3 {
+//                ZStack{
+//                    Image("Testing")
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .edgesIgnoringSafeArea(.all)
+//                        .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
+//                        .scaleEffect(CGFloat(bgScale3))
+//                        .position(x: CGFloat(bgX3), y: 400)
+//                        .opacity(1)
+//                        .onAppear{
+//                            setAnimation3()
+//                        }
+//
+//                    VStack{
+//                        Spacer()
+//                        HStack{
+//                            Spacer()
+//                            ZStack{
+//                                Image("Knight")
+//                                    .resizable()
+//                                    .aspectRatio(contentMode: .fit)
+//                                    .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomTrailing)
+//                                    .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
+//                                    .opacity(opac3)
+//                                    .scaleEffect(CGFloat(scaleXY3))
+//                                    .rotationEffect(.degrees(rotation3))
+//                            }
+//                        }
+//                    }
+//                }
+////                .transition(.opacity)
+//                .onTapGesture {
+//                    withAnimation{
+//                        scene += 1
+//                    }
+//                }
+//            }
         }
         .navigationBarBackButtonHidden(true)
         .transition(.slide)

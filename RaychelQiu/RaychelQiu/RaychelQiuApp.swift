@@ -13,7 +13,8 @@ struct RaychelQiuApp: App {
 
     var body: some Scene {
         WindowGroup {
-            Prologue_Collection()
+            HomeScreen()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

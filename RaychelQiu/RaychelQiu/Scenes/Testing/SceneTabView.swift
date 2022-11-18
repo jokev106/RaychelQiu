@@ -20,36 +20,36 @@ struct SceneTabView: View {
     
     var body: some View {
         GeometryReader{geometry in
-            ZStack{
-                Image("Testing")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
-                    .scaleEffect(CGFloat(bgScale))
-                    .position(x: CGFloat(bgX), y: 400)
-                    .opacity(bgOpac)
-                    .onAppear{
-                        setAnimation()
-                    }
-                
-                VStack{
-                    Spacer()
-                    HStack{
-                        Spacer()
-                        ZStack{
-                            Image("Knight")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomTrailing)
-                                .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
-                                .opacity(opac)
-                                .scaleEffect(CGFloat(scaleXY))
-                                .rotationEffect(.degrees(rotation))
-                        }
-                    }
-                }
-            }
+//            ZStack{
+//                Image("Testing")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fill)
+//                    .edgesIgnoringSafeArea(.all)
+//                    .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
+//                    .scaleEffect(CGFloat(bgScale))
+//                    .position(x: CGFloat(bgX), y: 400)
+//                    .opacity(bgOpac)
+//                    .onAppear{
+//                        setAnimation()
+//                    }
+//                
+//                VStack{
+//                    Spacer()
+//                    HStack{
+//                        Spacer()
+//                        ZStack{
+//                            Image("Knight")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomTrailing)
+//                                .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
+//                                .opacity(opac)
+//                                .scaleEffect(CGFloat(scaleXY))
+//                                .rotationEffect(.degrees(rotation))
+//                        }
+//                    }
+//                }
+//            }
         }
     }
     
