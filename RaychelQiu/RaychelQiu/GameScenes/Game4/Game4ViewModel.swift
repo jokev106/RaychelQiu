@@ -24,27 +24,4 @@ class Game4ViewModel: ObservableObject {
             }
         }
     }
-    
-    func setupGame() {
-        
-    }
-    
-    func nextRound() {
-//        if success[success.count - 1] == true {
-//            round += 1
-//        } else {
-//            withAnimation(.spring()) {
-//                offset.x = start.x
-//                offset.y = start.y
-//            }
-//
-//            for index in 0 ..< success.count {
-//                success[index] = false
-//            }
-//        }
-    }
-    
-    func prepareObjects() {
-        
-    }
 }

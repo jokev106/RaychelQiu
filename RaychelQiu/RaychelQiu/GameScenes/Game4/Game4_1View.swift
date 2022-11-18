@@ -12,50 +12,72 @@ struct Game4_1View: View {
     @State var position = CGPoint()
     @State var success = false
     @State var animate = [false, false, false, false, false]
+    @State var nextScene = false
+    @Binding var mainOnTap: Bool
+    @Binding var scene1_paralax_x: Double
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ZStack {
+                Image("Border")
+                    .resizable()
+                    .frame(width: 330, height: 449.6)
+                    .position(x: 197.5, y: 275)
+
+                Group {
                     Image("Game4_image")
                         .resizable()
                         .scaledToFit()
+                        .offset(x: scene1_paralax_x)
 
                     ForEach(0 ..< 5, id: \.self) { round in
                         Image(viewmodel.ronde[round].result)
                             .resizable()
                             .scaledToFit()
                             .opacity(animate[round] ? 1.0 : 0.0)
+                            .offset(x: scene1_paralax_x)
                     }
-                    Text("\(viewmodel.currentRound)")
-                    
+
                     Image("Game4_image2")
                         .resizable()
                         .scaledToFit()
-                    
+                        .offset(x: scene1_paralax_x)
+
                     Image("Game4_image3")
                         .resizable()
                         .scaledToFit()
+                        .offset(x: scene1_paralax_x)
                 }
-//                .offset(x: 0, y: -70)
-                .scaleEffect(geometry.size.height * 0.0015)
+                .mask{
+                    Image("Game4_image")
+                        .resizable()
+                        .scaledToFit()
+                }
+                .offset(y: 14)
+                .scaleEffect(1.276)
 
-//                if viewmodel.currentRound < 5 {
-                    VStack {
-                        Spacer()
-                        ZStack {
-                            Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate)
-                                .frame(width: 400, height: 400)
-                        }
+                if nextScene == false {
+                    Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, nextScene: $nextScene)
+                        .frame(height: 400)
                         .background(.white)
                         .border(.black, width: 2)
                         .scaleEffect(geometry.size.height * 0.001)
-                    }
-//                } else {
-//                    Image(systemName: "chevron.right.circle")
-//                }
+                        .offset(y: 200)
+                } else {
+                    Image(systemName: "chevron.right.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 50)
+                        .foregroundColor(.black)
+                        .offset(x: 0, y: 250)
+                        .opacity(0.0)
+                        .onAppear{
+                            mainOnTap = true
+                        }
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .scaleEffect(1.1)
         }
     }
 }
@@ -65,6 +87,7 @@ struct Game4_1: View {
     @Binding var position: CGPoint
     @Binding var success: Bool
     @Binding var animate: [Bool]
+    @Binding var nextScene: Bool
 
     func animation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -75,46 +98,46 @@ struct Game4_1: View {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            viewmodel.currentRound += 1
-            success.toggle()
-//            if viewmodel.currentRound < 4 {
-
-            position = viewmodel.ronde[viewmodel.currentRound].startPosition
-//            }
+            if viewmodel.currentRound < 4 {
+                viewmodel.currentRound += 1
+                success.toggle()
+                position = viewmodel.ronde[viewmodel.currentRound].startPosition
+            } else {
+                nextScene.toggle()
+            }
+            
         }
     }
 
     var drag: some Gesture {
-        DragGesture(
-            //            minimumDistance: 0,
-//            coordinateSpace: .global
-        )
-        .onChanged {
-            value in
-            position = value.location
-            viewmodel.collision(position: position)
-        }
-        .onEnded {
-            _ in
-            if viewmodel.ronde[viewmodel.currentRound].success[viewmodel.ronde[viewmodel.currentRound].success.count - 1] == true {
-                animation()
+        DragGesture()
+            .onChanged {
+                value in
+                position = value.location
+                viewmodel.collision(position: position)
+            }
+            .onEnded {
+                _ in
+                if viewmodel.ronde[viewmodel.currentRound].success[viewmodel.ronde[viewmodel.currentRound].success.count - 1] == true {
+                    animation()
 
-            } else {
-                withAnimation(.spring()) {
-                    position.x = viewmodel.ronde[viewmodel.currentRound].startPosition.x
-                    position.y = viewmodel.ronde[viewmodel.currentRound].startPosition.y
-                }
+                } else {
+                    withAnimation(.spring()) {
+                        position.x = viewmodel.ronde[viewmodel.currentRound].startPosition.x
+                        position.y = viewmodel.ronde[viewmodel.currentRound].startPosition.y
+                    }
 
-                for index in 0 ..< viewmodel.ronde[viewmodel.currentRound].success.count {
-                    viewmodel.ronde[viewmodel.currentRound].success[index] = false
+                    for index in 0 ..< viewmodel.ronde[viewmodel.currentRound].success.count {
+                        viewmodel.ronde[viewmodel.currentRound].success[index] = false
+                    }
                 }
             }
-        }
     }
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                // Pattern
                 Image(viewmodel.ronde[viewmodel.currentRound].image)
                     .resizable()
                     .scaledToFit()
@@ -122,16 +145,18 @@ struct Game4_1: View {
                     .position(CGPoint(x: 200 + viewmodel.ronde[viewmodel.currentRound].x, y: 200 + viewmodel.ronde[viewmodel.currentRound].y))
                     .opacity(animate[viewmodel.currentRound] ? 0.0 : 1.0)
 
+                // Target
                 ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
                     Group {
                         Circle()
                             .fill(viewmodel.ronde[viewmodel.currentRound].success[index] == true ? .green : .red)
                             .frame(width: geometry.size.width * 0.1)
                             .position(viewmodel.ronde[viewmodel.currentRound].targetPosition[index])
-                            .opacity(success ? 0.0 : 1.0)
+                            .opacity(0.0)
                     }
                 }
 
+                // Gesture
                 Circle()
                     .fill(.yellow)
                     .frame(width: geometry.size.width * 0.1)
@@ -147,55 +172,14 @@ struct Game4_1: View {
 //                        .fill(.red)
 //                        .frame(width: 50, height: 50)
 //                        .position(CGPoint(x: 60, y: 290))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 170, y: 280))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 210, y: 310))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 260, y: 290))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 330, y: 310))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 300, y: 430))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 210, y: 400))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 80, y: 440))
-//
-//                    Circle()
-//                        .fill(.red)
-//                        .frame(width: 50, height: 50)
-//                        .position(CGPoint(x: 90, y: 370))
 //                }
             }
-//            .background(.gray)
         }
     }
 }
 
 struct Game4_1View_Previews: PreviewProvider {
     static var previews: some View {
-        Game4_1View()
+        Game4_1View(mainOnTap: .constant(false), scene1_paralax_x: .constant(0.0))
     }
 }
