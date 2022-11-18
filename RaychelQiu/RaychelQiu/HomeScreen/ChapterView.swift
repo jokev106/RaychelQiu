@@ -51,11 +51,11 @@ struct ChapterView: View {
                         .scaledToFit()
                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
                         .position(self.imageBorder)
-                    Image(chapterState == 0 ? "Prologue" :
-                            chapterState == 1 ? "Chapter1" :
+                    Image(chapterState == 0 ? "prologue" :
+                            chapterState == 1 ? "chapter1" :
                             chapterState == 2 ? "Chapter2" :
                             chapterState == 3 ? "Chapter3" :
-                            chapterState == 4 ? "Chapter4" : "Epilogue")
+                            chapterState == 4 ? "chapter4" : "epilogue")
                     .resizable()
                     .frame(width: 220, height: 280)
                     .scaledToFit()
