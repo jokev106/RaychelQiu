@@ -13,114 +13,159 @@ struct Game1_CaptchaPuzzle: View {
     @State var isWinter2: Bool = false
     @State var isWinter3: Bool = false
 
-    @State var positionPhone = CGPoint(x: 68, y: 480)
-    @State var positionWinterJacket1 = CGPoint(x: 129, y: 206.3)
-    @State var positionWinterJacket2 = CGPoint(x: 269, y: 283.6)
-    @State var positionWinterJacket3 = CGPoint(x: 197.6, y: 364)
-    @State var positionChevronButton = CGPoint(x: 325.6, y: 735.3)
-    
-    @State var moveableBook: Bool = false
-    @State var book: Bool = false
-    
-
-    
-    
     
     var body: some View {
-        
         GeometryReader {geo in
             ZStack{
-                Image("CaptchaPhone2")
-                    .resizable()
-                    .frame(width: 630, height: 800)
-                    .position(self.positionPhone)
-                    .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
-                
                 if isWinter1 == false || isWinter2 == false || isWinter3 == false {
                     ZStack{
-                                
-                        Group{
-                            Image("WinterJacket1")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .scaledToFit()
-                                .border(isWinter1 ? .green : .white, width: 2)
-                                .cornerRadius(4)
-                                .onTapGesture {
-                                    isWinter1.toggle()
+                        VStack{
+                            VStack(alignment: .center){
+                                Spacer()
+                                HStack{
+                                    Spacer()
+                                    Image("Game1_winter1")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .border(.green, width: 4)
+                                        .border(isWinter1 ? .green : .white, width: 4)
+                                        .onTapGesture {
+                                            isWinter1.toggle()
+                                        }
+                                    Spacer()
+                                        .frame(width: 10,height: 10)
+                                    Image("Game1_winter2")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .border(isWinter2 ? .green : .white, width: 4)
+                                        .onTapGesture {
+                                            isWinter2.toggle()
+                                        }
+                                    Spacer()
                                 }
-                                .position(self.positionWinterJacket1)
-                            Image("WinterJacket2")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .border(isWinter2 ? .green : .white, width: 2)
-                                .cornerRadius(4)
-
-                                .onTapGesture {
-                                    isWinter2.toggle()
+                                HStack{
+                                    Image("Game1_winter3")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+//                                        .border(.green, width: 4)
+                                        .border(isWinter3 ? .green : .white, width: 4)
+                                        .onTapGesture {
+                                            isWinter3.toggle()
+                                        }
+                                    Spacer()
+                                        .frame(width: 10,height: 10)
+                                    Image("random")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .border(.white, width: 4)
+                                    
                                 }
-                                .position(self.positionWinterJacket2)
-                            Image("WinterJacket3")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .border(isWinter3 ? .green : .white, width: 2)
-                                .cornerRadius(4)
-                                .onTapGesture {
-                                    isWinter3.toggle()
+                                HStack{
+                                    Image("random")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .border(.white, width: 4)
+                                    Spacer()
+                                        .frame(width: 10,height: 10)
+                                    Image("random")
+                                        .resizable()
+                                        .frame(width: 100, height: 100)
+                                        .border(.white, width: 4)
                                 }
-                                .position(self.positionWinterJacket3)
+                                Spacer()
+                            }
+                            HStack{
+                                Spacer()
+                                Image(systemName: "chevron.right.circle")
+                                    .resizable()
+                                    .foregroundColor(.white)
+                                    .frame(width: 80, height: 80)
+                                    .onTapGesture {
+                                        withAnimation(.default) {
+                                            
+                                        }
+                                    }
+                                Spacer()
+                                    .frame(width: 20)
+                            }
+                            .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.8)))
                         }
                         
                     }
                 }
                 if isWinter1 == true && isWinter2 == true && isWinter3 == true {
-                    ZStack{
-                        Group{
-                            Image("WinterJacket1")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .scaledToFit()
-                                .border(isWinter1 ? .green : .white, width: 2)
-                                .cornerRadius(4)
-                                .onTapGesture {
-                                    isWinter1.toggle()
-                                }
-                                .position(self.positionWinterJacket1)
-                            Image("WinterJacket2")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .border(isWinter2 ? .green : .white, width: 2)
-                                .cornerRadius(4)
-
-                                .onTapGesture {
-                                    isWinter2.toggle()
-                                }
-                                .position(self.positionWinterJacket2)
-                            Image("WinterJacket3")
-                                .resizable()
-                                .frame(width: 60, height: 60)
-                                .border(isWinter3 ? .green : .white, width: 2)
-                                .cornerRadius(4)
-                                .onTapGesture {
-                                    isWinter3.toggle()
-                                }
-                                .position(self.positionWinterJacket3)
+                    VStack{
+                        VStack(alignment: .center){
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Image("winter1")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .border(.green, width: 4)
+                                    .border(isWinter1 ? .green : .white, width: 4)
+                                    .onTapGesture {
+                                        isWinter1.toggle()
+                                    }
+                                Spacer()
+                                    .frame(width: 10,height: 10)
+                                Image("winter2")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .border(isWinter2 ? .green : .white, width: 4)
+                                    .onTapGesture {
+                                        isWinter2.toggle()
+                                    }
+                                Spacer()
+                            }
+                            HStack{
+                                Image("winter3")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .border(.green, width: 4)
+                                    .border(isWinter3 ? .green : .white, width: 4)
+                                    .onTapGesture {
+                                        isWinter3.toggle()
+                                    }
+                                Spacer()
+                                    .frame(width: 10,height: 10)
+                                Image("random")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .border(.white, width: 4)
+                                
+                            }
+                            HStack{
+                                Image("random")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .border(.white, width: 4)
+                                Spacer()
+                                    .frame(width: 10,height: 10)
+                                Image("random")
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .border(.white, width: 4)
+                            }
+                            Spacer()
                         }
-                        Group{
+                        HStack{
+                            Spacer()
                             Image(systemName: "chevron.right.circle")
                                 .resizable()
-                                .foregroundColor(Color("PurplePastel"))
-                                .frame(width: 70, height: 70)
+                                .foregroundColor(.black)
+                                .frame(width: 80, height: 80)
                                 .onTapGesture {
                                     withAnimation(.default) {
                                         
                                     }
                                 }
-                                .position(self.positionChevronButton)
-//                                .gesture(dragBook)
-                        }.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.8)))
+                                
+                            Spacer()
+                                .frame(width: 20)
+                        }
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.8)))
                     }
-                    
                 }
             }
         }

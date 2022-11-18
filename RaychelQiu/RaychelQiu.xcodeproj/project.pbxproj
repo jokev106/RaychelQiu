@@ -17,10 +17,18 @@
 		018095B92922483C004288EB /* Chapter1_Mom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B82922483C004288EB /* Chapter1_Mom.swift */; };
 		01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384A29013F1B00092EEC /* Scene_Testing.swift */; };
 		01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384C290142E400092EEC /* SwiftUIView.swift */; };
+		01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */; };
+		01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A59F412914E1DA001CBB83 /* Prologue_Room.swift */; };
+		01E41ADD291A319F008A04AC /* Chapter1_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41ADC291A319F008A04AC /* Chapter1_Collection.swift */; };
+		01E41ADF291A321F008A04AC /* Prologue_Kelas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41ADE291A321F008A04AC /* Prologue_Kelas.swift */; };
+		01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */; };
+		01E41AE3291A58A2008A04AC /* Prologue_Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */; };
 		01F1903229091C4300426F03 /* SceneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F1903129091C4300426F03 /* SceneTabView.swift */; };
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
 		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
+		70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */; };
+		70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE6291A318B00CD7687 /* Game5Model.swift */; };
 		70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97460290D70D000ED63F8 /* Game4_1View.swift */; };
 		70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97464290FD48700ED63F8 /* Game4_2View.swift */; };
 		70F974672910DFD100ED63F8 /* Game5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F974662910DFD100ED63F8 /* Game5View.swift */; };
@@ -33,15 +41,8 @@
 		B32BB5C629012E4A00B812CF /* RaychelQiuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5C529012E4A00B812CF /* RaychelQiuTests.swift */; };
 		B32BB5D029012E4A00B812CF /* RaychelQiuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */; };
 		B32BB5D229012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */; };
-		B32F7E432924E45400AD1FE5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F7E422924E45400AD1FE5 /* HomeScreen.swift */; };
-		B32F7E462924E9DB00AD1FE5 /* Hansip.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B32F7E452924E9DB00AD1FE5 /* Hansip.ttf */; };
-		B37AE9332918DA2E004FD63F /* Minigame3_Packing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37AE9322918DA2E004FD63F /* Minigame3_Packing.swift */; };
-		B37AE936291A326E004FD63F /* Game7_Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37AE935291A326E004FD63F /* Game7_Shopping.swift */; };
-		B39AC84D291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */; };
-		B3CC0799291BB6E3008FEE01 /* Minigame4_Dinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC0798291BB6E3008FEE01 /* Minigame4_Dinner.swift */; };
 		B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */; };
 		B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */; };
-		B3EE5E392926260700CB5163 /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE5E382926260700CB5163 /* ChapterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,10 +73,18 @@
 		018095B82922483C004288EB /* Chapter1_Mom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Mom.swift; sourceTree = "<group>"; };
 		01A3384A29013F1B00092EEC /* Scene_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_Testing.swift; sourceTree = "<group>"; };
 		01A3384C290142E400092EEC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner.swift; sourceTree = "<group>"; };
+		01A59F412914E1DA001CBB83 /* Prologue_Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Room.swift; sourceTree = "<group>"; };
+		01E41ADC291A319F008A04AC /* Chapter1_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Collection.swift; sourceTree = "<group>"; };
+		01E41ADE291A321F008A04AC /* Prologue_Kelas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Kelas.swift; sourceTree = "<group>"; };
+		01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner2.swift; sourceTree = "<group>"; };
+		01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Clock.swift; sourceTree = "<group>"; };
 		01F1903129091C4300426F03 /* SceneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTabView.swift; sourceTree = "<group>"; };
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
 		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
+		70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5ViewModel.swift; sourceTree = "<group>"; };
+		70B0FEE6291A318B00CD7687 /* Game5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5Model.swift; sourceTree = "<group>"; };
 		70F97460290D70D000ED63F8 /* Game4_1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_1View.swift; sourceTree = "<group>"; };
 		70F97464290FD48700ED63F8 /* Game4_2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_2View.swift; sourceTree = "<group>"; };
 		70F974662910DFD100ED63F8 /* Game5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5View.swift; sourceTree = "<group>"; };
@@ -91,16 +100,8 @@
 		B32BB5CB29012E4A00B812CF /* RaychelQiuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RaychelQiuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BB5CF29012E4A00B812CF /* RaychelQiuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITests.swift; sourceTree = "<group>"; };
 		B32BB5D129012E4A00B812CF /* RaychelQiuUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B32F7E422924E45400AD1FE5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		B32F7E452924E9DB00AD1FE5 /* Hansip.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hansip.ttf; sourceTree = "<group>"; };
-		B32F7E472924EC1100AD1FE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		B37AE9322918DA2E004FD63F /* Minigame3_Packing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame3_Packing.swift; sourceTree = "<group>"; };
-		B37AE935291A326E004FD63F /* Game7_Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game7_Shopping.swift; sourceTree = "<group>"; };
-		B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGame2_MomBubbleChat.swift; sourceTree = "<group>"; };
-		B3CC0798291BB6E3008FEE01 /* Minigame4_Dinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame4_Dinner.swift; sourceTree = "<group>"; };
 		B3DBB8582910FF4100A29E45 /* Game1_CaptchaPuzzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game1_CaptchaPuzzle.swift; sourceTree = "<group>"; };
 		B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minigame1_BackpackSchool.swift; sourceTree = "<group>"; };
-		B3EE5E382926260700CB5163 /* ChapterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +132,7 @@
 		01A3384229013D0B00092EEC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				01E41ADB291A314D008A04AC /* Chapter 1 */,
 				01A3384929013F0A00092EEC /* Testing */,
 				01A3384529013D3E00092EEC /* Prologue */,
 			);
@@ -140,9 +142,15 @@
 		01A3384529013D3E00092EEC /* Prologue */ = {
 			isa = PBXGroup;
 			children = (
+				01E41ADE291A321F008A04AC /* Prologue_Kelas.swift */,
+				01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */,
+				01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */,
 				013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */,
 				013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */,
 				013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */,
+				01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */,
+				01A59F412914E1DA001CBB83 /* Prologue_Room.swift */,
+				018095B4291BB480004288EB /* Prologue_Room_Mad.swift */,
 			);
 			path = Prologue;
 			sourceTree = "<group>";
@@ -209,9 +217,6 @@
 		B32BB5AE29012E4900B812CF /* RaychelQiu */ = {
 			isa = PBXGroup;
 			children = (
-				B32F7E472924EC1100AD1FE5 /* Info.plist */,
-				B32F7E442924E98B00AD1FE5 /* CustomFont */,
-				B32F7E412924E44400AD1FE5 /* HomeScreen */,
 				01A3384229013D0B00092EEC /* Scenes */,
 				B3DBB8542910FE8200A29E45 /* GameScenes */,
 				B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */,
@@ -250,40 +255,14 @@
 			path = RaychelQiuUITests;
 			sourceTree = "<group>";
 		};
-		B32F7E412924E44400AD1FE5 /* HomeScreen */ = {
-			isa = PBXGroup;
-			children = (
-				B32F7E422924E45400AD1FE5 /* HomeScreen.swift */,
-				B3EE5E382926260700CB5163 /* ChapterView.swift */,
-			);
-			path = HomeScreen;
-			sourceTree = "<group>";
-		};
-		B32F7E442924E98B00AD1FE5 /* CustomFont */ = {
-			isa = PBXGroup;
-			children = (
-				B32F7E452924E9DB00AD1FE5 /* Hansip.ttf */,
-			);
-			path = CustomFont;
-			sourceTree = "<group>";
-		};
-		B37AE934291A325E004FD63F /* Game7 */ = {
-			isa = PBXGroup;
-			children = (
-				B37AE935291A326E004FD63F /* Game7_Shopping.swift */,
-			);
-			path = Game7;
-			sourceTree = "<group>";
-		};
 		B3DBB8542910FE8200A29E45 /* GameScenes */ = {
 			isa = PBXGroup;
 			children = (
-				B37AE934291A325E004FD63F /* Game7 */,
 				B3DBB85A2911000900A29E45 /* MiniGame1 */,
 				B3DBB8552910FE9B00A29E45 /* Game1 */,
+				701E52D12913A31100E25FF1 /* Game2 */,
 				B3DBB8572910FECE00A29E45 /* Game4 */,
-				702514B329012EC7002E4988 /* Game2View.swift */,
-				70F974662910DFD100ED63F8 /* Game5View.swift */,
+				70B0FEE3291A315700CD7687 /* Game5 */,
 			);
 			path = GameScenes;
 			sourceTree = "<group>";
@@ -311,9 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				B3DBB85B2911002800A29E45 /* Minigame1_BackpackSchool.swift */,
-				B39AC84C291128FE00B22C53 /* MiniGame2_MomBubbleChat.swift */,
-				B37AE9322918DA2E004FD63F /* Minigame3_Packing.swift */,
-				B3CC0798291BB6E3008FEE01 /* Minigame4_Dinner.swift */,
 			);
 			path = MiniGame1;
 			sourceTree = "<group>";
@@ -382,7 +358,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					B32BB5AB29012E4900B812CF = {
 						CreatedOnToolsVersion = 13.4.1;
@@ -424,7 +400,6 @@
 			files = (
 				B32BB5B729012E4A00B812CF /* Preview Assets.xcassets in Resources */,
 				B32BB5B429012E4A00B812CF /* Assets.xcassets in Resources */,
-				B32F7E462924E9DB00AD1FE5 /* Hansip.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,7 +426,10 @@
 			files = (
 				01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */,
 				01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */,
+				018095B5291BB480004288EB /* Prologue_Room_Mad.swift in Sources */,
+				01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */,
 				01F1903229091C4300426F03 /* SceneTabView.swift in Sources */,
+				01E41ADF291A321F008A04AC /* Prologue_Kelas.swift in Sources */,
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
 				01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */,
 				013EAE85290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift in Sources */,
@@ -460,21 +438,21 @@
 				01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
-				B37AE9332918DA2E004FD63F /* Minigame3_Packing.swift in Sources */,
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
-				B37AE936291A326E004FD63F /* Game7_Shopping.swift in Sources */,
-				B32F7E432924E45400AD1FE5 /* HomeScreen.swift in Sources */,
-				B3EE5E392926260700CB5163 /* ChapterView.swift in Sources */,
-				B3CC0799291BB6E3008FEE01 /* Minigame4_Dinner.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
+				70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
 				01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */,
 				018095B92922483C004288EB /* Chapter1_Mom.swift in Sources */,
 				B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */,
+				01E41AE3291A58A2008A04AC /* Prologue_Clock.swift in Sources */,
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
+				70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */,
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
 				70F974672910DFD100ED63F8 /* Game5View.swift in Sources */,
+				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
+				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */,
 				B3DBB8592910FF4100A29E45 /* Game1_CaptchaPuzzle.swift in Sources */,
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
@@ -637,10 +615,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaychelQiu/Preview Content\"";
-				DEVELOPMENT_TEAM = CPL7SYMZ7D;
+				DEVELOPMENT_TEAM = JRS36H7H6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RaychelQiu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -667,10 +644,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaychelQiu/Preview Content\"";
-				DEVELOPMENT_TEAM = CPL7SYMZ7D;
+				DEVELOPMENT_TEAM = JRS36H7H6Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RaychelQiu/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

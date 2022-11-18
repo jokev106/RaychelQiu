@@ -21,64 +21,64 @@ struct Scene_Testing: View{
     
     var body: some View{
             GeometryReader{geometry in
-//                NavigationView{
-//                    NavigationLink(destination: SceneMultiple()){
-//                        ZStack{
-//                            Image("Testing")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fill)
-//                                .edgesIgnoringSafeArea(.all)
-//                                .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
-//                                .scaleEffect(CGFloat(bgScale))
-//                                .animation(Animation.easeInOut(duration: 4))
-//                                .onAppear() {
-//                                    DispatchQueue.main.asyncAfter(deadline: .now()) {
-//                                    bgOpac += 1.0
-//                                    bgX -= 600
-//                                        
-//                                    }
-//                                }
-//                                .position(x: CGFloat(bgX), y: 400)
-//                            
-//                                .opacity(bgOpac)
-//                                .animation(Animation.easeInOut(duration: 1))
-//                            VStack{
-//                                Spacer()
-//                                HStack{
-//                                    Spacer()
-//                                    ZStack{
-//                                        Image("Knight")
-//                                            .resizable()
-//                                            .aspectRatio(contentMode: .fit)
-//                                            .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomTrailing)
-//                                            .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
-//                                            .opacity(opac)
-//                                            .scaleEffect(CGFloat(scaleXY))
-////                                            .position(x: positioning)
-//                                            .animation(Animation.easeInOut(duration: 1))
-//                                            .onAppear() {
-//                                                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-//                                                    scaleXY += 0.5
-//                                                    opac += 1.0
-//                                                    
-//                                                }
-//                                                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-//                                                    rotation += 5
-//                                                }
-//                                                DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
-//                                                    positioning += geometry.size.width * 0.4
-//                                                }
-//                                            }
-//                                            .rotationEffect(.degrees(rotation))
-//                                            .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true).speed(2))
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-//                    .transition(.opacity)
-//                    .navigationBarBackButtonHidden(true)
-//            }
+                NavigationView{
+                    NavigationLink(destination: SceneMultiple()){
+                        ZStack{
+                            Image("Testing")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .edgesIgnoringSafeArea(.all)
+                                .frame(width: geometry.size.width, height: geometry.size.height * 1.2, alignment: .bottom)
+                                .scaleEffect(CGFloat(bgScale))
+                                .animation(Animation.easeInOut(duration: 4))
+                                .onAppear() {
+                                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                    bgOpac += 1.0
+                                    bgX -= 600
+                                        
+                                    }
+                                }
+                                .position(x: CGFloat(bgX), y: 400)
+                            
+                                .opacity(bgOpac)
+                                .animation(Animation.easeInOut(duration: 1))
+                            VStack{
+                                Spacer()
+                                HStack{
+                                    Spacer()
+                                    ZStack{
+                                        Image("Knight")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: geometry.size.width * 0.5, height: geometry.size.height * 0.7, alignment: .bottomTrailing)
+                                            .offset(x:-geometry.size.width * 0.2, y: -geometry.size.height * 0.2)
+                                            .opacity(opac)
+                                            .scaleEffect(CGFloat(scaleXY))
+//                                            .position(x: positioning)
+                                            .animation(Animation.easeInOut(duration: 1))
+                                            .onAppear() {
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                                                    scaleXY += 0.5
+                                                    opac += 1.0
+                                                    
+                                                }
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                                                    rotation += 5
+                                                }
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) {
+                                                    positioning += geometry.size.width * 0.4
+                                                }
+                                            }
+                                            .rotationEffect(.degrees(rotation))
+                                            .animation(Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true).speed(2))
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .transition(.opacity)
+                    .navigationBarBackButtonHidden(true)
+            }
         }
     }
 }
