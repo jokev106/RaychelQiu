@@ -13,6 +13,8 @@
 		013EAE85290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */; };
 		01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01776CB02907E3430010B9A6 /* SceneMultiple.swift */; };
 		018095B5291BB480004288EB /* Prologue_Room_Mad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B4291BB480004288EB /* Prologue_Room_Mad.swift */; };
+		018095B72922462C004288EB /* Chapter1_Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B62922462C004288EB /* Chapter1_Sketch.swift */; };
+		018095B92922483C004288EB /* Chapter1_Mom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B82922483C004288EB /* Chapter1_Mom.swift */; };
 		01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384A29013F1B00092EEC /* Scene_Testing.swift */; };
 		01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384C290142E400092EEC /* SwiftUIView.swift */; };
 		01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */; };
@@ -74,6 +76,8 @@
 		013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Scene2_Transisi_Hari.swift; sourceTree = "<group>"; };
 		01776CB02907E3430010B9A6 /* SceneMultiple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMultiple.swift; sourceTree = "<group>"; };
 		018095B4291BB480004288EB /* Prologue_Room_Mad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Room_Mad.swift; sourceTree = "<group>"; };
+		018095B62922462C004288EB /* Chapter1_Sketch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Sketch.swift; sourceTree = "<group>"; };
+		018095B82922483C004288EB /* Chapter1_Mom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Mom.swift; sourceTree = "<group>"; };
 		01A3384A29013F1B00092EEC /* Scene_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_Testing.swift; sourceTree = "<group>"; };
 		01A3384C290142E400092EEC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				01E41ADC291A319F008A04AC /* Chapter1_Collection.swift */,
+				018095B62922462C004288EB /* Chapter1_Sketch.swift */,
+				018095B82922483C004288EB /* Chapter1_Mom.swift */,
 			);
 			path = "Chapter 1";
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
 				01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */,
 				013EAE85290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift in Sources */,
+				018095B72922462C004288EB /* Chapter1_Sketch.swift in Sources */,
 				01E41ADD291A319F008A04AC /* Chapter1_Collection.swift in Sources */,
 				01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
@@ -468,6 +475,7 @@
 				70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
 				01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */,
+				018095B92922483C004288EB /* Chapter1_Mom.swift in Sources */,
 				B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */,
 				01E41AE3291A58A2008A04AC /* Prologue_Clock.swift in Sources */,
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,

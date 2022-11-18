@@ -71,7 +71,7 @@ struct Prologue_Kelas: View {
                                 .scaledToFit()
                                 .opacity(bulletin_2_opac)
 //                                .scaleEffect(bulletin_scale)
-//                                .offset(x: bulletin_x)
+                                .offset(x: friend_2_x)
                             ZStack{
                                 Image("School_Table")
                                     .resizable()
