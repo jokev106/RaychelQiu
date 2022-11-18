@@ -32,7 +32,6 @@
 		70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE6291A318B00CD7687 /* Game5Model.swift */; };
 		70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97460290D70D000ED63F8 /* Game4_1View.swift */; };
 		70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97464290FD48700ED63F8 /* Game4_2View.swift */; };
-		70F974672910DFD100ED63F8 /* Game5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F974662910DFD100ED63F8 /* Game5View.swift */; };
 		B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */; };
 		B32BB5B229012E4900B812CF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32BB5B129012E4900B812CF /* ContentView.swift */; };
 		B32BB5B429012E4A00B812CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B32BB5B329012E4A00B812CF /* Assets.xcassets */; };
@@ -89,7 +88,6 @@
 		70B0FEE6291A318B00CD7687 /* Game5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5Model.swift; sourceTree = "<group>"; };
 		70F97460290D70D000ED63F8 /* Game4_1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_1View.swift; sourceTree = "<group>"; };
 		70F97464290FD48700ED63F8 /* Game4_2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_2View.swift; sourceTree = "<group>"; };
-		70F974662910DFD100ED63F8 /* Game5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5View.swift; sourceTree = "<group>"; };
 		B32BB5AC29012E4900B812CF /* RaychelQiu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RaychelQiu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaychelQiuApp.swift; sourceTree = "<group>"; };
 		B32BB5B129012E4900B812CF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,7 +195,6 @@
 		70B0FEE3291A315700CD7687 /* Game5 */ = {
 			isa = PBXGroup;
 			children = (
-				70F974662910DFD100ED63F8 /* Game5View.swift */,
 				70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */,
 				70B0FEE6291A318B00CD7687 /* Game5Model.swift */,
 			);
@@ -272,9 +269,8 @@
 				B3DBB8552910FE9B00A29E45 /* Game1 */,
 				701E52D12913A31100E25FF1 /* Game2 */,
 				B3DBB8572910FECE00A29E45 /* Game4 */,
-				7028096B29111CEE009DFBD7 /* Game8 */,
-				70F974662910DFD100ED63F8 /* Game5View.swift */,
 				70B0FEE3291A315700CD7687 /* Game5 */,
+				7028096B29111CEE009DFBD7 /* Game8 */,
 			);
 			path = GameScenes;
 			sourceTree = "<group>";
@@ -463,7 +459,6 @@
 				702514B429012EC7002E4988 /* Game2View.swift in Sources */,
 				70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */,
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
-				70F974672910DFD100ED63F8 /* Game5View.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */,
