@@ -12,6 +12,7 @@ struct Prologue_Collection: View {
     @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
+    @State var moveableBook = false
     
     //Scene1
     @State var scene1_Prologue_Final = false
@@ -35,9 +36,9 @@ struct Prologue_Collection: View {
     var body: some View {
         GeometryReader{ geometry in
             if scene == 1 || scene == 2 {
-                Prologue_Scene1_Kelas_Selesai(mainOnTap: $mainOnTap, raychel_stand_x: $raychel_stand_x, scene1_Prologue_Final: $scene1_Prologue_Final)
+                Prologue_Scene1_Kelas_Selesai(mainOnTap: $mainOnTap, raychel_stand_x: $raychel_stand_x, scene1_Prologue_Final: $scene1_Prologue_Final, moveableBook: $moveableBook)
                     .onTapGesture{
-                        if mainOnTap == true{
+                        if mainOnTap == true && self.moveableBook == true{
                             mainOnTap = false
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 withAnimation(.easeIn(duration: 2.5)) {

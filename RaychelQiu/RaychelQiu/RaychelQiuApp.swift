@@ -13,7 +13,7 @@ struct RaychelQiuApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MiniGame2_MomBubbleChat()
+            Prologue_Collection()
         }
     }
 }

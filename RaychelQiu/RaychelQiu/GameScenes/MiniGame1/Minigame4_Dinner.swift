@@ -211,9 +211,6 @@ struct Minigame4_Dinner: View {
           
                 //Border
                 Group{
-                    Image("StoryBG")
-                        .resizable()
-                        .ignoresSafeArea(.all)
                     Image("RaychelBG")
                         .resizable()
                         .frame(width: 440, height: 960)
@@ -327,8 +324,6 @@ struct Minigame4_Dinner: View {
                             .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
                     }
                 }
-            }.onAppear{
-               
             }
         }
     }

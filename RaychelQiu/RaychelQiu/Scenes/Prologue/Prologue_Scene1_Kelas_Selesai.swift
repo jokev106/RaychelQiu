@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Prologue_Scene1_Kelas_Selesai: View {
     
-    @State var scene = 3
+    @State var scene = 1
     @State var onTap = false
     @Binding var mainOnTap: Bool
     
@@ -51,7 +51,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var positionBag = CGPoint(x:295, y: 400)
     @State var positionPlayBox = CGPoint(x: 198, y: 635)
 
-    @State var moveableBook: Bool = true
+    @Binding var moveableBook: Bool
     @State var moveablePencil: Bool = true
     @State var moveableBottle: Bool = false
     
@@ -63,6 +63,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var isBook:Bool = true
     @State var isPencil:Bool = true
     @State var isBottle:Bool = true
+    @State var bag3Opac = 1.0
     
     var body: some View {
         
@@ -145,8 +146,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 361, height: 491)
-                    .offset(y: -114)
+                    .frame(width: 330, height: 449.6)
+                    .offset(y: -102)
                 
 //                ZStack{
 //                    if gameStart == true {
@@ -270,10 +271,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         }
                         .onAppear{
                             prologue_scene3_animation_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
-//                                prologue_scene1_animation_out()
-                                mainOnTap = true
-                            }
+                            mainOnTap = true
                         }
                     }
                     
@@ -284,7 +282,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00356)
+                .scaleEffect(geometry.size.width * 0.00324)
                 .offset(y: geometry.size.height * 0.026)
                 
                 if isBook == true && isPencil == true && isBottle == true {
@@ -297,6 +295,10 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 }
                 ZStack{
                     Image("PlayBox")
+                        .resizable()
+                        .frame(width: 330, height: 224)
+                        .position(self.positionPlayBox)
+                    Image("DInnerBG")
                         .resizable()
                         .frame(width: 330, height: 224)
                         .position(self.positionPlayBox)
@@ -323,6 +325,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .frame(width: 140, height: 190)
                                 .position(self.positionBag)
                                 .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                                .opacity(bag3Opac)
                         }
                     }
                     
@@ -476,16 +479,17 @@ struct Prologue_Scene1_Kelas_Selesai: View {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            withAnimation(.easeInOut(duration: 1.8)) {
-                bagOffset_x -= 200
-                gameOffset_x -= 500
-            }
-        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             withAnimation(.easeIn(duration: 0.7)) {
                 raychel_opac -= 1
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            withAnimation(.easeInOut(duration: 1.8)) {
+                bagOffset_x -= 200
+                gameOffset_x -= 500
             }
         }
         
@@ -500,6 +504,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
 
 struct Prologue_Scene1_Kelas_Selesai_Previews: PreviewProvider {
     static var previews: some View {
-        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), raychel_stand_x: .constant(0), scene1_Prologue_Final: .constant(false))
+        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), raychel_stand_x: .constant(0), scene1_Prologue_Final: .constant(false), moveableBook: .constant(false))
     }
 }
