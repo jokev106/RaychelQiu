@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Chapter2_Bus: View {
-    @State var scene = 2
+    @State var scene: Int
     @State var onTap = false
     @Binding var mainOnTap: Bool
     
@@ -19,10 +19,14 @@ struct Chapter2_Bus: View {
     // Scene2
     @State var bus_2_x = 400.0
     @State var raychel_2_opacity = 0.0
+    @State var raychel_2_scale = 1.0
+    @State var raychel_2_y = -70.0
+    @State var raychel_2_x = 0.0
     @State var tired_2_rotation = 0.0
     @State var group_2_scale = 1.0
     @State var group_2_y = 0.0
     @State var group_2_x = 0.0
+    
 
     var body: some View {
         GeometryReader { geometry in
@@ -77,16 +81,17 @@ struct Chapter2_Bus: View {
                 }
                 .onAppear {
                     chapter2_bus_scene1_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-                        onTap = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                        mainOnTap = true
+    //                    onTap = true
                     }
                 }
-                .onTapGesture {
-                    if onTap == true {
-                        onTap = false
-                        scene += 1
-                    }
-                }
+    //            .onTapGesture {
+    //                if onTap == true {
+    //                    onTap = false
+    //                    scene += 1
+    //                }
+    //            }
             }
             
             if scene == 2 {
@@ -114,7 +119,8 @@ struct Chapter2_Bus: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 35)
-                                .offset(y: -70)
+                                .offset(x: raychel_2_x, y: raychel_2_y)
+                                .scaleEffect(raychel_2_scale)
                                 .opacity(raychel_2_opacity)
                             
                             Image("Home_Tired")
@@ -122,7 +128,7 @@ struct Chapter2_Bus: View {
                                 .scaledToFit()
                                 .frame(width: 15)
                                 .rotationEffect(.degrees(tired_2_rotation))
-                                .offset(x: -3, y: -140)
+                                .offset(x: -3, y: raychel_2_y - 80)
                                 .opacity(raychel_2_opacity)
                             
                             Image("Bus_Left")
@@ -150,28 +156,29 @@ struct Chapter2_Bus: View {
                 }
                 .onAppear {
                     chapter2_bus_scene2_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-                        onTap = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
+                        mainOnTap = true
+    //                    onTap = true
                     }
                 }
-                .onTapGesture {
-                    if onTap == true {
-                        onTap = false
-                        scene += 1
-                    }
-                }
+    //            .onTapGesture {
+    //                if onTap == true {
+    //                    onTap = false
+    //                    scene += 1
+    //                }
+    //            }
             }
         }
     }
     
     func chapter2_bus_scene1_in() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 3)) {
                 bus_1_x = -75
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
             raychel_1_opacity = 0.0
             withAnimation(.easeInOut(duration: 3)) {
                 bus_1_x = 400
@@ -180,70 +187,56 @@ struct Chapter2_Bus: View {
     }
     
     func chapter2_bus_scene2_in() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 3)) {
                 bus_2_x = 75
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
             raychel_2_opacity = 1.0
             withAnimation(.easeInOut(duration: 3)) {
                 bus_2_x = -400
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 9) {
             withAnimation(.easeInOut(duration: 5)) {
+                raychel_2_scale = 1.1
+                raychel_2_y = -50
                 group_2_scale = 2.8
-                group_2_y = 200
+                group_2_y = 180
                 group_2_x = 10
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-            tired_2_rotation = 140.0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 9) {
-            tired_2_rotation = 80.0
-        }
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-            tired_2_rotation = 180
+            loopAnimation()
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 11) {
-            tired_2_rotation = 140.0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
-            tired_2_rotation = 80.0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 13) {
-            tired_2_rotation = 180
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 14) {
-            tired_2_rotation = 140.0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
-            tired_2_rotation = 80.0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 16) {
-            tired_2_rotation = 180
-        }
-//        withAnimation(.linear(duration: 0.15).repeatForever(autoreverses: true)) {
-//            needlePosition = CGPoint(x: 0, y: -190)
-//        }
     }
+    
+    func loopAnimation(){
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            tired_2_rotation = 140.0
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            tired_2_rotation = 80.0
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            tired_2_rotation = 180
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            loopAnimation()
+        }
+    }
+    
 }
 
 struct Chapter2_Bus_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter2_Bus(mainOnTap: .constant(false))
+        Chapter2_Bus(scene: 2, mainOnTap: .constant(false))
     }
 }

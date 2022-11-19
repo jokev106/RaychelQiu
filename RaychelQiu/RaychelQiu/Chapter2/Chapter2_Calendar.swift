@@ -14,6 +14,7 @@ struct Chapter2_Calendar: View {
 
     // Scene1
     @State var mark_1_opacity = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    @State var tm_1_rotation = 0.0
 
     var body: some View {
         GeometryReader { geometry in
@@ -49,7 +50,9 @@ struct Chapter2_Calendar: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)
+                        .rotationEffect(.degrees(tm_1_rotation))
                         .offset(x: -75, y: -80)
+                        
                 }
                 .mask {
                     Image("Day")
@@ -61,16 +64,17 @@ struct Chapter2_Calendar: View {
             }
             .onAppear {
                 chapter2_calendar_scene1_in()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-                    onTap = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                    mainOnTap = true
+//                    onTap = true
                 }
             }
-            .onTapGesture {
-                if onTap == true {
-                    onTap = false
-                    scene += 1
-                }
-            }
+//            .onTapGesture {
+//                if onTap == true {
+//                    onTap = false
+//                    scene += 1
+//                }
+//            }
         }
     }
 
@@ -115,6 +119,24 @@ struct Chapter2_Calendar: View {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[6] = 1.0
             }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            loopAnimation()
+        }
+    }
+    
+    func loopAnimation(){
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            tm_1_rotation = 10
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            tm_1_rotation = -10
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            loopAnimation()
         }
     }
 }

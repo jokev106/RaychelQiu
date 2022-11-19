@@ -31,7 +31,6 @@
 		7038854529251B6F0069E3CB /* Chapter_Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038854429251B6F0069E3CB /* Chapter_Bus.swift */; };
 		70A54C41292229E400450F12 /* Chapter2_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C40292229E400450F12 /* Chapter2_Collection.swift */; };
 		70A54C4529222F0D00450F12 /* Chapter2_Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */; };
-		70A54C4729223A4F00450F12 /* Chapter2_TMBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4629223A4F00450F12 /* Chapter2_TMBus.swift */; };
 		70A54C4A292246EE00450F12 /* Chapter2_TM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C49292246EE00450F12 /* Chapter2_TM.swift */; };
 		70A54C5029224E3500450F12 /* Chapter2_Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4F29224E3500450F12 /* Chapter2_Home.swift */; };
 		70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */; };
@@ -94,7 +93,6 @@
 		7038854429251B6F0069E3CB /* Chapter_Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter_Bus.swift; sourceTree = "<group>"; };
 		70A54C40292229E400450F12 /* Chapter2_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Collection.swift; sourceTree = "<group>"; };
 		70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Calendar.swift; sourceTree = "<group>"; };
-		70A54C4629223A4F00450F12 /* Chapter2_TMBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_TMBus.swift; sourceTree = "<group>"; };
 		70A54C49292246EE00450F12 /* Chapter2_TM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_TM.swift; sourceTree = "<group>"; };
 		70A54C4F29224E3500450F12 /* Chapter2_Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Home.swift; sourceTree = "<group>"; };
 		70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5ViewModel.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 			children = (
 				70A54C40292229E400450F12 /* Chapter2_Collection.swift */,
 				70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */,
-				70A54C4629223A4F00450F12 /* Chapter2_TMBus.swift */,
 				70A54C49292246EE00450F12 /* Chapter2_TM.swift */,
 				70A54C4F29224E3500450F12 /* Chapter2_Home.swift */,
 				703885422924C5990069E3CB /* Chapter2_CloseUp.swift */,
@@ -457,7 +454,6 @@
 				01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */,
 				018095B5291BB480004288EB /* Prologue_Room_Mad.swift in Sources */,
 				01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */,
-				70A54C4729223A4F00450F12 /* Chapter2_TMBus.swift in Sources */,
 				01F1903229091C4300426F03 /* SceneTabView.swift in Sources */,
 				01E41ADF291A321F008A04AC /* Prologue_Kelas.swift in Sources */,
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
