@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Prologue_Scene1_Kelas_Selesai: View {
     
-    @State var scene = 1
+    @State var scene = 3
     @State var onTap = false
     @Binding var mainOnTap: Bool
     
@@ -40,7 +40,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @Binding var scene1_Prologue_Final: Bool
     
     //Minigame Backpack
-    @State var gameStart:Bool = false
     
     @State var bagOffset_x = 200.0
     @State var gameOffset_x = 500.0
@@ -83,8 +82,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                        isBook = false
                    }else {
                        withAnimation(.default){
-                           self.positionBook.x = 95
-                           self.positionBook.y = 593
+                           self.positionBook.x = 285
+                           self.positionBook.y = 633
                        }
                    }
                }
@@ -105,8 +104,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                    self.moveableBook = false
                }else {
                    withAnimation(.default){
-                       self.positionPencil.x = 80
-                       self.positionPencil.y = 693
+                       self.positionPencil.x = 180
+                       self.positionPencil.y = 633
                    }
                }
            }
@@ -114,10 +113,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         //Dragable for Bottle
         let dragBottle = DragGesture(coordinateSpace: .local)
             .onChanged({ gesture in
-                withAnimation(Animation.default.repeatCount(5).speed(6)) {
                     if  moveableBottle == false {
                         self.positionBootle = gesture.location
-                    }
                 }
             })
                .onEnded {gesture in
@@ -130,8 +127,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                        self.moveablePencil = false
                    }else {
                        withAnimation(.default){
-                           self.positionBootle.x = 155
-                           self.positionBootle.y = 673
+                           self.positionBootle.x = 95
+                           self.positionBootle.y = 180
                        }
                    }
                }
@@ -290,7 +287,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                             .resizable()
                             .frame(width: 140, height: 190)
                             .position(self.positionBag)
-                            .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                            .shadow(color: .black.opacity(0.3), radius: 0.5)
                             .offset(x: bagOffset_x)
                 }
                 ZStack{
@@ -300,7 +297,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         .position(self.positionPlayBox)
                     Image("DInnerBG")
                         .resizable()
-                        .frame(width: 330, height: 224)
+                        .frame(width: 322, height: 219)
                         .position(self.positionPlayBox)
                     
     //                    ZStack{
@@ -310,21 +307,21 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .resizable()
                                 .frame(width: 140, height: 190)
                                 .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                                .shadow(color: .black.opacity(0.3), radius: 0.5)
                         }
                         if isPencil == false {
                             Image("Bag2")
                                 .resizable()
                                 .frame(width: 140, height: 190)
                                 .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                                .shadow(color: .black.opacity(0.3), radius: 0.5)
                         }
                         if isBook == false {
                             Image("Bag3")
                                 .resizable()
                                 .frame(width: 140, height: 190)
                                 .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+                                .shadow(color: .black.opacity(0.3), radius: 0.5)
                                 .opacity(bag3Opac)
                         }
                     }
