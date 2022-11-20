@@ -27,7 +27,6 @@
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
 		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
-		703885432924C5990069E3CB /* Chapter2_CloseUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703885422924C5990069E3CB /* Chapter2_CloseUp.swift */; };
 		7038854529251B6F0069E3CB /* Chapter_Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038854429251B6F0069E3CB /* Chapter_Bus.swift */; };
 		70A54C41292229E400450F12 /* Chapter2_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C40292229E400450F12 /* Chapter2_Collection.swift */; };
 		70A54C4529222F0D00450F12 /* Chapter2_Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */; };
@@ -89,7 +88,6 @@
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
 		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
-		703885422924C5990069E3CB /* Chapter2_CloseUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_CloseUp.swift; sourceTree = "<group>"; };
 		7038854429251B6F0069E3CB /* Chapter_Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter_Bus.swift; sourceTree = "<group>"; };
 		70A54C40292229E400450F12 /* Chapter2_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Collection.swift; sourceTree = "<group>"; };
 		70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Calendar.swift; sourceTree = "<group>"; };
@@ -203,7 +201,6 @@
 				70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */,
 				70A54C49292246EE00450F12 /* Chapter2_TM.swift */,
 				70A54C4F29224E3500450F12 /* Chapter2_Home.swift */,
-				703885422924C5990069E3CB /* Chapter2_CloseUp.swift */,
 				7038854429251B6F0069E3CB /* Chapter_Bus.swift */,
 			);
 			path = Chapter2;
@@ -464,7 +461,6 @@
 				01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
-				703885432924C5990069E3CB /* Chapter2_CloseUp.swift in Sources */,
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,

@@ -15,13 +15,14 @@ struct Chapter2_Home: View {
     // Scene1
     @State var tired_1_rotation = 0.0
     @State var group_1_scale = 2.8
-    @State var group_1_y = 180.0
+    @State var group_1_y = 170.0
     @State var group_1_x = 10.0
     @State var raychel_1_scale = 1.1
     @State var raychel_1_y = -50.0
     @State var mom_1_scale = 1.0
     @State var mom_1_y = -5.0
     @State var mom_1_opacity = 0.0
+    @State var blur_1_x = 5.0
     
     // Scene2
     @State var tears_2_opacity = 0.0
@@ -44,12 +45,14 @@ struct Chapter2_Home: View {
                                 .scaledToFit()
                                 .frame(width: 190)
                                 .offset(x: -5, y: -30)
+                                .blur(radius: blur_1_x)
                             
                             Image("Home_Door")
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 190)
                                 .offset(x: -5, y: -30)
+                                .blur(radius: blur_1_x)
                             
                             Image("Home_Raychel")
                                 .resizable()
@@ -70,18 +73,6 @@ struct Chapter2_Home: View {
                         .offset(x: group_1_x, y: group_1_y)
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)
-                    .onAppear {
-                        chapter2_home_scene1_in()
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
-                            onTap = true
-                        }
-                    }
-                    .onTapGesture {
-                        if onTap == true {
-                            onTap = false
-                            scene += 1
-                        }
-                    }
                     .mask {
                         Image("Day")
                             .resizable()
@@ -89,6 +80,18 @@ struct Chapter2_Home: View {
                     }
                     .scaleEffect(geometry.size.width * 0.00356)
                     .offset(y: geometry.size.height * 0.026)
+                }
+                .onAppear {
+                    chapter2_home_scene1_in()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
+                        onTap = true
+                    }
+                }
+                .onTapGesture {
+                    if onTap == true {
+                        onTap = false
+                        scene += 1
+                    }
                 }
             }
             
@@ -143,7 +146,13 @@ struct Chapter2_Home: View {
     }
 
     func chapter2_home_scene1_in() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2)) {
+                blur_1_x = 0.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 1.5)) {
                 mom_1_opacity = 1.0
             }

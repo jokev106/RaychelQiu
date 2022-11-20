@@ -13,6 +13,7 @@ struct Chapter2_TM: View {
     @Binding var mainOnTap: Bool
     
     // Scene1
+    @Binding var scene_1_x: Double
     @State var stand_1_opacity = 1.0
     @State var stand_1_x = 100.0
     @State var stand_1_y = -70.0
@@ -26,7 +27,7 @@ struct Chapter2_TM: View {
     // Scene3
     @State var group_3_scale = 1.0
     @State var group_3_y = 0.0
-    @State var group_3_x = 0.0
+    @Binding var group_3_x: Double
     @State var chat_3_scale = 0.4
     @State var chat_3_opacity = 0.0
     
@@ -47,7 +48,7 @@ struct Chapter2_TM: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 265)
-                            .offset(y: -100)
+                            .offset(x: scene_1_x, y: -100)
                         
                         Image("TM_Stand")
                             .resizable()
@@ -269,6 +270,6 @@ struct Chapter2_TM: View {
 
 struct Chapter2_TM_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter2_TM(scene: 3, mainOnTap: .constant(false))
+        Chapter2_TM(scene: 3, mainOnTap: .constant(false), scene_1_x: .constant(0.0), group_3_x: .constant(-30.0))
     }
 }

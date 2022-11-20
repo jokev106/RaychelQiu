@@ -30,13 +30,13 @@ struct Chapter2_Calendar: View {
                     Image("Calendar_BG")
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height)
-
+                    
                     Image("Calendar_Empty")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200)
                         .offset(y: -90)
-
+                        
                     ForEach(0 ..< 7, id: \.self) { index in
                         Image("Calendar_Mark")
                             .resizable()
@@ -45,14 +45,13 @@ struct Chapter2_Calendar: View {
                             .offset(x: CGFloat(-75 + (index * 25)), y: -105)
                             .opacity(mark_1_opacity[index])
                     }
-                    
+                        
                     Image("Calendar_TM")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 40)
                         .rotationEffect(.degrees(tm_1_rotation))
                         .offset(x: -75, y: -80)
-                        
                 }
                 .mask {
                     Image("Day")
@@ -126,7 +125,7 @@ struct Chapter2_Calendar: View {
         }
     }
     
-    func loopAnimation(){
+    func loopAnimation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             tm_1_rotation = 10
         }
