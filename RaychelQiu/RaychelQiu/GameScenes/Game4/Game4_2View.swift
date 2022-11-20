@@ -18,6 +18,30 @@ struct Game4_2View: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                Image("Game4_image5")
+                    .resizable()
+                    .frame(width: 330, height: 449.6)
+                    .position(x: 198, y: 275)
+                
+                Image("Game4_image6")
+                    .resizable()
+                    .frame(width: 330, height: 449.6)
+                    .position(x: 198, y: 275)
+                
+                Image("Game4_image4")
+                    .resizable()
+                    .scaledToFit()
+                    .rotationEffect(.degrees(-10))
+                    .scaleEffect(0.4)
+                    .offset(x: 5, y: -90)
+                    .blur(radius: finalSketch ? 0 : 50)
+                
+                Image("Game4_image7")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 330)
+                    .position(x: 198, y: 360)
+                
                 Image("Game_Border")
                     .resizable()
                     .frame(width: 330, height: 449.6)
@@ -26,20 +50,13 @@ struct Game4_2View: View {
                 if nextScene == false {
                     Game4_2(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, finalSketch: $finalSketch, nextScene: $nextScene)
                         .frame(height: 800)
-                        .scaleEffect(geometry.size.height * 0.001)
-                        .offset(y: -120)
+                        .scaleEffect(geometry.size.height * 0.00085)
+                        .offset(y: 180)
                         .onAppear {
                             viewmodel.currentRound = 5
                         }
 
                 } else {
-                    Image("Game4_image4")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.8)
-                        .offset(y: -90)
-//                        .opacity(finalSketch ? 1.0 : 0.0)
-                    
                     Button {} label: {
                         Image(systemName: "chevron.right.circle")
                             .resizable()
@@ -62,6 +79,7 @@ struct Game4_2: View {
     @Binding var animate: Bool
     @Binding var finalSketch: Bool
     @Binding var nextScene: Bool
+    @State var touched = false
 
     func animation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -76,11 +94,12 @@ struct Game4_2: View {
                 viewmodel.currentRound += 1
                 success.toggle()
                 animate.toggle()
+                touched.toggle()
                 position = viewmodel.ronde[viewmodel.currentRound].startPosition
 
             } else {
                 nextScene.toggle()
-                withAnimation(.easeInOut(duration: 2)) {
+                withAnimation(.easeInOut(duration: 1)) {
                     finalSketch.toggle()
                 }
             }
@@ -91,6 +110,7 @@ struct Game4_2: View {
         DragGesture()
             .onChanged {
                 value in
+                touched = true
                 position = value.location
                 viewmodel.collision(position: position)
             }
@@ -100,6 +120,7 @@ struct Game4_2: View {
                     animation()
 
                 } else {
+                    touched = false
                     withAnimation(.spring()) {
                         position.x = viewmodel.ronde[viewmodel.currentRound].startPosition.x
                         position.y = viewmodel.ronde[viewmodel.currentRound].startPosition.y
@@ -115,6 +136,12 @@ struct Game4_2: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                Image("Game4_image8")
+                    .resizable()
+                    .scaledToFit()
+                    .scaleEffect(1.25)
+                    .offset(y: -60)
+                
                 // Pattern
                 Group {
                     Image(viewmodel.ronde[viewmodel.currentRound].image)
@@ -122,7 +149,7 @@ struct Game4_2: View {
                         .scaledToFit()
                         .frame(width: CGFloat(viewmodel.ronde[viewmodel.currentRound].size))
                         .position(CGPoint(x: 200 + viewmodel.ronde[viewmodel.currentRound].x, y: 400 + viewmodel.ronde[viewmodel.currentRound].y))
-                        .opacity(animate ? 0.0 : 1.0)
+                        .opacity(animate ? 0.0 : 0.4)
 
                     Image(viewmodel.ronde[viewmodel.currentRound].result)
                         .resizable()
@@ -153,6 +180,27 @@ struct Game4_2: View {
                     .onAppear {
                         position = viewmodel.ronde[viewmodel.currentRound].startPosition
                     }
+                
+                Image(systemName: "chevron.right")
+                    .font(Font.system(size: 25, weight: .bold))
+                    .rotationEffect(.degrees(viewmodel.ronde[viewmodel.currentRound].chevron))
+                    .position(position)
+                    .opacity(touched ? 0.0 : 1.0)
+                
+                // Progress Bar
+                HStack(spacing: 0) {
+                    ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
+                        Rectangle()
+                            .frame(width: viewmodel.ronde[viewmodel.currentRound].success[index] == true ? CGFloat(300 / viewmodel.ronde[viewmodel.currentRound].targetPosition.count) : 0, height: 20)
+                            .foregroundColor(.brown)
+                    }
+                }
+                .frame(width: 300, alignment: .leading)
+                .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.brown, lineWidth: 4)
+                    )
+                .offset(y: -260)
 
 //                Group {
 //                    Circle()
