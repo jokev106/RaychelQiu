@@ -45,17 +45,22 @@ struct Prologue_Dinner2: View {
         
         GeometryReader{ geometry in
             ZStack{
+                Image("StoryBG")
+                    .resizable()
+                    .ignoresSafeArea(.all)
                 Image("Border")
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
 //                    .offset(y: -geometry.size.height * 0.151)
-                    .frame(width: 361, height: 491)
-                    .offset(y: -114)
+                    .frame(width: 330 , height: 449.6)
+//                    .position(self.positionBorder)
+                    .offset(y: -109)
                 ZStack{
                     Image("Dinner_BG")
                         .resizable()
                         .scaledToFit()
+                        .frame(width: 330 , height: 449.6)
                     
                     ZStack{
                         
@@ -187,8 +192,9 @@ struct Prologue_Dinner2: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00356)
-                .offset(y: geometry.size.height * 0.026)
+                .scaleEffect(geometry.size.width * 0.00324)
+                .offset(y: geometry.size.height * 0.011)
+                
             }
         }
     }

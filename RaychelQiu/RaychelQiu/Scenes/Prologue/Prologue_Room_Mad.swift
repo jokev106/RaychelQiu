@@ -38,7 +38,7 @@ struct Prologue_Room_Mad: View {
                 Image("Border")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 361, height: 491)
+                    .frame(width: 330, height: 449.6)
                     .offset(y: -114)
                 
                 
@@ -159,8 +159,8 @@ struct Prologue_Room_Mad: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00356)
-                .offset(y: geometry.size.height * 0.026)
+                .scaleEffect(geometry.size.width * 0.00324)
+                .offset(y: geometry.size.height * 0.011)
             }
             
             
