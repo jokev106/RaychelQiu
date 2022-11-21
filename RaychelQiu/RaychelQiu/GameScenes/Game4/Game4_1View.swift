@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+//struct TestView: View {
+//    var body: some View {
+//        GeometryReader { geometry in
+//            ZStack {
+//                Game4_1View()
+//                    .frame(width: 400, height: 800)
+//            }
+//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+//            .scaleEffect(geometry.size.height * 0.0013)
+//        }
+//    }
+//}
+
 struct Game4_1View: View {
     @StateObject var viewmodel = Game4ViewModel()
     @State var position = CGPoint()
@@ -58,11 +71,9 @@ struct Game4_1View: View {
 
                 if nextScene == false {
                     Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, nextScene: $nextScene)
-                        .frame(height: 400)
-                        .background(.white)
-                        .border(.black, width: 2)
-                        .scaleEffect(geometry.size.height * 0.001)
-                        .offset(y: 200)
+                        .frame(height: 450)
+                        .scaleEffect(geometry.size.height * 0.0009)
+                        .offset(y: 230)
                 } else {
                     Image(systemName: "chevron.right.circle")
                         .resizable()
@@ -88,6 +99,7 @@ struct Game4_1: View {
     @Binding var success: Bool
     @Binding var animate: [Bool]
     @Binding var nextScene: Bool
+    @State var touched = false
 
     func animation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -113,6 +125,7 @@ struct Game4_1: View {
         DragGesture()
             .onChanged {
                 value in
+                touched = true
                 position = value.location
                 viewmodel.collision(position: position)
             }
@@ -122,6 +135,7 @@ struct Game4_1: View {
                     animation()
 
                 } else {
+                    touched = false
                     withAnimation(.spring()) {
                         position.x = viewmodel.ronde[viewmodel.currentRound].startPosition.x
                         position.y = viewmodel.ronde[viewmodel.currentRound].startPosition.y
@@ -137,6 +151,15 @@ struct Game4_1: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
+                Image("Game_Border")
+                    .resizable()
+                    .scaleEffect(1.02)
+                    .offset(y: -50)
+                
+                Rectangle()
+                    .foregroundColor(.white)
+                    .offset(y: -50)
+                
                 // Pattern
                 Image(viewmodel.ronde[viewmodel.currentRound].image)
                     .resizable()
@@ -166,6 +189,40 @@ struct Game4_1: View {
                     .onAppear {
                         position = viewmodel.ronde[viewmodel.currentRound].startPosition
                     }
+                
+                Image(systemName: "chevron.right")
+                    .font(Font.system(size: 25, weight: .bold))
+                    .rotationEffect(.degrees(viewmodel.ronde[viewmodel.currentRound].chevron))
+                    .position(position)
+                    .opacity(touched ? 0.0 : 1.0)
+                
+                // Progress Bar
+                HStack(spacing: 0) {
+                    ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
+                        ZStack {
+                            Rectangle()
+                                .frame(width: viewmodel.ronde[viewmodel.currentRound].success[index] == true ? CGFloat(300 / viewmodel.ronde[viewmodel.currentRound].targetPosition.count) : 0, height: 20)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
+                .frame(width: 300, alignment: .leading)
+                .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.gray, lineWidth: 4)
+                    )
+                .offset(y: -230)
+                
+//                ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
+//                    Circle()
+//                        .fill(.yellow)
+//                        .frame(width: geometry.size.width * 0.1)
+//                        .offset(x: CGFloat(270 * (3 / 4)))
+//                }
+//                .frame(width: 300, alignment: .leading)
+//                .offset(y: -180)
+                
+                
 
 //                Group {
 //                    Circle()
