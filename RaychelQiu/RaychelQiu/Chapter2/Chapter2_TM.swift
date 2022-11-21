@@ -31,191 +31,164 @@ struct Chapter2_TM: View {
     @State var chat_3_scale = 0.4
     @State var chat_3_opacity = 0.0
     
-
     var body: some View {
         GeometryReader { geometry in
-            if scene == 1 {
+            ZStack {
+                Image("Border")
+                    .resizable()
+//                    .scaledToFit()
+//                    .scaleEffect(0.92)
+                    .frame(width: 361, height: 491)
+                    .offset(y: -114)
+                
                 ZStack {
-                    Image("Border")
-                        .resizable()
-                    //                    .scaledToFit()
-                    //                    .scaleEffect(0.92)
-                        .frame(width: 361, height: 491)
-                        .offset(y: -114)
-                    
-                    ZStack {
-                        Image("TM_BG")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 265)
-                            .offset(x: scene_1_x, y: -100)
-                        
-                        Image("TM_Stand")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 110)
-                            .offset(x: stand_1_x, y: stand_1_y)
-                            .opacity(stand_1_opacity)
-                        
-                        Image("TM_Sit")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 90)
-                            .offset(x: 50, y: -50)
-                            .opacity(sit_1_opacity)
-                        
-                        Image("TM_Front")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 260)
-                            .offset(y: -25)
-                        
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .mask {
-                        Image("Day")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .scaleEffect(geometry.size.width * 0.00356)
-                    .offset(y: geometry.size.height * 0.026)
-                }
-                .onAppear {
-                    chapter2_TM_scene1_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-                        onTap = true
-                    }
-                }
-                .onTapGesture {
-                    if onTap == true {
-                        onTap = false
-                        scene += 1
-                    }
-                }
-            }
-            
-            if scene == 2 {
-                ZStack {
-                    Image("Border")
-                        .resizable()
-                    //                    .scaledToFit()
-                    //                    .scaleEffect(0.92)
-                        .frame(width: 361, height: 491)
-                        .offset(y: -114)
-                    
-                    ZStack {
-                        Image("Calendar_BG")
-                            .resizable()
-                            .frame(width: geometry.size.width, height: geometry.size.height)
-                        
-                        Image("TM_Stage")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 265)
-                            .offset(y: -80)
-                        
-                        Image("TM_PPT")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 150)
-                            .offset(x: 0, y: -190)
-                            .opacity(ppt_2_opacity)
-                            .blur(radius: ppt_2_blur)
-                        
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .mask {
-                        Image("Day")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .scaleEffect(geometry.size.width * 0.00356)
-                    .offset(y: geometry.size.height * 0.026)
-                }
-                .onAppear {
-                    chapter2_TM_scene2_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                        onTap = true
-                    }
-                }
-                .onTapGesture {
-                    if onTap == true {
-                        onTap = false
-                        scene += 1
-                    }
-                }
-            }
-            
-            if scene == 3 {
-                ZStack {
-                    Image("Border")
-                        .resizable()
-                    //                    .scaledToFit()
-                    //                    .scaleEffect(0.92)
-                        .frame(width: 361, height: 491)
-                        .offset(y: -114)
-                    
-                    ZStack {
-                        Group {
-//                            Image("TM_BG")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 265)
-//                                .offset(y: -100)
+                    if scene == 1 {
+                        ZStack {
+                            Image("Calendar_BG")
+                                .resizable()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
                             
-                            
-//                            Image("TM_Sit")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 90)
-//                                .offset(x: 50, y: -50)
-                            
-                            Image("TM_Shock")
+                            Image("TM_BG")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 217)
-                                .offset(x: 25, y: -120)
-                                .opacity(1.0)
+                                .frame(width: 265)
+                                .offset(x: scene_1_x, y: -100)
                             
-                            Image("TM_Chat")
+                            Image("TM_Stand")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 70)
-                                .scaleEffect(chat_3_scale, anchor: .bottomTrailing)
-                                .offset(x: -20, y: -200)
-                                .opacity(chat_3_opacity)
+                                .frame(width: 110)
+                                .offset(x: stand_1_x, y: stand_1_y)
+                                .opacity(stand_1_opacity)
                             
-//                            Image("TM_Front")
-//                                .resizable()
-//                                .scaledToFit()
-//                                .frame(width: 260)
-//                                .offset(y: -25)
+                            Image("TM_Sit")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 90)
+                                .offset(x: 50, y: -50)
+                                .opacity(sit_1_opacity)
+                            
+                            Image("TM_Front")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 260)
+                                .offset(y: -25)
                         }
-                        .scaleEffect(group_3_scale)
-                        .offset(x: group_3_x, y: group_3_y)
+                        .onAppear {
+                            chapter2_TM_scene1_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                                onTap = true
+                            }
+                        }
+                        .onTapGesture {
+                            if onTap == true {
+                                onTap = false
+                                scene += 1
+                            }
+                        }
                     }
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .mask {
-                        Image("Day")
-                            .resizable()
-                            .scaledToFit()
+                    
+                    if scene == 2 {
+                        ZStack {
+                            Image("Calendar_BG")
+                                .resizable()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                            
+                            Image("TM_Stage")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 265)
+                                .offset(y: -80)
+                            
+                            Image("TM_PPT")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150)
+                                .offset(x: 0, y: -190)
+                                .opacity(ppt_2_opacity)
+                                .blur(radius: ppt_2_blur)
+                        }
+                        .onAppear {
+                            chapter2_TM_scene2_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                                onTap = true
+                            }
+                        }
+                        .onTapGesture {
+                            if onTap == true {
+                                onTap = false
+                                scene += 1
+                            }
+                        }
                     }
-                    .scaleEffect(geometry.size.width * 0.00356)
-                    .offset(y: geometry.size.height * 0.026)
+                    
+                    if scene == 3 {
+                        ZStack {
+                            Group {
+                                Image("Calendar_BG")
+                                    .resizable()
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                
+//                                Image("TM_BG")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 265)
+//                                    .offset(y: -100)
+//
+//                                Image("TM_Sit")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 90)
+//                                    .offset(x: 50, y: -50)
+                                
+                                Image("TM_Shock")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 217)
+                                    .offset(x: 25, y: -120)
+                                    .opacity(1.0)
+                                
+                                Image("TM_Chat")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 70)
+                                    .scaleEffect(chat_3_scale, anchor: .bottomTrailing)
+                                    .offset(x: -20, y: -200)
+                                    .opacity(chat_3_opacity)
+                                
+//                                Image("TM_Front")
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .frame(width: 260)
+//                                    .offset(y: -25)
+                            }
+                            .scaleEffect(group_3_scale)
+                            .offset(x: group_3_x, y: group_3_y)
+                        }
+                        
+                        .onAppear {
+                            chapter2_TM_scene3_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                mainOnTap = true
+//                                onTap = true
+                            }
+                        }
+//                        .onTapGesture {
+//                            if onTap == true {
+//                                onTap = false
+//                                scene += 1
+//                            }
+//                        }
+                    }
                 }
-                .onAppear {
-                    chapter2_TM_scene3_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                        mainOnTap = true
-    //                    onTap = true
-                    }
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .mask {
+                    Image("Day")
+                        .resizable()
+                        .scaledToFit()
                 }
-    //            .onTapGesture {
-    //                if onTap == true {
-    //                    onTap = false
-    //                    scene += 1
-    //                }
-    //            }
+                .scaleEffect(geometry.size.width * 0.00356)
+                .offset(y: geometry.size.height * 0.026)
             }
         }
     }
@@ -270,6 +243,6 @@ struct Chapter2_TM: View {
 
 struct Chapter2_TM_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter2_TM(scene: 3, mainOnTap: .constant(false), scene_1_x: .constant(0.0), group_3_x: .constant(-30.0))
+        Chapter2_TM(scene: 1, mainOnTap: .constant(false), scene_1_x: .constant(0.0), group_3_x: .constant(-30.0))
     }
 }

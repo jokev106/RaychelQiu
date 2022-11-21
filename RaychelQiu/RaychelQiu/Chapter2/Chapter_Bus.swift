@@ -32,148 +32,136 @@ struct Chapter2_Bus: View {
 
     var body: some View {
         GeometryReader { geometry in
-            if scene == 1 {
+            ZStack {
+                Image("Border")
+                    .resizable()
+//                    .scaledToFit()
+//                    .scaleEffect(0.92)
+                    .frame(width: 361, height: 491)
+                    .offset(y: -114)
+                
                 ZStack {
-                    Image("Border")
-                        .resizable()
-                        //                    .scaledToFit()
-                        //                    .scaleEffect(0.92)
-                        .frame(width: 361, height: 491)
-                        .offset(y: -114)
-                    
-                    ZStack {
-                        Group {
-                            Image("Bus_BG")
-                                .resizable()
-                                .frame(width: geometry.size.width, height: geometry.size.height)
-                            
+                    if scene == 1 {
+                        ZStack {
                             Group {
+                                Image("Bus_BG")
+                                    .resizable()
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                
+                                Group {
+                                    Image("Bus_Scene")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 260)
+                                        .offset(y: -50)
+                                    
+                                    Image("Bus_Raychel")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 35)
+                                        .offset(y: -70)
+                                        .opacity(raychel_1_opacity)
+                                    
+                                    Image("Bus_Right")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height: 200)
+                                        .offset(x: bus_1_x, y: -60)
+                                    
+                                    Image("Bus_Bush")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 350)
+                                        .offset(y: 40)
+                                }
+                                .offset(x: scene_1_x)
+                            }
+                        }
+                        
+                        .onAppear {
+                            chapter2_bus_scene1_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
+                                mainOnTap = true
+//                                onTap = true
+                            }
+                        }
+//                        .onTapGesture {
+//                            if onTap == true {
+//                                onTap = false
+//                                scene += 1
+//                            }
+//                        }
+                    }
+                    
+                    if scene == 2 {
+                        ZStack {
+                            Group {
+                                Image("Bus_BG")
+                                    .resizable()
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                    .blur(radius: blur_2_x)
+                                
                                 Image("Bus_Scene")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 260)
                                     .offset(y: -50)
+                                    .blur(radius: blur_2_x)
                                 
-                                Image("Bus_Raychel")
+                                Image("Home_Raychel")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 35)
-                                    .offset(y: -70)
-                                    .opacity(raychel_1_opacity)
-                            
-                                Image("Bus_Right")
+                                    .offset(x: raychel_2_x, y: raychel_2_y)
+                                    .scaleEffect(raychel_2_scale)
+                                    .opacity(raychel_2_opacity)
+                                
+                                Image("Home_Tired")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 15)
+                                    .rotationEffect(.degrees(tired_2_rotation))
+                                    .offset(x: -3, y: raychel_2_y - 80)
+                                    .opacity(raychel_2_opacity)
+                                
+                                Image("Bus_Left")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: 200)
-                                    .offset(x: bus_1_x, y: -60)
-                            
+                                    .offset(x: bus_2_x, y: -60)
+                                
                                 Image("Bus_Bush")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 350)
                                     .offset(y: 40)
                             }
-                            .offset(x: scene_1_x)
+                            .scaleEffect(group_2_scale)
+                            .offset(x: group_2_x, y: group_2_y)
                         }
+                        .onAppear {
+                            chapter2_bus_scene2_in()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
+                                mainOnTap = true
+//                                onTap = true
+                            }
+                        }
+//                        .onTapGesture {
+//                            if onTap == true {
+//                                onTap = false
+//                                scene += 1
+//                            }
+//                        }
                     }
-                    .mask {
-                        Image("Day")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .scaleEffect(geometry.size.width * 0.00356)
-                    .offset(y: geometry.size.height * 0.026)
                 }
-                .onAppear {
-                    chapter2_bus_scene1_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
-                        mainOnTap = true
-                        //                    onTap = true
-                    }
-                }
-                //            .onTapGesture {
-                //                if onTap == true {
-                //                    onTap = false
-                //                    scene += 1
-                //                }
-                //            }
-            }
-            
-            if scene == 2 {
-                ZStack {
-                    Image("Border")
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .mask {
+                    Image("Day")
                         .resizable()
-                        //                    .scaledToFit()
-                        //                    .scaleEffect(0.92)
-                        .frame(width: 361, height: 491)
-                        .offset(y: -114)
-                    
-                    ZStack {
-                        Group {
-                            Image("Bus_BG")
-                                .resizable()
-                                .frame(width: geometry.size.width, height: geometry.size.height)
-                                .blur(radius: blur_2_x)
-                            
-                            Image("Bus_Scene")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 260)
-                                .offset(y: -50)
-                                .blur(radius: blur_2_x)
-                            
-                            Image("Home_Raychel")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 35)
-                                .offset(x: raychel_2_x, y: raychel_2_y)
-                                .scaleEffect(raychel_2_scale)
-                                .opacity(raychel_2_opacity)
-                            
-                            Image("Home_Tired")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 15)
-                                .rotationEffect(.degrees(tired_2_rotation))
-                                .offset(x: -3, y: raychel_2_y - 80)
-                                .opacity(raychel_2_opacity)
-                            
-                            Image("Bus_Left")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 200)
-                                .offset(x: bus_2_x, y: -60)
-                            
-                            Image("Bus_Bush")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 350)
-                                .offset(y: 40)
-                        }
-                        .scaleEffect(group_2_scale)
-                        .offset(x: group_2_x, y: group_2_y)
-                    }
-                    .mask {
-                        Image("Day")
-                            .resizable()
-                            .scaledToFit()
-                    }
-                    .scaleEffect(geometry.size.width * 0.00356)
-                    .offset(y: geometry.size.height * 0.026)
+                        .scaledToFit()
                 }
-                .onAppear {
-                    chapter2_bus_scene2_in()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 12) {
-                        mainOnTap = true
-                        //                    onTap = true
-                    }
-                }
-                //            .onTapGesture {
-                //                if onTap == true {
-                //                    onTap = false
-                //                    scene += 1
-                //                }
-                //            }
+                .scaleEffect(geometry.size.width * 0.00356)
+                .offset(y: geometry.size.height * 0.026)
             }
         }
     }
