@@ -14,11 +14,18 @@ class SoundManager {
     static let instance = SoundManager()
     var player: AVAudioPlayer?
     
-    func playSound() {
-        guard let url = Bundle.main.url(forResource: "RaychelSong", withExtension: ".mpeg") else {return}
+    enum soundOption:String {
+        case homeSong
+        case happySong
+        case endingSong
+    }
+    
+    func playSound(sound: soundOption) {
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: ".mp3") else {return}
         
         do {
         player = try AVAudioPlayer(contentsOf: url)
+            try AVAudioSession.sharedInstance().setCategory(.playback)
             player?.numberOfLoops =  -1
             player?.play()
         } catch let error {

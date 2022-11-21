@@ -184,6 +184,7 @@ struct Prologue_Collection: View {
             
             if scene == 6 || scene == 7 {
                 Prologue_Clock(mainOnTap: $mainOnTap)
+//                    .frame(width: 330, height: 349.6)
                     .onAppear{
                         scene2_offset_x = 400
                         DispatchQueue.main.asyncAfter(deadline: .now()) {

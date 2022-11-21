@@ -31,6 +31,7 @@ struct Prologue_Room_Mad: View {
     //Scene4
     @State var raychel_normal_opac = 0.0
     @State var raychel_papers_opac = 1.0
+    @State var raychel_laptop_opac = 0.0
     
     var body: some View {
         GeometryReader{geometry in
@@ -51,29 +52,31 @@ struct Prologue_Room_Mad: View {
                     //Scene2
                     if scene == 2 || scene == 3 || scene == 4{
                         ZStack{
-                            Image("Prologue_Room_Table")
-                                .resizable()
-                                .scaledToFit()
-                            Image("Prologue_Room_Paper_Multiple")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(raychel_papers_opac)
-                            Image("Prologue_Room_NYFW_Book")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(nyfw_paper_opac)
-                            Image("Prologue_Room_Raychel_Mad")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(raychel_papers_opac)
-                            Image("Prologue_Room_Normal")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(raychel_normal_opac)
-                            Image("Prologue_Room_Laptop")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(raychel_normal_opac)
+                            Group{
+                                Image("Prologue_Room_Table")
+                                    .resizable()
+                                    .scaledToFit()
+                                Image("Prologue_Room_Paper_Multiple")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(raychel_papers_opac)
+                                Image("Prologue_Room_NYFW_Book")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(nyfw_paper_opac)
+                                Image("Prologue_Room_Raychel_Mad")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(raychel_papers_opac)
+                                Image("Prologue_Room_Normal")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(raychel_normal_opac)
+                                Image("Prologue_Room_Laptop")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(raychel_normal_opac)
+                            }
                             Image("Prologue_Room_Pen")
                                 .resizable()
                                 .scaledToFit()
@@ -98,7 +101,10 @@ struct Prologue_Room_Mad: View {
                             }
                             
                             if scene == 4{
-                                
+                                if onTap == true {
+                                    onTap = false
+                                    prologue_room_scene4_out()
+                                }
                             }
                         }
                     }
@@ -132,9 +138,6 @@ struct Prologue_Room_Mad: View {
                                 .scaleEffect(nyfw_scale)
                                 .offset(x: nyfw_x, y: nyfw_y)
                                 .opacity(nyfw_opacity)
-                            Image("Night")
-                                .scaledToFit()
-                                .opacity(0.0)
                         }
                         .onAppear{
                             prologue_room_scene3_in()
@@ -212,6 +215,25 @@ struct Prologue_Room_Mad: View {
                 nyfw_scale -= 0.45
                 nyfw_y += 95
                 nyfw_blur -= 5.0
+            }
+        }
+    }
+    
+    func prologue_room_scene4_out(){
+        raychel_normal_opac = 1.0
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            withAnimation(.easeInOut(duration: 1.0)) {
+                raychel_papers_opac += 1.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+                nyfw_scale += 0.45
+                nyfw_y -= 95
+                nyfw_blur += 5.0
+                raychel_normal_opac += 1.0
             }
         }
     }
