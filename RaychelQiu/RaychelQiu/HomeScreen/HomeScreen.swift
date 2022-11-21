@@ -94,6 +94,8 @@ struct HomeScreen: View {
                         .position(self.playPosition)
 
                     
+                }.onAppear{
+                    SoundManager.instance.playSound()
                 }
             }.statusBarHidden(true)
         }

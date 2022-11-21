@@ -114,35 +114,9 @@ struct ChapterView: View {
                 
                 //Play Button
                 NavigationLink {
-                    if chapterState == 0 {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
-                    }
-                    if chapterState == 1 {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
-                    }
-                    if chapterState == 2 {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
-                    }
-                    if chapterState == 3 {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
-                    }
-                    if chapterState == 4 {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
-                    }
-                    if chapterState == 5 {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
+                    withAnimation(.default){
+                        Prologue_Collection()
+                            .navigationBarBackButtonHidden(true)
                     }
                 } label: {
                     Image("PlayButton")

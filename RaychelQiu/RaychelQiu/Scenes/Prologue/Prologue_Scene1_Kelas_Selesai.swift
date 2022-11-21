@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Prologue_Scene1_Kelas_Selesai: View {
     
-    @State var scene = 3
+    @State var scene = 1
     @State var onTap = false
     @Binding var mainOnTap: Bool
     

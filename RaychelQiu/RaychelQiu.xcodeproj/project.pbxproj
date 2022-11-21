@@ -50,6 +50,8 @@
 		B3EE5E482927604F00CB5163 /* ChapterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE5E472927604F00CB5163 /* ChapterView.swift */; };
 		B3EE5E4B2927608900CB5163 /* Hansip.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3EE5E4A2927608900CB5163 /* Hansip.ttf */; };
 		B3EE5E4F2927626300CB5163 /* Game7_Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE5E4E2927626300CB5163 /* Game7_Shopping.swift */; };
+		B3EE5E52292B524800CB5163 /* RaychelSong.mpeg in Resources */ = {isa = PBXBuildFile; fileRef = B3EE5E51292B524800CB5163 /* RaychelSong.mpeg */; };
+		B3EE5E54292B527E00CB5163 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE5E53292B527E00CB5163 /* SongManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		B3EE5E4A2927608900CB5163 /* Hansip.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Hansip.ttf; sourceTree = "<group>"; };
 		B3EE5E4C2927613E00CB5163 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		B3EE5E4E2927626300CB5163 /* Game7_Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game7_Shopping.swift; sourceTree = "<group>"; };
+		B3EE5E51292B524800CB5163 /* RaychelSong.mpeg */ = {isa = PBXFileReference; lastKnownFileType = video.mpeg; path = RaychelSong.mpeg; sourceTree = "<group>"; };
+		B3EE5E53292B527E00CB5163 /* SongManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,7 @@
 		B32BB5AE29012E4900B812CF /* RaychelQiu */ = {
 			isa = PBXGroup;
 			children = (
+				B3EE5E50292B521C00CB5163 /* CustomSong */,
 				B3EE5E4C2927613E00CB5163 /* Info.plist */,
 				B3EE5E492927607800CB5163 /* CustomFont */,
 				B3EE5E442927602900CB5163 /* HomeScreen */,
@@ -341,6 +346,15 @@
 			path = Game7;
 			sourceTree = "<group>";
 		};
+		B3EE5E50292B521C00CB5163 /* CustomSong */ = {
+			isa = PBXGroup;
+			children = (
+				B3EE5E51292B524800CB5163 /* RaychelSong.mpeg */,
+				B3EE5E53292B527E00CB5163 /* SongManager.swift */,
+			);
+			path = CustomSong;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -447,6 +461,7 @@
 			files = (
 				B32BB5B729012E4A00B812CF /* Preview Assets.xcassets in Resources */,
 				B32BB5B429012E4A00B812CF /* Assets.xcassets in Resources */,
+				B3EE5E52292B524800CB5163 /* RaychelSong.mpeg in Resources */,
 				B3EE5E4B2927608900CB5163 /* Hansip.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +509,7 @@
 				B3EE5E482927604F00CB5163 /* ChapterView.swift in Sources */,
 				B3EE5E3F29275FDE00CB5163 /* MiniGame2_MomBubbleChat.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
+				B3EE5E54292B527E00CB5163 /* SongManager.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
 				70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,

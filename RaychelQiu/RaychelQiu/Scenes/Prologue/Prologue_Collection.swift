@@ -35,6 +35,9 @@ struct Prologue_Collection: View {
     
     var body: some View {
         GeometryReader{ geometry in
+            Image("StoryBG")
+                .resizable()
+                .ignoresSafeArea(.all)
             if scene == 1 || scene == 2 {
                 Prologue_Scene1_Kelas_Selesai(mainOnTap: $mainOnTap, raychel_stand_x: $raychel_stand_x, scene1_Prologue_Final: $scene1_Prologue_Final, moveableBook: $moveableBook)
                     .onTapGesture{
