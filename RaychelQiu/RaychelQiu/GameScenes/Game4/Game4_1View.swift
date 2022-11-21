@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+//struct TestView: View {
+//    var body: some View {
+//        GeometryReader { geometry in
+//            ZStack {
+//                Game4_1View()
+//                    .frame(width: 400, height: 800)
+//            }
+//            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+//            .scaleEffect(geometry.size.height * 0.0013)
+//        }
+//    }
+//}
+
 struct Game4_1View: View {
     @StateObject var viewmodel = Game4ViewModel()
     @State var position = CGPoint()
