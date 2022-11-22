@@ -19,6 +19,7 @@
 		018095B72922462C004288EB /* Chapter1_Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B62922462C004288EB /* Chapter1_Sketch.swift */; };
 		018095B92922483C004288EB /* Chapter1_Mom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B82922483C004288EB /* Chapter1_Mom.swift */; };
 		01976BFE292B93AB0073F9FA /* Chapter3_Bed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01976BFD292B93AA0073F9FA /* Chapter3_Bed.swift */; };
+		01976C00292CC6760073F9FA /* Chapter3_Phone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01976BFF292CC6760073F9FA /* Chapter3_Phone.swift */; };
 		01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384A29013F1B00092EEC /* Scene_Testing.swift */; };
 		01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3384C290142E400092EEC /* SwiftUIView.swift */; };
 		01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */; };
@@ -79,6 +80,7 @@
 		018095B62922462C004288EB /* Chapter1_Sketch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Sketch.swift; sourceTree = "<group>"; };
 		018095B82922483C004288EB /* Chapter1_Mom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Mom.swift; sourceTree = "<group>"; };
 		01976BFD292B93AA0073F9FA /* Chapter3_Bed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_Bed.swift; sourceTree = "<group>"; };
+		01976BFF292CC6760073F9FA /* Chapter3_Phone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_Phone.swift; sourceTree = "<group>"; };
 		01A3384A29013F1B00092EEC /* Scene_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene_Testing.swift; sourceTree = "<group>"; };
 		01A3384C290142E400092EEC /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		01A59F3F2913A2B5001CBB83 /* Prologue_Dinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				012572C4292631EE00BF484F /* Chapter3_Lift.swift */,
 				012572C62926355E00BF484F /* Chapter3_FrontDoor.swift */,
 				01976BFD292B93AA0073F9FA /* Chapter3_Bed.swift */,
+				01976BFF292CC6760073F9FA /* Chapter3_Phone.swift */,
 			);
 			path = "Chapter 3";
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,
 				70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */,
 				702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */,
+				01976C00292CC6760073F9FA /* Chapter3_Phone.swift in Sources */,
 				01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */,
 				018095B92922483C004288EB /* Chapter1_Mom.swift in Sources */,
 				B3DBB85C2911002800A29E45 /* Minigame1_BackpackSchool.swift in Sources */,
