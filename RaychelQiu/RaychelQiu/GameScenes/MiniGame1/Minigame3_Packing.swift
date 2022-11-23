@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Minigame3_Packing: View {
-    
     @State var positionPackingBox = CGPoint(x: 198, y: 635)
     @State var positionBorder = CGPoint(x: 198, y: 275)
     @State var positionSuitCase = CGPoint(x: 193, y: 400)
@@ -18,11 +17,11 @@ struct Minigame3_Packing: View {
     @State var positionMakeUp = CGPoint(x: 302, y: 675.6)
     @State var positionCamera = CGPoint(x: 220.6, y: 679.3)
     
-    @State var moveableClothes:Bool = false
-    @State var moveableSketchBook:Bool = false
-    @State var moveablePencilCase:Bool = false
-    @State var moveableMakeUp:Bool = false
-    @State var moveableCamera:Bool = false
+    @Binding var moveableClothes: Bool
+    @Binding var moveableSketchBook: Bool
+    @Binding var moveablePencilCase: Bool
+    @Binding var moveableMakeUp: Bool
+    @Binding var moveableCamera: Bool
     
     var body: some View {
         
@@ -151,13 +150,15 @@ struct Minigame3_Packing: View {
                 Image("Border")
                     .resizable()
                     .frame(width: 330, height: 449.6)
-                    .position(self.positionBorder)
+//                    .position(self.positionBorder)
+                    .offset(y: -114)
                 
             //image ntar diganti packingbox
                 Image("HeartBox")
                     .resizable()
                     .frame(width: 330, height: 224)
-                    .position(self.positionPackingBox)
+//                    .position(self.positionPackingBox)
+                    .offset(y: 250)
                 
                 Image("SuitCase")
                     .resizable()
@@ -201,12 +202,12 @@ struct Minigame3_Packing: View {
                     .gesture(makeUpDrag)
                     .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
             }
-        }.background(Color("CreamBG"))
+        }
     }
 }
 
 struct Minigame3_Packing_Previews: PreviewProvider {
     static var previews: some View {
-        Minigame3_Packing()
+        Minigame3_Packing(moveableClothes: .constant(false), moveableSketchBook: .constant(false), moveablePencilCase: .constant(false), moveableMakeUp: .constant(false), moveableCamera: .constant(false))
     }
 }
