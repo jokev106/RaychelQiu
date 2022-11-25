@@ -14,6 +14,8 @@
 		013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */; };
 		013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */; };
 		013EAE85290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */; };
+		0153CDD2292E03D3007072AD /* Chapter1_Bobok.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153CDD1292E03D3007072AD /* Chapter1_Bobok.swift */; };
+		0153CDD4292E16AC007072AD /* Chapter3_Outside.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0153CDD3292E16AC007072AD /* Chapter3_Outside.swift */; };
 		01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01776CB02907E3430010B9A6 /* SceneMultiple.swift */; };
 		018095B5291BB480004288EB /* Prologue_Room_Mad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B4291BB480004288EB /* Prologue_Room_Mad.swift */; };
 		018095B72922462C004288EB /* Chapter1_Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018095B62922462C004288EB /* Chapter1_Sketch.swift */; };
@@ -32,12 +34,12 @@
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
 		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
+		7028096D29111CF8009DFBD7 /* Game8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028096C29111CF8009DFBD7 /* Game8View.swift */; };
 		7038854529251B6F0069E3CB /* Chapter_Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7038854429251B6F0069E3CB /* Chapter_Bus.swift */; };
 		70A54C41292229E400450F12 /* Chapter2_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C40292229E400450F12 /* Chapter2_Collection.swift */; };
 		70A54C4529222F0D00450F12 /* Chapter2_Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */; };
 		70A54C4A292246EE00450F12 /* Chapter2_TM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C49292246EE00450F12 /* Chapter2_TM.swift */; };
 		70A54C5029224E3500450F12 /* Chapter2_Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4F29224E3500450F12 /* Chapter2_Home.swift */; };
-		7028096D29111CF8009DFBD7 /* Game8View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7028096C29111CF8009DFBD7 /* Game8View.swift */; };
 		70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */; };
 		70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE6291A318B00CD7687 /* Game5Model.swift */; };
 		70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F97460290D70D000ED63F8 /* Game4_1View.swift */; };
@@ -89,6 +91,8 @@
 		013EAE80290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Scene1_Kelas_Selesai.swift; sourceTree = "<group>"; };
 		013EAE82290BB9E4008572A7 /* Prologue_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Collection.swift; sourceTree = "<group>"; };
 		013EAE84290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Scene2_Transisi_Hari.swift; sourceTree = "<group>"; };
+		0153CDD1292E03D3007072AD /* Chapter1_Bobok.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Bobok.swift; sourceTree = "<group>"; };
+		0153CDD3292E16AC007072AD /* Chapter3_Outside.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_Outside.swift; sourceTree = "<group>"; };
 		01776CB02907E3430010B9A6 /* SceneMultiple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneMultiple.swift; sourceTree = "<group>"; };
 		018095B4291BB480004288EB /* Prologue_Room_Mad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Room_Mad.swift; sourceTree = "<group>"; };
 		018095B62922462C004288EB /* Chapter1_Sketch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Sketch.swift; sourceTree = "<group>"; };
@@ -107,12 +111,12 @@
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
 		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
+		7028096C29111CF8009DFBD7 /* Game8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game8View.swift; sourceTree = "<group>"; };
 		7038854429251B6F0069E3CB /* Chapter_Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter_Bus.swift; sourceTree = "<group>"; };
 		70A54C40292229E400450F12 /* Chapter2_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Collection.swift; sourceTree = "<group>"; };
 		70A54C4429222F0D00450F12 /* Chapter2_Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Calendar.swift; sourceTree = "<group>"; };
 		70A54C49292246EE00450F12 /* Chapter2_TM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_TM.swift; sourceTree = "<group>"; };
 		70A54C4F29224E3500450F12 /* Chapter2_Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Home.swift; sourceTree = "<group>"; };
-		7028096C29111CF8009DFBD7 /* Game8View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game8View.swift; sourceTree = "<group>"; };
 		70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5ViewModel.swift; sourceTree = "<group>"; };
 		70B0FEE6291A318B00CD7687 /* Game5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5Model.swift; sourceTree = "<group>"; };
 		70F97460290D70D000ED63F8 /* Game4_1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4_1View.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 				012572C62926355E00BF484F /* Chapter3_FrontDoor.swift */,
 				01976BFD292B93AA0073F9FA /* Chapter3_Bed.swift */,
 				01976BFF292CC6760073F9FA /* Chapter3_Phone.swift */,
+				0153CDD3292E16AC007072AD /* Chapter3_Outside.swift */,
 			);
 			path = "Chapter 3";
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				01E41ADC291A319F008A04AC /* Chapter1_Collection.swift */,
 				018095B62922462C004288EB /* Chapter1_Sketch.swift */,
 				018095B82922483C004288EB /* Chapter1_Mom.swift */,
+				0153CDD1292E03D3007072AD /* Chapter1_Bobok.swift */,
 			);
 			path = "Chapter 1";
 			sourceTree = "<group>";
@@ -236,6 +242,14 @@
 			path = Game2;
 			sourceTree = "<group>";
 		};
+		7028096B29111CEE009DFBD7 /* Game8 */ = {
+			isa = PBXGroup;
+			children = (
+				7028096C29111CF8009DFBD7 /* Game8View.swift */,
+			);
+			path = Game8;
+			sourceTree = "<group>";
+		};
 		70A54C3F292229C700450F12 /* Chapter2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,14 +260,6 @@
 				7038854429251B6F0069E3CB /* Chapter_Bus.swift */,
 			);
 			path = Chapter2;
-			sourceTree = "<group>";
-		};
-		7028096B29111CEE009DFBD7 /* Game8 */ = {
-			isa = PBXGroup;
-			children = (
-				7028096C29111CF8009DFBD7 /* Game8View.swift */,
-			);
-			path = Game8;
 			sourceTree = "<group>";
 		};
 		70B0FEE3291A315700CD7687 /* Game5 */ = {
@@ -556,6 +562,7 @@
 				01E41ADD291A319F008A04AC /* Chapter1_Collection.swift in Sources */,
 				01A59F422914E1DA001CBB83 /* Prologue_Room.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
+				0153CDD4292E16AC007072AD /* Chapter3_Outside.swift in Sources */,
 				B3EE5E4F2927626300CB5163 /* Game7_Shopping.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */,
@@ -580,7 +587,6 @@
 				702514BA29014A74002E4988 /* Game4Model.swift in Sources */,
 				01976BFE292B93AB0073F9FA /* Chapter3_Bed.swift in Sources */,
 				70A54C41292229E400450F12 /* Chapter2_Collection.swift in Sources */,
-				70F974672910DFD100ED63F8 /* Game5View.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				70F97461290D70D000ED63F8 /* Game4_1View.swift in Sources */,
@@ -592,6 +598,7 @@
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
 				70A54C4A292246EE00450F12 /* Chapter2_TM.swift in Sources */,
 				70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */,
+				0153CDD2292E03D3007072AD /* Chapter1_Bobok.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

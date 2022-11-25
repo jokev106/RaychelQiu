@@ -12,6 +12,7 @@ struct Chapter3_Lift: View {
     @Binding var mainOnTap: Bool
     @State var onTap = false
     @State var scene = 1
+    @Binding var scene2_lift_x: Double
     
     //Scene1
     @State var lift_left_x = -3.5
@@ -35,7 +36,7 @@ struct Chapter3_Lift: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width, height: geometry.size.height)
-                        .offset(y: -25)
+                        .offset(x:scene2_lift_x, y: -25)
                     
                     //Scene1
                     if scene == 1 || scene == 2 {
@@ -79,16 +80,11 @@ struct Chapter3_Lift: View {
                                 .offset(x: raychel_x, y: raychel_y)
                                
                         }
+                        .offset(x:scene2_lift_x)
                         .onAppear{
                             chapter3_lift_scene1_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-                                onTap = true
-                            }
-                        }
-                        .onTapGesture{
-                            if onTap == true{
-                                onTap = false
-                                scene += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 10.3) {
+                                mainOnTap = true
                             }
                         }
                     }
@@ -107,40 +103,46 @@ struct Chapter3_Lift: View {
     }
     
     func chapter3_lift_scene1_in(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+                scene2_lift_x += 70
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 raychel_opac += 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 raychel_x += 20
                 raychel_y -= 50
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 lift_left_x -= 50.0
                 lift_right_x += 50.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 raychel_x += 20
                 raychel_y -= 30
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 raychel_opac -= 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 lift_left_x += 50.0
                 lift_right_x -= 50.0
@@ -151,6 +153,6 @@ struct Chapter3_Lift: View {
 
 struct Chapter3_Lift_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter3_Lift(mainOnTap: .constant(false))
+        Chapter3_Lift(mainOnTap: .constant(false), scene2_lift_x: .constant(0.0))
     }
 }

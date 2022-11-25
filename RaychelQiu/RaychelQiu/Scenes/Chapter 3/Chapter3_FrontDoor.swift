@@ -11,7 +11,7 @@ struct Chapter3_FrontDoor: View {
     
     @Binding var mainOnTap: Bool
     @State var onTap = false
-    @State var scene = 2
+    @State var scene = 1
     
     //Scene1
     @State var scene1_x = -66.0
@@ -30,6 +30,9 @@ struct Chapter3_FrontDoor: View {
     @State var hand_y = 50.0
     @State var hand_rotation = 0.0
     
+    //Scene3
+    @Binding var scene3_x: Double
+    
     var body: some View {
         GeometryReader{geometry in
             ZStack{
@@ -41,11 +44,14 @@ struct Chapter3_FrontDoor: View {
                 
                 
                 ZStack{
-                    Image("Chapter3_Open_BG")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geometry.size.width, height: geometry.size.height)
-                        .offset(x: scene1_x2)
+                    Group{
+                        Image("Chapter3_Open_BG")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                            .offset(x: scene1_x2)
+                    }
+                    .offset(x: scene3_x)
                     
                     //Scene1
                     if scene == 3 || scene == 4 {
@@ -53,53 +59,71 @@ struct Chapter3_FrontDoor: View {
                             Image("Chapter3_Open_Door")
                                 .resizable()
                                 .scaledToFit()
-                                .offset(y: -3)
+                                .offset(x: scene3_x, y: -3)
                                 .scaleEffect(0.98)
                             Image("Chapter3_Open_Inside")
                                 .resizable()
                                 .scaledToFit()
-                                .offset(y: -3)
+                                .offset(x: scene3_x,y: -3)
                                 .scaleEffect(1)
                             Image("Chapter3_Open_Friend")
                                 .resizable()
                                 .scaledToFit()
-                                .offset(y: 1)
+                                .offset(x: scene3_x,y: 1)
                                 .mask{
                                     Image("Chapter3_Open_Inside")
                                         .resizable()
                                         .scaledToFit()
-                                        .offset(y: -3)
+                                        .offset(x: scene3_x,y: -3)
                                         .scaleEffect(1)
                                 }
                             Image("Chapter3_Open_DoorSide")
                                 .resizable()
                                 .scaledToFit()
-                                .offset(y: -3)
+                                .offset(x: scene3_x,y: -3)
                                 .scaleEffect(0.98)
                             Image("Chapter3_Open_DoorOpen")
                                 .resizable()
                                 .scaledToFit()
-                                .offset(y: -4)
+                                .offset(x: scene3_x,y: -4)
 //                                .scaleEffect(0.98)
-                               
+                            Group{
+                                Group{
+                                    Image("Chapter3_FrontDoor")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .scaleEffect(0.85)
+                                        .opacity(frontDoor_opac)
+                                }
+                                .offset(x: scene1_x,y: -8)
+                                Image("Chapter3_Open_Raychel")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .offset(x: scene1_raychel_x,y: scene1_raychel_y)
+                                    .scaleEffect(scene1_raychel_scale)
+                                    .opacity(scene1_raychel_opac)
+                                Image("Chapter3_FrontDoor_Bell")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .offset(x: scene1_x2, y: 1)
+                                Image("Chapter3_FrontDoor_Lamp")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .offset(x: scene1_x2, y: 1)
+                            }
+                            .offset(x: scene3_x)
                         }
                         .onAppear{
                             chapter3_frontDoor_scene3_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
-                                onTap = true
-                            }
-                        }
-                        .onTapGesture{
-                            if onTap == true{
-                                onTap = false
-                                scene += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.2) {
+                                mainOnTap = true
                             }
                         }
                     }
                     
                     
                     //Scene1
-                    if scene == 1 || scene == 2 || scene == 3{
+                    if scene == 1 || scene == 2{
                         ZStack{
                             Group{
                                 Image("Chapter3_FrontDoor")
@@ -258,6 +282,6 @@ struct Chapter3_FrontDoor: View {
 
 struct Chapter3_FrontDoor_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter3_FrontDoor(mainOnTap: .constant(false))
+        Chapter3_FrontDoor(mainOnTap: .constant(false), scene3_x: .constant(0.0))
     }
 }
