@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0114B50A290291EC00AA916E /* Scene2_Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114B509290291EC00AA916E /* Scene2_Testing.swift */; };
+		011CE83129349BF600C8DB27 /* Chapter1_Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CE83029349BF600C8DB27 /* Chapter1_Day.swift */; };
+		011CE8332934A29000C8DB27 /* Chapter3_Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CE8322934A29000C8DB27 /* Chapter3_Call.swift */; };
 		012572C32926220100BF484F /* Chapter3_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012572C22926220100BF484F /* Chapter3_Collection.swift */; };
 		012572C5292631EE00BF484F /* Chapter3_Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012572C4292631EE00BF484F /* Chapter3_Lift.swift */; };
 		012572C72926355E00BF484F /* Chapter3_FrontDoor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012572C62926355E00BF484F /* Chapter3_FrontDoor.swift */; };
@@ -85,6 +87,8 @@
 
 /* Begin PBXFileReference section */
 		0114B509290291EC00AA916E /* Scene2_Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2_Testing.swift; sourceTree = "<group>"; };
+		011CE83029349BF600C8DB27 /* Chapter1_Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter1_Day.swift; sourceTree = "<group>"; };
+		011CE8322934A29000C8DB27 /* Chapter3_Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_Call.swift; sourceTree = "<group>"; };
 		012572C22926220100BF484F /* Chapter3_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_Collection.swift; sourceTree = "<group>"; };
 		012572C4292631EE00BF484F /* Chapter3_Lift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_Lift.swift; sourceTree = "<group>"; };
 		012572C62926355E00BF484F /* Chapter3_FrontDoor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter3_FrontDoor.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				01976BFD292B93AA0073F9FA /* Chapter3_Bed.swift */,
 				01976BFF292CC6760073F9FA /* Chapter3_Phone.swift */,
 				0153CDD3292E16AC007072AD /* Chapter3_Outside.swift */,
+				011CE8322934A29000C8DB27 /* Chapter3_Call.swift */,
 			);
 			path = "Chapter 3";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 				018095B62922462C004288EB /* Chapter1_Sketch.swift */,
 				018095B82922483C004288EB /* Chapter1_Mom.swift */,
 				0153CDD1292E03D3007072AD /* Chapter1_Bobok.swift */,
+				011CE83029349BF600C8DB27 /* Chapter1_Day.swift */,
 			);
 			path = "Chapter 1";
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				01776CB12907E3430010B9A6 /* SceneMultiple.swift in Sources */,
 				01A3384B29013F1B00092EEC /* Scene_Testing.swift in Sources */,
 				018095B5291BB480004288EB /* Prologue_Room_Mad.swift in Sources */,
+				011CE8332934A29000C8DB27 /* Chapter3_Call.swift in Sources */,
 				B3EE5E412927600100CB5163 /* Minigame3_Packing.swift in Sources */,
 				01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */,
 				01F1903229091C4300426F03 /* SceneTabView.swift in Sources */,
@@ -570,6 +577,7 @@
 				B3EE5E462927603A00CB5163 /* HomeScreen.swift in Sources */,
 				B3EE5E482927604F00CB5163 /* ChapterView.swift in Sources */,
 				B3EE5E3F29275FDE00CB5163 /* MiniGame2_MomBubbleChat.swift in Sources */,
+				011CE83129349BF600C8DB27 /* Chapter1_Day.swift in Sources */,
 				013EAE83290BB9E4008572A7 /* Prologue_Collection.swift in Sources */,
 				B3EE5E54292B527E00CB5163 /* SongManager.swift in Sources */,
 				013EAE81290BB9D1008572A7 /* Prologue_Scene1_Kelas_Selesai.swift in Sources */,

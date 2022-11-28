@@ -28,12 +28,7 @@ struct Chapter3_Bed: View {
     @State var scene2_lines_scale = 0.1
     @State var scene2_lines_x = -56.0
     @State var scene2_lines_y = -137.0
-    
-    //Scene3
-    @State var scene3_opac = 0.0
-    @State var scene3_utensil_opac = 0.0
-    @State var scene3_phone_opac = 0.0
-    @State var scene3_tea_opac = 0.0
+    @Binding var scene_offset_x: Double
     
     var body: some View {
         GeometryReader{geometry in
@@ -125,11 +120,9 @@ struct Chapter3_Bed: View {
                                 .scaledToFit()
                                 .opacity(scene2_opac)
                                 .offset(x: scene2_vibration_x, y:scene2_vibration_y)
-                            Image("Chapter3_Alarm_Eyes")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(scene2_eye_opac)
+                            
                         }
+                        .offset(x:scene_offset_x)
                         .onAppear{
                             chapter3_sleep_scene2_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
@@ -147,37 +140,24 @@ struct Chapter3_Bed: View {
                     //Scene3
                     if scene == 3 || scene == 4 {
                         ZStack{
-                            Image("Chapter3_Call_BG")
+                            Image("Chapter3_Sleep_BG")
                                 .resizable()
                                 .scaledToFit()
-                                .opacity(scene3_opac)
-                            Image("Chapter3_Call_Phone")
+                                .opacity(0.0)
+                            Image("Chapter3_Alarm_Eyes")
                                 .resizable()
                                 .scaledToFit()
-                                .opacity(scene3_phone_opac)
-                            Image("Chapter3_Call_Tea")
-                                .resizable()
-                                .scaledToFit()
-                                .opacity(scene3_tea_opac)
-                            Image("Chapter3_Call_Utensils")
-                                .resizable()
-                                .scaledToFit()
-                                .offset(y: -5)
-                                .opacity(scene3_utensil_opac)
+                                .opacity(scene2_eye_opac)
+                                .offset(x: scene_offset_x)
                         }
                         .onAppear{
                             chapter3_sleep_scene3_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
-                                onTap = true
-                            }
-                        }
-                        .onTapGesture{
-                            if onTap == true{
-                                onTap = false
-                                scene += 1
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
+                                mainOnTap = true
                             }
                         }
                     }
+                    
                 }
                 .mask {
                     Image("Day")
@@ -247,35 +227,11 @@ struct Chapter3_Bed: View {
                 scene2_eye_opac += 1.0
             }
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            withAnimation(.easeInOut(duration: 1.0)) {
-                scene3_opac += 1.0
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-            withAnimation(.easeInOut(duration: 1.0)) {
-                scene3_utensil_opac += 1.0
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-            withAnimation(.easeInOut(duration: 1.0)) {
-                scene3_tea_opac += 1.0
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-            withAnimation(.easeInOut(duration: 1.0)) {
-                scene3_phone_opac += 1.0
-            }
-        }
     }
 }
 
 struct Chapter3_Bed_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter3_Bed(mainOnTap: .constant(false))
+        Chapter3_Bed(mainOnTap: .constant(false), scene_offset_x: .constant(0.0))
     }
 }

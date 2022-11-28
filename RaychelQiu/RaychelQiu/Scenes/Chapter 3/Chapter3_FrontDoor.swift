@@ -116,11 +116,27 @@ struct Chapter3_FrontDoor: View {
                         .onAppear{
                             chapter3_frontDoor_scene3_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4.2) {
-                                mainOnTap = true
+                                scene += 1
+//                                mainOnTap = true
                             }
+                        }
+                        .onTapGesture{
+                            
                         }
                     }
                     
+                    if scene == 4 || scene == 5 {
+                        ZStack{
+                            Image("Chapter3_FrontDoor_Lamp")
+                                .resizable()
+                                .scaledToFit()
+                                .offset(x: scene1_x2, y: 1)
+                        }
+                        .offset(x: scene3_x)
+                        .onAppear{
+                            mainOnTap = true
+                        }
+                    }
                     
                     //Scene1
                     if scene == 1 || scene == 2{

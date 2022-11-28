@@ -115,9 +115,10 @@ struct Chapter3_Collection: View {
                     .offset(x: scene1_offset_x)
             }
             
-            if scene == 4{
-                Chapter3_Bed(mainOnTap: $mainOnTap)
+            if scene == 4 || scene == 5{
+                Chapter3_Bed(mainOnTap: $mainOnTap, scene_offset_x: $scene2_lift_x)
                     .onAppear{
+                        scene2_lift_x = 0.0
                         scene2_offset_x = 400
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
                             withAnimation(.easeInOut(duration: 2)) {
@@ -132,24 +133,62 @@ struct Chapter3_Collection: View {
                     .offset(x: scene2_offset_x)
                     .onTapGesture {
                         withAnimation{
-//                            if mainOnTap == true{
-//                                mainOnTap = false
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                                    withAnimation(.easeInOut(duration: 2)) {
-//                                        scene2_offset_x -= 400
-//                                        scene2_lift_x += 70
-//                                    }
-//                                }
-//
-//                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//                                    scene += 1
-//                                }
-//                            }
+                            if mainOnTap == true{
+                                mainOnTap = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    withAnimation(.easeInOut(duration: 2)) {
+                                        scene2_offset_x -= 400
+                                        scene2_lift_x += 70
+                                    }
+                                }
+
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    scene += 1
+                                }
+                            }
                             
                         }
                     }
                 }
             
+            if scene == 5 || scene == 6{
+                Game4_2View(scene_main: $scene, scene_frame: $scene1_offset_x)
+                    .onAppear{
+                        scene1_offset_x = 400.0
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene1_offset_x -= 400
+                            }
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                            onTap = true
+                        }
+                    }
+                    .offset(x: scene1_offset_x)
+            }
+            
+            if scene == 6 || scene == 7{
+                Chapter3_Call(mainOnTap: $mainOnTap)
+                    .onAppear{
+                        scene2_offset_x = 400
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene2_offset_x -= 400
+                            }
+                        }
+                    }
+                    .offset(x: scene2_offset_x)
+                    .onTapGesture {
+                        withAnimation{
+                            if mainOnTap == true{
+                                mainOnTap = false
+                                
+                            }
+                            
+                        }
+                    }
+                }
         }
     }
 }

@@ -28,6 +28,8 @@ struct Game4_1View: View {
     @State var nextScene = false
     @Binding var mainOnTap: Bool
     @Binding var scene1_paralax_x: Double
+    @Binding var scene_main: Int
+    @Binding var scene_frame: Double
 
     var body: some View {
         GeometryReader { geometry in
@@ -75,16 +77,35 @@ struct Game4_1View: View {
                         .scaleEffect(geometry.size.height * 0.0009)
                         .offset(y: 230)
                 } else {
-                    Image(systemName: "chevron.right.circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 50)
-                        .foregroundColor(.black)
-                        .offset(x: 0, y: 250)
-                        .opacity(0.0)
-                        .onAppear{
-                            mainOnTap = true
+//                    Image(systemName: "chevron.right.circle")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(height: 50)
+//                        .foregroundColor(.black)
+//                        .offset(x: 0, y: 250)
+//                        .opacity(1.0)
+//                        .onAppear{
+//                            mainOnTap = true
+//                        }
+                    Button {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene_frame -= 400
+                            }
                         }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            scene_main += 1
+                        }
+                        
+                    } label: {
+                        Image(systemName: "chevron.right.circle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 50)
+                            .foregroundColor(.brown)
+                    }
+                    .offset(x: 0, y: 260)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -237,6 +258,6 @@ struct Game4_1: View {
 
 struct Game4_1View_Previews: PreviewProvider {
     static var previews: some View {
-        Game4_1View(mainOnTap: .constant(false), scene1_paralax_x: .constant(0.0))
+        Game4_1View(mainOnTap: .constant(false), scene1_paralax_x: .constant(0.0), scene_main: .constant(0), scene_frame: .constant(0.0))
     }
 }
