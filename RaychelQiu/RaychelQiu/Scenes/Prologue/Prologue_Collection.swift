@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Prologue_Collection: View {
     
+    
     @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
@@ -32,6 +33,9 @@ struct Prologue_Collection: View {
     
     //Scene5
     @State var friend_2_x = 0.0
+    
+    //To be continued
+//    @State var tobecontinued = CGPoint(x: 198, y: 400)
     
     var body: some View {
         GeometryReader{ geometry in

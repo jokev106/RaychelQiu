@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct Prologue_Room_Mad: View {
+    
+    @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
+    
     @Binding var mainOnTap: Bool
     @State var onTap = false
     @State var scene = 2
@@ -60,6 +63,11 @@ struct Prologue_Room_Mad: View {
 //
 //    @State var laptop_x = 0.0
     @State var laptop_y = 0.0
+    
+    //EndPrologue
+    @State var endPrologueOpac = 0.0
+    @State var sceneOpac = 1.0
+
     
     var body: some View {
         GeometryReader{geometry in
@@ -191,7 +199,7 @@ struct Prologue_Room_Mad: View {
                 }
                 .scaleEffect(geometry.size.width * 0.00324)
                 .offset(y: geometry.size.height * 0.011)
-            }
+            }.opacity(sceneOpac)
             ZStack{
                 Image("RaychelBorder")
                     .resizable()
@@ -376,7 +384,10 @@ struct Prologue_Room_Mad: View {
                     if isDoneRegis == true {
                         Button {
                             // To be Continued
-                            
+                            prologue_game()
+                            scene += 1
+//                            presentationMode.wrappedValue.dismiss()
+//                            print("\(mainOnTap)")
                         } label: {
                             Text("Done")
                                 .font(Font.custom("Hansip", size: 12))
@@ -386,7 +397,32 @@ struct Prologue_Room_Mad: View {
 
                     }
                 }
+                
             }.offset(y: laptop_y)
+                .opacity(sceneOpac)
+            ZStack{
+                if scene == 5 {
+                    Text("To Be Continued....")
+                        .position(x: 198, y: 400)
+                        .font(Font.custom("Hansip", size: 25))
+                        .foregroundColor(.black)
+                        .opacity(endPrologueOpac)
+                    Button {
+                        // To be Continued
+    //                    mainOnTap = true
+                                presentationMode.wrappedValue.dismiss()
+    //                            print("\(mainOnTap)")
+                    } label: {
+                        Text("Back")
+                            .font(Font.custom("Hansip", size: 25))
+//                            .foregroundColor(.yellow)
+                            .foregroundColor(Color("buttonColor"))
+                    }.frame(width: 200,height: 150)
+                        .position(x: 198, y: 500)
+                        .opacity(endPrologueOpac)
+                    
+                }
+            }
             
             
         }
@@ -458,6 +494,20 @@ struct Prologue_Room_Mad: View {
                 raychel_normal_opac = 1.0
                 laptop_y = 0.0
 //                homeOpac += 1.0
+            }
+        }
+    }
+    func prologue_game(){
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 1.0)) {
+//                sceneOpac = 0.0
+                endPrologueOpac = 1.0
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 0.5)) {
+                sceneOpac = 0.0
+//                endPrologueOpac = 1.0
             }
         }
     }
