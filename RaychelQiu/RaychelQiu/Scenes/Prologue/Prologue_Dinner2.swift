@@ -45,9 +45,6 @@ struct Prologue_Dinner2: View {
         
         GeometryReader{ geometry in
             ZStack{
-                Image("StoryBG")
-                    .resizable()
-                    .ignoresSafeArea(.all)
                 Image("Border")
                     .resizable()
 //                    .scaledToFit()
