@@ -639,8 +639,8 @@ struct Prologue_Dinner: View {
     }
     
     func prologue_dinner_gamescene_in(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            withAnimation(.easeOut(duration: 1.5)) {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeOut(duration: 3)) {
                 animSceneOpac -= 1
                 gameSceneOpac += 1
             }

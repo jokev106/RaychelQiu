@@ -48,7 +48,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var positionPencil = CGPoint(x: 180, y: 633)
     @State var positionBootle = CGPoint(x: 95, y: 633)
     @State var positionBag = CGPoint(x:295, y: 400)
-    @State var positionPlayBox = CGPoint(x: 198, y: 635)
+    @State var positionPlayBox = CGPoint(x: 196, y: 635)
 
     @Binding var moveableBook: Bool
     @State var moveablePencil: Bool = true
@@ -136,9 +136,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         
         GeometryReader{ geometry in
             ZStack{
-                Image("StoryBG")
-                    .resizable()
-                    .ignoresSafeArea(.all)
                 Image("Border")
                     .resizable()
 //                    .scaledToFit()
@@ -297,7 +294,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         .position(self.positionPlayBox)
                     Image("DInnerBG")
                         .resizable()
-                        .frame(width: 322, height: 219)
+                        .frame(width: 324, height: 219)
                         .position(self.positionPlayBox)
                     
     //                    ZStack{

@@ -113,29 +113,82 @@ struct ChapterView: View {
                 }
                 
                 //Play Button
-                NavigationLink {
-                    withAnimation(.default){
-                        Prologue_Collection()
-                            .navigationBarBackButtonHidden(true)
+                ZStack{
+                    if chapterState == 0 {
+                        NavigationLink {
+                            withAnimation(.default){
+                                Prologue_Collection()
+                                    .navigationBarBackButtonHidden(true)
+                            }
+                        } label: {
+                            Image("PlayButton")
+                                .resizable()
+                        }.frame(width: 95, height: 95)
+                        .scaledToFit()
+                        .position(self.playButtonPosition)
+                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+                        Text("Play")
+                            .font(Font.custom("Hansip", size: 20))
+                            .multilineTextAlignment(.center)
+                            .position(self.playPosition)
                     }
-                } label: {
-                    Image("PlayButton")
-                        .resizable()
-                }.frame(width: 95, height: 95)
-                .scaledToFit()
-                .position(self.playButtonPosition)
-                .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                Text("Play")
-                    .font(Font.custom("Hansip", size: 20))
-                    .multilineTextAlignment(.center)
-                    .position(self.playPosition)
+                    
+//                    if chapterState == 1 {
+//                        NavigationLink {
+//                            withAnimation(.default){
+//                                Chapter1_Collection()
+//                                    .navigationBarBackButtonHidden(true)
+//                            }
+//                        } label: {
+//                            Image("PlayButton")
+//                                .resizable()
+//                        }.frame(width: 95, height: 95)
+//                        .scaledToFit()
+//                        .position(self.playButtonPosition)
+//                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                        Text("Play")
+//                            .font(Font.custom("Hansip", size: 20))
+//                            .multilineTextAlignment(.center)
+//                            .position(self.playPosition)
+//                    }
+//                    if chapterState == 2 {
+//                        NavigationLink {
+//                            withAnimation(.default){
+//                                Chapter1_Collection()
+//                                    .navigationBarBackButtonHidden(true)
+//                            }
+//                        } label: {
+//                            Image("PlayButton")
+//                                .resizable()
+//                        }.frame(width: 95, height: 95)
+//                        .scaledToFit()
+//                        .position(self.playButtonPosition)
+//                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                        Text("Play")
+//                            .font(Font.custom("Hansip", size: 20))
+//                            .multilineTextAlignment(.center)
+//                            .position(self.playPosition)
+//                    }
+                    
+                    if chapterState == 3 || chapterState == 4 || chapterState == 5 || chapterState == 2 || chapterState == 1 {
+                        Text("Cooming Soon")
+                        .multilineTextAlignment(.center)
+                        .font(Font.custom("Hansip", size: 22))
+                        .foregroundColor(.black)
+                        .position(self.playButtonPosition)
+                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+                    }
+                }
 
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
+                        withAnimation(.easeInOut(duration: 1))
+                        {
+                            presentationMode.wrappedValue.dismiss()
+                        }
                     } label: {
                         Text("<")
                             .font(Font.custom("Hansip", size: 80))

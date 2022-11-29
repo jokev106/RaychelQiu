@@ -9,7 +9,8 @@ import SwiftUI
 
 struct Prologue_Collection: View {
     
-    @State var scene = 7
+    
+    @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
     @State var moveableBook = false
@@ -32,6 +33,9 @@ struct Prologue_Collection: View {
     
     //Scene5
     @State var friend_2_x = 0.0
+    
+    //To be continued
+//    @State var tobecontinued = CGPoint(x: 198, y: 400)
     
     var body: some View {
         GeometryReader{ geometry in
@@ -184,6 +188,7 @@ struct Prologue_Collection: View {
             
             if scene == 6 || scene == 7 {
                 Prologue_Clock(mainOnTap: $mainOnTap)
+//                    .frame(width: 330, height: 349.6)
                     .onAppear{
                         scene2_offset_x = 400
                         DispatchQueue.main.asyncAfter(deadline: .now()) {
