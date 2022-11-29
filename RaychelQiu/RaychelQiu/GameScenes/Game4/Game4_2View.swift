@@ -14,6 +14,8 @@ struct Game4_2View: View {
     @State var animate = false
     @State var finalSketch = false
     @State var nextScene = false
+    @Binding var scene_main: Int
+    @Binding var scene_frame: Double
 
     var body: some View {
         GeometryReader { geometry in
@@ -57,12 +59,22 @@ struct Game4_2View: View {
                         }
 
                 } else {
-                    Button {} label: {
+                    Button {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            withAnimation(.easeInOut(duration: 2)) {
+                                scene_frame -= 400
+                            }
+                        }
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            scene_main += 1
+                        }
+                    } label: {
                         Image(systemName: "chevron.right.circle")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 50)
-                            .foregroundColor(.black)
+                            .foregroundColor(.brown)
                     }
                     .offset(x: 0, y: 250)
                 }
@@ -215,6 +227,6 @@ struct Game4_2: View {
 
 struct Game4View_Previews: PreviewProvider {
     static var previews: some View {
-        Game4_2View()
+        Game4_2View(scene_main: .constant(0), scene_frame: .constant(0.0))
     }
 }

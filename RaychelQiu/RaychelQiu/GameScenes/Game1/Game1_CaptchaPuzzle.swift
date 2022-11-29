@@ -22,7 +22,8 @@ struct Game1_CaptchaPuzzle: View {
     @State var moveableBook: Bool = false
     @State var book: Bool = false
     
-
+    @Binding var scene_main: Int
+    @Binding var scene_frame: Double
     
     
     
@@ -106,19 +107,44 @@ struct Game1_CaptchaPuzzle: View {
                                 }
                                 .position(self.positionWinterJacket3)
                         }
-                        Group{
+//                        Group{
+//                            Image(systemName: "chevron.right.circle")
+//                                .resizable()
+//                                .foregroundColor(Color("PurplePastel"))
+//                                .frame(width: 70, height: 70)
+//                                .onTapGesture {
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                                        withAnimation(.easeInOut(duration: 2)) {
+//                                            scene_frame -= 400
+//                                        }
+//                                    }
+//
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+//                                        scene_main += 1
+//                                    }
+//                                }
+//                                .position(self.positionChevronButton)
+////                                .gesture(dragBook)
+//                        }.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.8)))
+                        Button {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                withAnimation(.easeInOut(duration: 2)) {
+                                    scene_frame -= 400
+                                }
+                            }
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                scene_main += 1
+                            }
+                            
+                        } label: {
                             Image(systemName: "chevron.right.circle")
                                 .resizable()
-                                .foregroundColor(Color("PurplePastel"))
-                                .frame(width: 70, height: 70)
-                                .onTapGesture {
-                                    withAnimation(.default) {
-                                        
-                                    }
-                                }
-                                .position(self.positionChevronButton)
-//                                .gesture(dragBook)
-                        }.transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.8)))
+                                .scaledToFit()
+                                .frame(height: 50)
+                                .foregroundColor(.brown)
+                        }
+                        .offset(x: 0, y: 340)
                     }
                     
                 }
@@ -129,6 +155,6 @@ struct Game1_CaptchaPuzzle: View {
 
 struct Game1_CaptchaPuzzle_Previews: PreviewProvider {
     static var previews: some View {
-        Game1_CaptchaPuzzle()
+        Game1_CaptchaPuzzle(scene_main: .constant(0), scene_frame: .constant(0.0))
     }
 }
