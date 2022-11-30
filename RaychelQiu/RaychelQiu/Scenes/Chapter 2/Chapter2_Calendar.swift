@@ -71,7 +71,7 @@ struct Chapter2_Calendar: View {
                         }
                         .onAppear {
                             chapter2_calendar_scene1_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
                                 onTap = true
                             }
                         }
@@ -134,55 +134,55 @@ struct Chapter2_Calendar: View {
     }
 
     func chapter2_calendar_scene1_in() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeOut(duration: 2)) {
                 group_1_y = 0.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[0] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[1] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[2] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[3] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[4] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[5] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[6] = 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) {
             loopAnimation()
         }
     }

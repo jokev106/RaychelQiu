@@ -9,11 +9,11 @@ import SwiftUI
 
 struct Prologue_Collection: View {
     
-    
     @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
     @State var moveableBook = false
+    @State var transition = 1.0
     
     //Scene1
     @State var scene1_Prologue_Final = false
@@ -44,6 +44,13 @@ struct Prologue_Collection: View {
                 .ignoresSafeArea(.all)
             if scene == 1 || scene == 2 {
                 Prologue_Scene1_Kelas_Selesai(mainOnTap: $mainOnTap, raychel_stand_x: $raychel_stand_x, scene1_Prologue_Final: $scene1_Prologue_Final, moveableBook: $moveableBook)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeIn(duration: 2)) {
+                                transition = 0.0
+                            }
+                        }
+                    }
                     .onTapGesture{
                         if mainOnTap == true && self.moveableBook == true{
                             mainOnTap = false
@@ -66,6 +73,13 @@ struct Prologue_Collection: View {
                         
                     }
                     .offset(x: scene1_offset_x)
+                
+                Rectangle()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea(.all)
+                    .foregroundColor(.white)
+                    .opacity(transition)
+                
             }
             
             if scene == 2 || scene == 3 {
@@ -271,11 +285,13 @@ struct Prologue_Collection: View {
                                     scene += 1
                                 }
                             }
-                            
                         }
+                        
+                        CoreDataManager.instance.editChapter(chapter: 1)
                     }
             }
         }
+        .background(.white)
     }
 }
 

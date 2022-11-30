@@ -11,6 +11,7 @@ struct Chapter2_Collection: View {
     @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
+    @State var transition = 1.0
     
     //Scene1
     @State var scene_1_offset_x = 0.0
@@ -60,6 +61,14 @@ struct Chapter2_Collection: View {
                 
                 if scene == 1 || scene == 2 {
                     Chapter2_Calendar(mainOnTap: $mainOnTap)
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now()) {
+                                withAnimation(.easeIn(duration: 2)) {
+                                    transition = 0.0
+                                }
+                            }
+                        }
+                        .offset(x: scene_1_offset_x)
                         .onTapGesture{
                             if mainOnTap == true {
                                 mainOnTap = false
@@ -73,7 +82,6 @@ struct Chapter2_Collection: View {
                             }
                             
                         }
-                        .offset(x: scene_1_offset_x)
                 }
                 
                 if scene == 2 || scene == 3 {

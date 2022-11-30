@@ -12,6 +12,7 @@ struct Chapter1_Collection: View {
     @State var scene = 0
     @State var onTap = false
     @State var mainOnTap = false
+    @State var transition = 1.0
     
     //Scene0
     @State var moon_x = 0.0
@@ -44,6 +45,13 @@ struct Chapter1_Collection: View {
             
             if scene == 0 || scene == 1 {
                 Chapter1_Day(mainOnTap: $mainOnTap, moon_x: $moon_x, night_x: $night_x)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
+                            withAnimation(.easeIn(duration: 1.9)) {
+                                transition = 0.0
+                            }
+                        }
+                    }
                     .offset(x: scene2_offset_x)
                     .onTapGesture {
                         withAnimation{
@@ -236,7 +244,7 @@ struct Chapter1_Collection: View {
 //                                }
 //                            }
 //                        }
-
+                        CoreDataManager.instance.editChapter(chapter: 2)
                     }
                     .offset(x: scene1_offset_x)
             }
