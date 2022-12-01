@@ -141,6 +141,14 @@ struct Game2View: View {
                 .scaleEffect(0.72)
                 .offset(x: 0, y: 10)
                 
+                Image("Chapter1Finger")
+                    .resizable()
+                    .scaledToFit()
+//                    .frame(width: 660, height: 800)
+                    .background(Color.red)
+//                    .position(self.positionPhone)
+//                    .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+
                 if count >= 3 {
                     Button {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
