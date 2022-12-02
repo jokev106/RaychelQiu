@@ -174,7 +174,7 @@ struct ChapterView: View {
                                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
                                     
                                 } else {
-                                    Text("Cooming Soon")
+                                    Text("Coming Soon")
                                         .multilineTextAlignment(.center)
                                         .font(Font.custom("Hansip", size: 22))
                                         .foregroundColor(.black)
