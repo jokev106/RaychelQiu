@@ -25,7 +25,7 @@ class CoreDataManager {
         let context = container.viewContext
 
         for index in 0 ..< 6 {
-            if index == 0 || index == 1{
+            if index == 0 {
                 let newItem = SaveChapter(context: context)
                 newItem.chapter = Int16(index)
                 newItem.status = "playable"
