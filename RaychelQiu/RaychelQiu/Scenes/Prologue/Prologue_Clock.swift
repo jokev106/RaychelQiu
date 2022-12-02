@@ -95,9 +95,21 @@ struct Prologue_Clock: View {
             }
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            withAnimation(.easeOut(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .ticking_5)
+            }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.25) {
             withAnimation(.linear(duration: 1).speed(3.0)) {
                 short_2_rotation += 3.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            withAnimation(.linear(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .alarm)
             }
         }
         

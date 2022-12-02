@@ -254,6 +254,7 @@ struct Prologue_Room_Mad: View {
                         if isHome == true {
                             isHome = false
                             isRegis = true
+                            SFXManager2.instance.playSFX(sound: .click1)
                             DispatchQueue.main.asyncAfter(deadline: .now()) {
                                 withAnimation(.easeInOut(duration: 1.0)) {
                                     homeOpac -= 1.0
@@ -273,6 +274,7 @@ struct Prologue_Room_Mad: View {
                         if isHome == true {
                             isHome = false
                             isInfo = true
+                            SFXManager2.instance.playSFX(sound: .click1)
                             DispatchQueue.main.asyncAfter(deadline: .now()) {
                                 withAnimation(.easeInOut(duration: 1.0)) {
                                     homeOpac -= 1.0
@@ -292,6 +294,7 @@ struct Prologue_Room_Mad: View {
                         if isHome == true {
                             isHome = false
                             isTimeline = true
+                            SFXManager2.instance.playSFX(sound: .click1)
                             DispatchQueue.main.asyncAfter(deadline: .now()) {
                                 withAnimation(.easeInOut(duration: 1.0)) {
                                     homeOpac -= 1.0
@@ -315,6 +318,7 @@ struct Prologue_Room_Mad: View {
                             if isRegis == true {
                                 isHome = true
                                 isRegis = false
+                                SFXManager.instance.playSFX(sound: .click1)
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                                     withAnimation(.easeInOut(duration: 1.0)) {
                                         homeOpac += 1.0
@@ -327,6 +331,7 @@ struct Prologue_Room_Mad: View {
                             if isInfo == true {
                                 isHome = true
                                 isInfo = false
+                                SFXManager.instance.playSFX(sound: .click1)
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                                     withAnimation(.easeInOut(duration: 1.0)) {
                                         homeOpac += 1.0
@@ -339,6 +344,7 @@ struct Prologue_Room_Mad: View {
                             if isTimeline == true {
                                 isHome = true
                                 isTimeline = false
+                                SFXManager.instance.playSFX(sound: .click1)
                                 DispatchQueue.main.asyncAfter(deadline: .now()) {
                                     withAnimation(.easeInOut(duration: 1.0)) {
                                         homeOpac += 1.0
@@ -346,7 +352,6 @@ struct Prologue_Room_Mad: View {
                                     }
                                 }
                             }
-                            
                         } label: {
                             Text("Back")
                                 .font(Font.custom("Hansip", size: 12))
@@ -366,6 +371,7 @@ struct Prologue_Room_Mad: View {
                                         doneRegisOpac += 1.0
                                     }
                                 }
+                                SFXManager2.instance.playSFX(sound: .click1)
                             }
                         } label: {
                             Text("RegisNow")
@@ -381,6 +387,7 @@ struct Prologue_Room_Mad: View {
 //                            scene += 1
 //                            presentationMode.wrappedValue.dismiss()
 //                            print("\(mainOnTap)")
+                            SFXManager.instance.playSFX(sound: .click1)
                             mainOnTap = true
                         } label: {
                             Text("Done")
@@ -400,6 +407,12 @@ struct Prologue_Room_Mad: View {
             withAnimation(.easeIn(duration: 2.0)) {
                 door_y += 250
                 door_scale += 1.5
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            withAnimation(.easeIn(duration: 2.0)) {
+                SFXManager.instance.playSFX(sound: .doorOpen)
             }
         }
         
