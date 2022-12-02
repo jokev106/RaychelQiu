@@ -258,7 +258,7 @@ struct Prologue_Dinner: View {
 //                    .scaleEffect(0.92)
 //                    .offset(y: -geometry.size.height * 0.151)
                     .frame(width: 330, height: 449.6)
-                    .offset(y: -114)
+                    .offset(y: -102)
                     .opacity(animSceneOpac)
                 ZStack{
                     Image("Dinner_BG")
@@ -394,8 +394,8 @@ struct Prologue_Dinner: View {
                         .scaledToFit()
                 }
                 .opacity(animSceneOpac)
-                .scaleEffect(geometry.size.width * 0.00324)
-                .offset(y: geometry.size.height * 0.011)
+                .scaleEffect(1.27)
+                .offset(y: 20)
                 
                 //Game Scene
                 ZStack{

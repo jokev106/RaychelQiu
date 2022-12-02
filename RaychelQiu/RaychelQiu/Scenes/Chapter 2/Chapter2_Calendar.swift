@@ -35,7 +35,7 @@ struct Chapter2_Calendar: View {
                     //                    .scaledToFit()
                     //                    .scaleEffect(0.92)
                     .frame(width: 330, height: 449.6)
-                    .offset(y: -114)
+                    .offset(y: -102)
                     
                 ZStack {
                     if scene == 1 || scene == 2 {
@@ -127,8 +127,8 @@ struct Chapter2_Calendar: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00324)
-                .offset(y: geometry.size.height * 0.011)
+                .scaleEffect(1.27)
+                .offset(y: 20)
             }
         }
     }

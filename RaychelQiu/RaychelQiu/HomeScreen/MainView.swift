@@ -12,42 +12,43 @@ struct MainView: View {
     @State var chapter = -2
 
     var body: some View {
-        GeometryReader { _ in
+        GeometryReader { geometry in
             ZStack {
                 if chapter == -2 {
                     HomeScreen(transitions: $transitions, chapterPicked: $chapter)
+                        .frame(width: 380, height: 760)
 //                        .opacity(transitions[0])
                 }
                 
                 if chapter == 0 {
                     ChapterView(transitions: $transitions, chapterPicked: $chapter)
+                        .frame(width: 380, height: 760)
 //                        .opacity(transitions[1])
                 }
 
                 if chapter == 1 {
                     Prologue_Collection(chapter: $chapter)
-                        .navigationBarBackButtonHidden(true)
-//                        .frame(width: 380, height: 760)
+                        .frame(width: 380, height: 760)
                 }
 
                 if chapter == 2 {
                     Chapter1_Collection(chapter: $chapter)
-                        .navigationBarBackButtonHidden(true)
+                        .frame(width: 380, height: 760)
                 }
 
                 if chapter == 3 {
                     Chapter2_Collection(chapter: $chapter)
-                        .navigationBarBackButtonHidden(true)
+                        .frame(width: 380, height: 760)
                 }
                 
                 if chapter == 4 {
                     Chapter3_Collection()
-                        .navigationBarBackButtonHidden(true)
+                        .frame(width: 380, height: 760)
                 }
             }
             .background(.white)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-//            .scaleEffect(geometry.size.height * 0.00135)
+            .scaleEffect(geometry.size.height * 0.00135)
         }
     }
 }
