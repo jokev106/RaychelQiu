@@ -97,6 +97,12 @@ struct Prologue_Scene2_Transisi_Hari: View {
                 moon_angle += 140
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            withAnimation(.easeInOut(duration: 2.5)) {
+                SFXManager.instance.playSFX(sound: .night1)
+            }
+        }
     }
 }
 

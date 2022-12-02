@@ -505,6 +505,9 @@ struct Prologue_Dinner: View {
                                 .position(self.positionRaychelEat)
                                 .scaledToFit()
                                 .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
+                                .onAppear{
+                                    SFXManager.instance.playSFX(sound: .chewing3)
+                                }
                         }
                         if eatScene == false {
                             Image("RaychelPickUp")
@@ -577,6 +580,12 @@ struct Prologue_Dinner: View {
             withAnimation(.easeInOut(duration: 1.5)) {
                 law_y -= 80
                 hand_y -= 80
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            withAnimation(.easeInOut(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .paperSlide1)
             }
         }
         

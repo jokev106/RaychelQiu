@@ -169,7 +169,7 @@ struct Prologue_Dinner2: View {
                                 .opacity(raychel_back_opac)
                                 .onAppear{
                                     prologue_dinner_scene4_in()
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 10.7) {
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 6.7) {
                                         mainOnTap = true
                                     }
                                 }
@@ -248,6 +248,12 @@ struct Prologue_Dinner2: View {
             }
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            withAnimation(.easeInOut(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .paperSlide1)
+            }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeInOut(duration: 1.5)) {
                 hand_y += 80
@@ -290,16 +296,21 @@ struct Prologue_Dinner2: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
-            withAnimation(.easeInOut(duration: 1.5)) {
+            withAnimation(.easeInOut(duration: 1.0)) {
                 raychel_stand_opac += 1.0
                 raychel_back_opac -= 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-            withAnimation(.easeInOut(duration: 1.5)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            SFXManager.instance.playSFX(sound: .tableSlam1)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+            withAnimation(.easeInOut(duration: 1.0)) {
                 raychel_stand_opac -= 1.0
                 raychel_stand_x += 100
+                SFXManager.instance.playSFX(sound: .running1)
             }
         }
     }
