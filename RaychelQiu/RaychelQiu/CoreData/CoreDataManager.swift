@@ -31,7 +31,7 @@ class CoreDataManager {
                 newItem.status = "playable"
                 print(newItem.id)
 
-            } else if index > 1, index < 3 {
+            } else if index > 0, index < 3 {
                 let newItem = SaveChapter(context: context)
                 newItem.chapter = Int16(index)
                 newItem.status = "locked"
