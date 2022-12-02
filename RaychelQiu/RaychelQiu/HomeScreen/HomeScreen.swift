@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeScreen: View {
     @Binding var transitions: [CGFloat]
+    @Binding var chapterPicked: Int
 
     @State var charPhotosPosition = CGPoint(x: 195, y: 350)
     @State var spiralPhotosPosition = CGPoint(x: 188, y: 410)
@@ -20,6 +21,9 @@ struct HomeScreen: View {
     @State var familiaPosition = CGPoint(x: 200, y: 70)
     @State var playButtonPosition = CGPoint(x: 198, y: 670)
     @State var playPosition = CGPoint(x: 198, y: 735)
+    
+    // EndPage
+    @State var scene_opacity = 1.0
 
     var body: some View {
         GeometryReader { _ in
@@ -108,24 +112,27 @@ struct HomeScreen: View {
                         transition()
                     }
                 }
+                .opacity(scene_opacity)
             }
             .statusBarHidden(true)
-//            .onAppear {
-//                SoundManager.instance.playSound(sound: .homeSong)
-//            }
+            .onAppear {
+                SoundManager.instance.playSound(sound: .homeSong)
+            }
         }
     }
 
     func transition() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2)) {
-                transitions[0] = 0.0
+            withAnimation(.easeInOut(duration: 2.0)) {
+//                transitions[0] = 0.0
+                scene_opacity = 0.0
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 2)) {
-                transitions[1] = 1.0
+            withAnimation(.easeInOut(duration: 2.0)) {
+//                transitions[1] = 1.0
+                chapterPicked = 0
             }
         }
     }
@@ -133,6 +140,6 @@ struct HomeScreen: View {
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen(transitions: .constant([0.0]))
+        HomeScreen(transitions: .constant([0.0]), chapterPicked: .constant(-2))
     }
 }

@@ -25,13 +25,13 @@ class CoreDataManager {
         let context = container.viewContext
 
         for index in 0 ..< 6 {
-            if index == 0 {
+            if index == 0 || index == 1{
                 let newItem = SaveChapter(context: context)
                 newItem.chapter = Int16(index)
                 newItem.status = "playable"
                 print(newItem.id)
 
-            } else if index > 0, index < 3 {
+            } else if index > 1, index < 3 {
                 let newItem = SaveChapter(context: context)
                 newItem.chapter = Int16(index)
                 newItem.status = "locked"

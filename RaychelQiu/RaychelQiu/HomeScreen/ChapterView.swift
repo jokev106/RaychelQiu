@@ -30,6 +30,9 @@ struct ChapterView: View {
 
     @State var offset = 0
     
+    // EndPage
+    @State var scene_opacity = 0.0
+    
     @State var listChapter = [SaveChapter]()
     
     func loadChapter() {
@@ -187,9 +190,11 @@ struct ChapterView: View {
                     }
                 }
             }
+            .opacity(scene_opacity)
             .onAppear {
                 loadChapter()
                 print(listChapter)
+                startPage()
             }
             .navigationBarBackButtonHidden(true)
             .toolbar {
@@ -208,16 +213,25 @@ struct ChapterView: View {
         }
     }
     
+    func startPage() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+                scene_opacity = 1.0
+            }
+        }
+    }
+    
     func transition(chapter: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2)) {
-                transitions[1] = 0.0
+            withAnimation(.easeInOut(duration: 2.0)) {
+                scene_opacity = 0.0
+//                transitions[1] = 0.0
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 2)) {
-                transitions[2] = 1.0
+            withAnimation(.easeInOut(duration: 2.0)) {
+//                transitions[2] = 1.0
                 chapterPicked = chapter + 1
             }
         }

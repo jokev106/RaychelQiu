@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct Prologue_Room_Mad: View {
-    
-    @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @Binding var mainOnTap: Bool
     @State var onTap = false
     @State var scene = 2
-    //start from scene 2
+    // start from scene 2
     
-    //Scene1
+    // Scene1
     @State var door_scale = 1.0
     @State var door_y = 0.0
     @State var door_opac = 1.0
     
-    //Scene2
+    // Scene2
     @State var scene2_opac = 1.0
     
-    //Scene3
+    // Scene3
     @State var nyfw_opacity = 1.0
     @State var nyfw_scale = 0.0
     @State var nyfw_y = 0.0
@@ -32,12 +31,12 @@ struct Prologue_Room_Mad: View {
     @State var nyfw_blur = 0.0
     @State var nyfw_paper_opac = 1.0
     
-    //Scene4
+    // Scene4
     @State var raychel_normal_opac = 0.0
     @State var raychel_papers_opac = 1.0
     @State var raychel_laptop_opac = 0.0
     
-    //Game Register
+    // Game Register
     @State var positionRegisBoxMask1 = CGPoint(x: 194, y: 635)
     @State var positionRegisBoxMask2 = CGPoint(x: 195, y: 385)
     @State var positionRegisBox = CGPoint(x: 198, y: 635)
@@ -54,40 +53,35 @@ struct Prologue_Room_Mad: View {
     @State var timelineOpac = 0.0
     @State var doneRegisOpac = 0.0
     
-    //Bool Laptop Screen
-    @State var isHome:Bool = true
-    @State var isInfo:Bool = false
-    @State var isRegis:Bool = false
-    @State var isTimeline:Bool = false
-    @State var isDoneRegis:Bool = false
+    // Bool Laptop Screen
+    @State var isHome: Bool = true
+    @State var isInfo: Bool = false
+    @State var isRegis: Bool = false
+    @State var isTimeline: Bool = false
+    @State var isDoneRegis: Bool = false
 //
 //    @State var laptop_x = 0.0
     @State var laptop_y = 0.0
-    
-    //EndPrologue
-    @State var endPrologueOpac = 0.0
-    @State var sceneOpac = 1.0
 
-    
     var body: some View {
-        GeometryReader{geometry in
-            ZStack{
+        GeometryReader { geometry in
+            ZStack {
                 Image("Border")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 330, height: 449.6)
                     .offset(y: -114)
                 
-                ZStack{
+                ZStack {
                     Image("Prologue_Door_BG")
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    //Scene2
-                    if scene == 2 || scene == 3 || scene == 4{
-                        ZStack{
-                            Group{
+                    // Scene2
+                    if scene == 2 || scene == 3 || scene == 4 {
+                        ZStack {
+                            Group {
                                 Image("Prologue_Room_Table")
                                     .resizable()
                                     .scaledToFit()
@@ -127,15 +121,15 @@ struct Prologue_Room_Mad: View {
                         }
                         .opacity(scene2_opac)
                         .blur(radius: nyfw_blur)
-                        .onTapGesture{
+                        .onTapGesture {
                             if scene == 2 {
-                                if onTap == true{
+                                if onTap == true {
                                     onTap = false
                                     scene += 1
                                 }
                             }
                             
-                            if scene == 4{
+                            if scene == 4 {
                                 if onTap == true {
                                     onTap = false
                                     prologue_room_scene4_out()
@@ -144,8 +138,8 @@ struct Prologue_Room_Mad: View {
                         }
                     }
                     
-                    //Scene1
-                    ZStack{
+                    // Scene1
+                    ZStack {
                         Image("Prologue_Door_BG")
                             .resizable()
                             .scaledToFit()
@@ -156,7 +150,7 @@ struct Prologue_Room_Mad: View {
                             .scaleEffect(door_scale)
                             .offset(y: door_y)
                             .opacity(door_opac)
-                            .onAppear{
+                            .onAppear {
                                 prologue_room_scene1_in()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 4.2) {
                                     onTap = true
@@ -164,9 +158,9 @@ struct Prologue_Room_Mad: View {
                             }
                     }
                     
-                    //Scene3
-                    if scene == 3 || scene == 4{
-                        ZStack{
+                    // Scene3
+                    if scene == 3 || scene == 4 {
+                        ZStack {
                             Image("Prologue_Room_NYFW")
                                 .resizable()
                                 .scaledToFit()
@@ -174,14 +168,14 @@ struct Prologue_Room_Mad: View {
                                 .offset(x: nyfw_x, y: nyfw_y)
                                 .opacity(nyfw_opacity)
                         }
-                        .onAppear{
+                        .onAppear {
                             prologue_room_scene3_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
                                 onTap = true
                             }
                         }
-                        .onTapGesture{
-                            if onTap == true{
+                        .onTapGesture {
+                            if onTap == true {
                                 onTap = false
                                 prologue_room_scene4_in()
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
@@ -190,7 +184,6 @@ struct Prologue_Room_Mad: View {
                             }
                         }
                     }
-                    
                 }
                 .mask {
                     Image("Day")
@@ -199,8 +192,9 @@ struct Prologue_Room_Mad: View {
                 }
                 .scaleEffect(geometry.size.width * 0.00324)
                 .offset(y: geometry.size.height * 0.011)
-            }.opacity(sceneOpac)
-            ZStack{
+            }
+            
+            ZStack {
                 Image("RaychelBorder")
                     .resizable()
                     .frame(width: 330, height: 224)
@@ -210,7 +204,7 @@ struct Prologue_Room_Mad: View {
                     .frame(width: 322, height: 219)
                     .position(self.positionRegisBox)
                 if scene == 4 {
-                    ZStack{
+                    ZStack {
                         Image("homescreen")
                             .resizable()
                             .scaledToFit()
@@ -253,10 +247,10 @@ struct Prologue_Room_Mad: View {
                     }.position(self.positionRegisBoxMask2)
                 }
                 
-                //HomeScreen Button
-                Group{
+                // HomeScreen Button
+                Group {
                     Button {
-                        //Regis
+                        // Regis
                         if isHome == true {
                             isHome = false
                             isRegis = true
@@ -270,13 +264,12 @@ struct Prologue_Room_Mad: View {
                     } label: {
                         Text("Regis")
                             .opacity(0)
-                    }.frame(width: 100,height: 30)
+                    }.frame(width: 100, height: 30)
 //                        .background(.red)
                         .position(self.positionRegisButton)
 
-                    
                     Button {
-                        //Information
+                        // Information
                         if isHome == true {
                             isHome = false
                             isInfo = true
@@ -290,12 +283,12 @@ struct Prologue_Room_Mad: View {
                     } label: {
                         Text("Info")
                             .opacity(0)
-                    }.frame(width: 100,height: 30)
+                    }.frame(width: 100, height: 30)
 //                        .background(.red)
                         .position(self.positionInfoButton)
                     
                     Button {
-                        //Timeline
+                        // Timeline
                         if isHome == true {
                             isHome = false
                             isTimeline = true
@@ -309,16 +302,16 @@ struct Prologue_Room_Mad: View {
                     } label: {
                         Text("Timeline")
                             .opacity(0)
-                    }.frame(width: 100,height: 30)
+                    }.frame(width: 100, height: 30)
 //                        .background(.red)
                         .position(self.positionTimeButton)
                 }
                     
-                //Back to Homescreen Button
-                Group{
+                // Back to Homescreen Button
+                Group {
                     if isRegis == true || isInfo == true || isTimeline == true {
                         Button {
-                            //Regis Back to Home
+                            // Regis Back to Home
                             if isRegis == true {
                                 isHome = true
                                 isRegis = false
@@ -330,7 +323,7 @@ struct Prologue_Room_Mad: View {
                                 }
                             }
                             
-                            //Information back to home
+                            // Information back to home
                             if isInfo == true {
                                 isHome = true
                                 isInfo = false
@@ -342,7 +335,7 @@ struct Prologue_Room_Mad: View {
                                 }
                             }
                             
-                            //Timeline back to home
+                            // Timeline back to home
                             if isTimeline == true {
                                 isHome = true
                                 isTimeline = false
@@ -358,12 +351,12 @@ struct Prologue_Room_Mad: View {
                             Text("Back")
                                 .font(Font.custom("Hansip", size: 12))
                                 .foregroundColor(.yellow)
-                        }.frame(width: 80,height: 30)
+                        }.frame(width: 80, height: 30)
                             .position(self.positionBackButton)
                     }
                     if isRegis == true {
                         Button {
-                            //RegisNow/Done Regis
+                            // RegisNow/Done Regis
                             if isRegis == true {
                                 isDoneRegis = true
                                 isRegis = false
@@ -377,58 +370,32 @@ struct Prologue_Room_Mad: View {
                         } label: {
                             Text("RegisNow")
                                 .opacity(0)
-                        }.frame(width: 100,height: 30)
+                        }.frame(width: 100, height: 30)
 //                            .background(.red)
                             .position(self.positionTimeButton)
                     }
                     if isDoneRegis == true {
                         Button {
                             // To be Continued
-                            prologue_game()
-                            scene += 1
+//                            prologue_game()
+//                            scene += 1
 //                            presentationMode.wrappedValue.dismiss()
 //                            print("\(mainOnTap)")
+                            mainOnTap = true
                         } label: {
                             Text("Done")
                                 .font(Font.custom("Hansip", size: 12))
                                 .foregroundColor(.yellow)
-                        }.frame(width: 100,height: 30)
-                        .position(self.positionDoneRegisButton)
-
+                        }.frame(width: 100, height: 30)
+                            .position(self.positionDoneRegisButton)
                     }
                 }
                 
             }.offset(y: laptop_y)
-                .opacity(sceneOpac)
-            ZStack{
-                if scene == 5 {
-                    Text("To Be Continued....")
-                        .position(x: 198, y: 400)
-                        .font(Font.custom("Hansip", size: 25))
-                        .foregroundColor(.black)
-                        .opacity(endPrologueOpac)
-                    Button {
-                        // To be Continued
-    //                    mainOnTap = true
-                                presentationMode.wrappedValue.dismiss()
-    //                            print("\(mainOnTap)")
-                    } label: {
-                        Text("Back")
-                            .font(Font.custom("Hansip", size: 25))
-//                            .foregroundColor(.yellow)
-                            .foregroundColor(Color("buttonColor"))
-                    }.frame(width: 200,height: 150)
-                        .position(x: 198, y: 500)
-                        .opacity(endPrologueOpac)
-                    
-                }
-            }
-            
-            
         }
     }
     
-    func prologue_room_scene1_in(){
+    func prologue_room_scene1_in() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeIn(duration: 2.0)) {
                 door_y += 250
@@ -443,7 +410,7 @@ struct Prologue_Room_Mad: View {
         }
     }
     
-    func prologue_room_scene3_in(){
+    func prologue_room_scene3_in() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 nyfw_paper_opac -= 1.0
@@ -459,7 +426,7 @@ struct Prologue_Room_Mad: View {
         }
     }
     
-    func prologue_room_scene4_in(){
+    func prologue_room_scene4_in() {
         raychel_normal_opac = 1.0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -477,7 +444,7 @@ struct Prologue_Room_Mad: View {
         }
     }
     
-    func prologue_room_scene4_out(){
+    func prologue_room_scene4_out() {
 //        raychel_normal_opac = 1.0
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -494,20 +461,6 @@ struct Prologue_Room_Mad: View {
                 raychel_normal_opac = 1.0
                 laptop_y = 0.0
 //                homeOpac += 1.0
-            }
-        }
-    }
-    func prologue_game(){
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 1.0)) {
-//                sceneOpac = 0.0
-                endPrologueOpac = 1.0
-            }
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 0.5)) {
-                sceneOpac = 0.0
-//                endPrologueOpac = 1.0
             }
         }
     }
