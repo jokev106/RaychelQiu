@@ -242,6 +242,16 @@ struct Prologue_Kelas: View {
                 paper_1_y -= 60
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                SFXManager.instance.playSFX(sound: .paperSlide2)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+            withAnimation(.linear(duration: 1.0)) {
+                SFXManager.instance.playSFX(sound: .drawing)
+            }
+        }
     }
     
     func chapter1_kelas_scene2_in() {

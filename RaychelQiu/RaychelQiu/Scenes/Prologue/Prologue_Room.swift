@@ -208,9 +208,21 @@ struct Prologue_Room: View {
             }
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            withAnimation(.easeIn(duration: 2.0)) {
+                SFXManager.instance.playSFX(sound: .doorOpen)
+            }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             withAnimation(.easeIn(duration: 0.5)) {
                 door_opac -= 1
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+            withAnimation(.easeIn(duration: 2.0)) {
+                SFXManager2.instance.playSFX(sound: .drawing)
             }
         }
     }
@@ -259,6 +271,12 @@ struct Prologue_Room: View {
             withAnimation(.easeInOut(duration: 2.0)) {
                 sun_x += 120
                 sun_y -= 100
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            withAnimation(.easeIn(duration: 2.0)) {
+                SFXManager2.instance.playSFX(sound: .birds1)
             }
         }
     }

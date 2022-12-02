@@ -305,6 +305,9 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .frame(width: 140, height: 190)
                                 .position(self.positionBag)
                                 .shadow(color: .black.opacity(0.3), radius: 0.5)
+                                .onAppear{
+                                    SFXManager.instance.playSFX(sound: .pop)
+                                }
                         }
                         if isPencil == false {
                             Image("Bag2")
@@ -312,6 +315,9 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .frame(width: 140, height: 190)
                                 .position(self.positionBag)
                                 .shadow(color: .black.opacity(0.3), radius: 0.5)
+                                .onAppear{
+                                    SFXManager.instance.playSFX(sound: .pop)
+                                }
                         }
                         if isBook == false {
                             Image("Bag3")
@@ -320,6 +326,9 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .position(self.positionBag)
                                 .shadow(color: .black.opacity(0.3), radius: 0.5)
                                 .opacity(bag3Opac)
+                                .onAppear{
+                                    SFXManager.instance.playSFX(sound: .pop)
+                                }
                         }
                     }
                     
@@ -392,6 +401,16 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 paper_1_y -= 60
             }
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                SFXManager.instance.playSFX(sound: .paperSlide2)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
+            withAnimation(.linear(duration: 1.0)) {
+                SFXManager.instance.playSFX(sound: .drawing)
+            }
+        }
     }
     
     func prologue_scene1_animation_out() {
@@ -420,6 +439,12 @@ struct Prologue_Scene1_Kelas_Selesai: View {
             }
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            withAnimation(.easeOut(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .ticking_5)
+            }
+        }
+        
         for i in 1...5{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25 + CGFloat(i) * 1.0) {
                 withAnimation(.linear(duration: 1).speed(3.0)) {
@@ -431,6 +456,12 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.25) {
             withAnimation(.linear(duration: 1).speed(3.0)) {
                 short_2_rotation += 3.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            withAnimation(.linear(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .alarm)
             }
         }
         
