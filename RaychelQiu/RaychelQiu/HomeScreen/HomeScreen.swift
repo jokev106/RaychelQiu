@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    
+    @Binding var transitions: [CGFloat]
+    @Binding var chapterPicked: Int
+
     @State var charPhotosPosition = CGPoint(x: 195, y: 350)
     @State var spiralPhotosPosition = CGPoint(x: 188, y: 410)
     @State var raychelNamePosition = CGPoint(x: 148, y: 530)
@@ -19,16 +21,16 @@ struct HomeScreen: View {
     @State var familiaPosition = CGPoint(x: 200, y: 70)
     @State var playButtonPosition = CGPoint(x: 198, y: 670)
     @State var playPosition = CGPoint(x: 198, y: 735)
-
-
-
     
+    // EndPage
+    @State var scene_opacity = 1.0
+
     var body: some View {
-        GeometryReader{geo in
+        GeometryReader { _ in
             NavigationView {
-                ZStack{
-                    //Image Home Screen
-                    Group{
+                ZStack {
+                    // Image Home Screen
+                    Group {
                         Image("ScreenBG")
                             .resizable()
                             .edgesIgnoringSafeArea(.all)
@@ -44,9 +46,9 @@ struct HomeScreen: View {
                             .scaledToFit()
                             .position(self.spiralPhotosPosition)
                     }
-                    
-                    //Character Names
-                    Group{
+
+                    // Character Names
+                    Group {
                         Text("Hola! \n It's Raychel")
                             .font(Font.custom("Hansip", size: 22))
                             .multilineTextAlignment(.center)
@@ -79,38 +81,65 @@ struct HomeScreen: View {
                             .position(self.familiaPosition)
                             .foregroundColor(.black)
                             .rotationEffect(.degrees(15))
-
                     }
 
-                    //Play Button
-                    NavigationLink {
-                        withAnimation(.default){
-                            ChapterView()
-                        }
-                    } label: {
+                    // Play Button
+//                    NavigationLink {
+//                        withAnimation(.default){
+//                            ChapterView()
+//                        }
+//                    } label: {
+//                        Image("PlayButton")
+//                            .resizable()
+//                    }.frame(width: 95, height: 95)
+//                    .scaledToFit()
+//                    .position(self.playButtonPosition)
+//                    .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+                    Group {
                         Image("PlayButton")
                             .resizable()
-                    }.frame(width: 95, height: 95)
-                    .scaledToFit()
-                    .position(self.playButtonPosition)
-                    .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                    Text("Play")
-                        .font(Font.custom("Hansip", size: 20))
-                        .multilineTextAlignment(.center)
-                        .position(self.playPosition)
+                            .frame(width: 95, height: 95)
+                            .scaledToFit()
+                            .position(self.playButtonPosition)
+                            .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
 
-                    
+                        Text("Play")
+                            .font(Font.custom("Hansip", size: 20))
+                            .multilineTextAlignment(.center)
+                            .position(self.playPosition)
+                    }
+                    .onTapGesture {
+                        transition()
+                    }
                 }
-            }.statusBarHidden(true)
-            .onAppear{
-                    SoundManager.instance.playSound(sound: .homeSong)
-                }
+                .opacity(scene_opacity)
+            }
+            .statusBarHidden(true)
+            .onAppear {
+                SoundManager.instance.playSound(sound: .homeSong)
+            }
+        }
+    }
+
+    func transition() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+//                transitions[0] = 0.0
+                scene_opacity = 0.0
+            }
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+//                transitions[1] = 1.0
+                chapterPicked = 0
+            }
         }
     }
 }
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(transitions: .constant([0.0]), chapterPicked: .constant(-2))
     }
 }

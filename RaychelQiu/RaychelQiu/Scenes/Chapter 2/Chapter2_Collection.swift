@@ -11,6 +11,7 @@ struct Chapter2_Collection: View {
     @State var scene = 1
     @State var onTap = false
     @State var mainOnTap = false
+    @Binding var chapter: Int
     
     //Scene1
     @State var scene_1_offset_x = 0.0
@@ -51,6 +52,10 @@ struct Chapter2_Collection: View {
     @State var moveableMakeUp = false
     @State var moveableCamera = false
     
+    // EndChapter
+    @State var end_opacity = 0.0
+    @State var scene_opacity = 0.0
+    
     var body: some View {
         GeometryReader{ geometry in
             ZStack {
@@ -60,6 +65,10 @@ struct Chapter2_Collection: View {
                 
                 if scene == 1 || scene == 2 {
                     Chapter2_Calendar(mainOnTap: $mainOnTap)
+                        .onAppear {
+                            startChapter()
+                        }
+                        .offset(x: scene_1_offset_x)
                         .onTapGesture{
                             if mainOnTap == true {
                                 mainOnTap = false
@@ -73,7 +82,6 @@ struct Chapter2_Collection: View {
                             }
                             
                         }
-                        .offset(x: scene_1_offset_x)
                 }
                 
                 if scene == 2 || scene == 3 {
@@ -235,14 +243,71 @@ struct Chapter2_Collection: View {
                             if moveableClothes == true && moveableSketchBook == true && moveablePencilCase == true && moveableMakeUp == true && moveableCamera == true {
                                 
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    scene += 1
-                                    withAnimation(.easeInOut(duration: 2)) {
-                                        scene_8_offset_x -= 400
-                                    }
+//                                    scene += 1
+//                                    withAnimation(.easeInOut(duration: 2)) {
+//                                        scene_8_offset_x -= 400
+//                                    }
+                                    endChapter()
                                 }
                             }
                         }
                 }
+            }
+            .opacity(scene_opacity)
+            
+            ZStack {
+                Text("To Be Continued....")
+                    .position(x: 198, y: 400)
+                    .font(Font.custom("Hansip", size: 25))
+                    .foregroundColor(.black)
+                Button {
+                    CoreDataManager.instance.editChapter(chapter: 2)
+                    transition()
+                        
+                } label: {
+                    Text("Back")
+                        .font(Font.custom("Hansip", size: 25))
+                        .foregroundColor(Color("buttonColor"))
+                }.frame(width: 200, height: 150)
+                    .position(x: 198, y: 500)
+            }
+            .opacity(end_opacity)
+        }
+        .background(.white)
+    }
+    
+    func startChapter() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+                scene_opacity = 1.0
+            }
+        }
+    }
+    
+    func endChapter() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+                scene_opacity = 0.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation(.easeInOut(duration: 1.9)) {
+                end_opacity = 1.0
+            }
+        }
+    }
+    
+    func transition() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2.0)) {
+                end_opacity = 0.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            withAnimation(.easeInOut(duration: 1.9)) {
+                chapter = 0
             }
         }
     }
@@ -250,6 +315,6 @@ struct Chapter2_Collection: View {
 
 struct Chapter2_Collection_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter2_Collection()
+        Chapter2_Collection(chapter: .constant(3))
     }
 }

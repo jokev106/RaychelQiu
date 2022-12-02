@@ -276,8 +276,8 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00324)
-                .offset(y: geometry.size.height * 0.026)
+                .scaleEffect(1.27)
+                .offset(y: 20)
                 
                 if isBook == true && isPencil == true && isBottle == true {
                         Image("Bag")

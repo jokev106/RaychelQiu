@@ -36,7 +36,7 @@ struct Game4_1View: View {
             ZStack {
                 Image("Border")
                     .resizable()
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 300, height: 408)
                     .position(x: 197.5, y: 275)
 
                 Group {
@@ -68,8 +68,8 @@ struct Game4_1View: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .offset(y: 14)
-                .scaleEffect(1.276)
+                .offset(x: 1.8, y: 5)
+                .scaleEffect(1.15)
 
                 if nextScene == false {
                     Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, nextScene: $nextScene)

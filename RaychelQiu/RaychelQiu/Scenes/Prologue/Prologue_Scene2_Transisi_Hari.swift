@@ -25,7 +25,7 @@ struct Prologue_Scene2_Transisi_Hari: View {
                 Image("Border")
                     .resizable()
                     .frame(width: 330, height: 449.6)
-                    .offset(y: -114)
+                    .offset(y: -102)
                 
                 ZStack{
                     Image("Day")
@@ -67,11 +67,9 @@ struct Prologue_Scene2_Transisi_Hari: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00324)
-                .offset(y: geometry.size.height * 0.011)
+                .scaleEffect(1.27)
+                .offset(y: 20)
             }
-            
-            
         }
     }
     

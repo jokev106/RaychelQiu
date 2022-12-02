@@ -48,6 +48,7 @@
 		01E41ADF291A321F008A04AC /* Prologue_Kelas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41ADE291A321F008A04AC /* Prologue_Kelas.swift */; };
 		01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */; };
 		01E41AE3291A58A2008A04AC /* Prologue_Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */; };
+		70027793293711AE008CF324 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70027792293711AE008CF324 /* CoreDataManager.swift */; };
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
 		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
@@ -59,6 +60,7 @@
 		70A54C5029224E3500450F12 /* Chapter2_Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A54C4F29224E3500450F12 /* Chapter2_Home.swift */; };
 		70B0FEE5291A317C00CD7687 /* Game5ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */; };
 		70B0FEE7291A318B00CD7687 /* Game5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B0FEE6291A318B00CD7687 /* Game5Model.swift */; };
+		70B19D0B29368B5F00B21862 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B19D0A29368B5F00B21862 /* MainView.swift */; };
 		70E06B50292E2AB4001F9E21 /* Chapter4_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E06B4F292E2AB4001F9E21 /* Chapter4_Collection.swift */; };
 		70E06B52292E2EEE001F9E21 /* Chapter4_Apartment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E06B51292E2EEE001F9E21 /* Chapter4_Apartment.swift */; };
 		70E06B56292E33CA001F9E21 /* Chapter4_Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E06B55292E33CA001F9E21 /* Chapter4_Shop.swift */; };
@@ -151,6 +153,7 @@
 		01E41ADE291A321F008A04AC /* Prologue_Kelas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Kelas.swift; sourceTree = "<group>"; };
 		01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner2.swift; sourceTree = "<group>"; };
 		01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Clock.swift; sourceTree = "<group>"; };
+		70027792293711AE008CF324 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
 		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +165,7 @@
 		70A54C4F29224E3500450F12 /* Chapter2_Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter2_Home.swift; sourceTree = "<group>"; };
 		70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5ViewModel.swift; sourceTree = "<group>"; };
 		70B0FEE6291A318B00CD7687 /* Game5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5Model.swift; sourceTree = "<group>"; };
+		70B19D0A29368B5F00B21862 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		70E06B4F292E2AB4001F9E21 /* Chapter4_Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4_Collection.swift; sourceTree = "<group>"; };
 		70E06B51292E2EEE001F9E21 /* Chapter4_Apartment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4_Apartment.swift; sourceTree = "<group>"; };
 		70E06B55292E33CA001F9E21 /* Chapter4_Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chapter4_Shop.swift; sourceTree = "<group>"; };
@@ -304,6 +308,16 @@
 			path = "Chapter 1";
 			sourceTree = "<group>";
 		};
+		7002779129371196008CF324 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B32BB5BA29012E4A00B812CF /* RaychelQiu.xcdatamodeld */,
+				70027792293711AE008CF324 /* CoreDataManager.swift */,
+				B32BB5B829012E4A00B812CF /* Persistence.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		701E52D12913A31100E25FF1 /* Game2 */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +391,7 @@
 		B32BB5AE29012E4900B812CF /* RaychelQiu */ = {
 			isa = PBXGroup;
 			children = (
+				7002779129371196008CF324 /* CoreData */,
 				011EC17829398971008FB09B /* SoundEffects */,
 				B3EE5E50292B521C00CB5163 /* CustomSong */,
 				B3EE5E4C2927613E00CB5163 /* Info.plist */,
@@ -387,8 +402,6 @@
 				B32BB5AF29012E4900B812CF /* RaychelQiuApp.swift */,
 				B32BB5B129012E4900B812CF /* ContentView.swift */,
 				B32BB5B329012E4A00B812CF /* Assets.xcassets */,
-				B32BB5B829012E4A00B812CF /* Persistence.swift */,
-				B32BB5BA29012E4A00B812CF /* RaychelQiu.xcdatamodeld */,
 				01A3384C290142E400092EEC /* SwiftUIView.swift */,
 				B32BB5B529012E4A00B812CF /* Preview Content */,
 			);
@@ -469,6 +482,7 @@
 			children = (
 				B3EE5E452927603A00CB5163 /* HomeScreen.swift */,
 				B3EE5E472927604F00CB5163 /* ChapterView.swift */,
+				70B19D0A29368B5F00B21862 /* MainView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -697,6 +711,7 @@
 				01976BFE292B93AB0073F9FA /* Chapter3_Bed.swift in Sources */,
 				70A54C41292229E400450F12 /* Chapter2_Collection.swift in Sources */,
 				70E06B5F2930CC2F001F9E21 /* Chapter4_Result.swift in Sources */,
+				70B19D0B29368B5F00B21862 /* MainView.swift in Sources */,
 				B32BB5B229012E4900B812CF /* ContentView.swift in Sources */,
 				B32BB5BC29012E4A00B812CF /* RaychelQiu.xcdatamodeld in Sources */,
 				011EC19A293996DC008FB09B /* SFX_Manager2.swift in Sources */,
@@ -708,6 +723,7 @@
 				012572C72926355E00BF484F /* Chapter3_FrontDoor.swift in Sources */,
 				7038854529251B6F0069E3CB /* Chapter_Bus.swift in Sources */,
 				B32BB5B029012E4900B812CF /* RaychelQiuApp.swift in Sources */,
+				70027793293711AE008CF324 /* CoreDataManager.swift in Sources */,
 				70A54C4A292246EE00450F12 /* Chapter2_TM.swift in Sources */,
 				70F97465290FD48700ED63F8 /* Game4_2View.swift in Sources */,
 				0153CDD2292E03D3007072AD /* Chapter1_Bobok.swift in Sources */,
@@ -869,7 +885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaychelQiu/Preview Content\"";
-				DEVELOPMENT_TEAM = CPL7SYMZ7D;
+				DEVELOPMENT_TEAM = 3Y6CHKGHC8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RaychelQiu/Info.plist;
@@ -899,7 +915,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"RaychelQiu/Preview Content\"";
-				DEVELOPMENT_TEAM = CPL7SYMZ7D;
+				DEVELOPMENT_TEAM = 3Y6CHKGHC8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RaychelQiu/Info.plist;

@@ -25,7 +25,7 @@ struct Chapter1_Day: View {
                 Image("Border")
                     .resizable()
                     .frame(width: 330, height: 449.6)
-                    .offset(y: -114)
+                    .offset(y: -102)
                 
                 ZStack{
                     Image("Day")
@@ -35,7 +35,7 @@ struct Chapter1_Day: View {
                         .offset(x: day_x)
                         .onAppear{
                             transition_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
                                 mainOnTap = true
                             }
                         }
@@ -67,8 +67,8 @@ struct Chapter1_Day: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00324)
-                .offset(y: geometry.size.height * 0.011)
+                .scaleEffect(1.27)
+                .offset(y: 20)
             }
             
             
@@ -76,15 +76,14 @@ struct Chapter1_Day: View {
     }
     
     func transition_in(){
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             withAnimation(.easeInOut(duration: 1.5)) {
                
                 sun_angle += 70
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             withAnimation(.easeInOut(duration: 2.5)) {
                 night_opac += 1
                 moon_angle += 140

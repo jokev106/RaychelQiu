@@ -52,8 +52,8 @@ struct Prologue_Kelas: View {
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 446.9)
-                    .offset(y: -114)
+                    .frame(width: 330, height: 449.6)
+                    .offset(y: -102)
                 ZStack{
                     Image("School_BG")
                         .resizable()
@@ -205,8 +205,8 @@ struct Prologue_Kelas: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00324)
-                .offset(y: geometry.size.height * 0.011)
+                .scaleEffect(1.27)
+                .offset(y: 20)
     //            }
                 
                 

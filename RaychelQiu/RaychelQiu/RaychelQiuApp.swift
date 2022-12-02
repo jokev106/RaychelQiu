@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct RaychelQiuApp: App {
-    let persistenceController = PersistenceController.shared
+//    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            MainView()
         }
     }
 }
