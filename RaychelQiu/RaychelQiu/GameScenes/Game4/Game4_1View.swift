@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//struct TestView: View {
+// struct TestView: View {
 //    var body: some View {
 //        GeometryReader { geometry in
 //            ZStack {
@@ -18,7 +18,7 @@ import SwiftUI
 //            .scaleEffect(geometry.size.height * 0.0013)
 //        }
 //    }
-//}
+// }
 
 struct Game4_1View: View {
     @StateObject var viewmodel = Game4ViewModel()
@@ -27,17 +27,17 @@ struct Game4_1View: View {
     @State var animate = [false, false, false, false, false]
     @State var nextScene = false
     @Binding var mainOnTap: Bool
-    @Binding var scene1_paralax_x: Double
     @Binding var scene_main: Int
     @Binding var scene_frame: Double
+    @Binding var scene1_paralax_x: Double
 
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Image("Border")
                     .resizable()
-                    .frame(width: 300, height: 408)
-                    .position(x: 197.5, y: 275)
+                    .frame(width: 330, height: 449.6)
+                    .offset(y: -102)
 
                 Group {
                     Image("Game4_image")
@@ -63,18 +63,18 @@ struct Game4_1View: View {
                         .scaledToFit()
                         .offset(x: scene1_paralax_x)
                 }
-                .mask{
-                    Image("Game4_image")
+                .mask {
+                    Image("Day")
                         .resizable()
                         .scaledToFit()
                 }
-                .offset(x: 1.8, y: 5)
-                .scaleEffect(1.15)
+                .scaleEffect(1.27)
+                .offset(y: 20)
 
                 if nextScene == false {
-                    Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, nextScene: $nextScene)
+                    Game4_1(viewmodel: viewmodel, position: $position, success: $success, animate: $animate, nextScene: $nextScene, mainOnTap: $mainOnTap)
                         .frame(height: 450)
-                        .scaleEffect(geometry.size.height * 0.0009)
+                        .scaleEffect(geometry.size.height * 0.001)
                         .offset(y: 230)
                 } else {
 //                    Image(systemName: "chevron.right.circle")
@@ -88,16 +88,18 @@ struct Game4_1View: View {
 //                            mainOnTap = true
 //                        }
                     Button {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation(.easeInOut(duration: 2)) {
-                                scene_frame -= 400
+                        if mainOnTap == true {
+                            mainOnTap = false
+
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                scene_main += 1
+                                withAnimation(.easeInOut(duration: 2)) {
+//                                        scene4_paralax_x += 70
+                                    scene_frame -= 400
+                                }
                             }
                         }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            scene_main += 1
-                        }
-                        
+
                     } label: {
                         Image(systemName: "chevron.right.circle")
                             .resizable()
@@ -109,7 +111,6 @@ struct Game4_1View: View {
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-            .scaleEffect(1.1)
         }
     }
 }
@@ -120,25 +121,27 @@ struct Game4_1: View {
     @Binding var success: Bool
     @Binding var animate: [Bool]
     @Binding var nextScene: Bool
+    @Binding var mainOnTap: Bool
     @State var touched = false
 
     func animation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2)) {
+            withAnimation(.easeInOut(duration: 1.5)) {
                 animate[viewmodel.currentRound].toggle()
             }
             success.toggle()
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if viewmodel.currentRound < 4 {
                 viewmodel.currentRound += 1
                 success.toggle()
+                touched.toggle()
                 position = viewmodel.ronde[viewmodel.currentRound].startPosition
             } else {
                 nextScene.toggle()
+                mainOnTap = true
             }
-            
         }
     }
 
@@ -172,15 +175,15 @@ struct Game4_1: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                Image("Game_Border")
+                Image("Border")
                     .resizable()
                     .scaleEffect(1.02)
                     .offset(y: -50)
-                
+
                 Rectangle()
                     .foregroundColor(.white)
                     .offset(y: -50)
-                
+
                 // Pattern
                 Image(viewmodel.ronde[viewmodel.currentRound].image)
                     .resizable()
@@ -210,30 +213,29 @@ struct Game4_1: View {
                     .onAppear {
                         position = viewmodel.ronde[viewmodel.currentRound].startPosition
                     }
-                
+
                 Image(systemName: "chevron.right")
                     .font(Font.system(size: 25, weight: .bold))
                     .rotationEffect(.degrees(viewmodel.ronde[viewmodel.currentRound].chevron))
                     .position(position)
                     .opacity(touched ? 0.0 : 1.0)
-                
+
                 // Progress Bar
                 HStack(spacing: 0) {
                     ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
-                        ZStack {
-                            Rectangle()
-                                .frame(width: viewmodel.ronde[viewmodel.currentRound].success[index] == true ? CGFloat(300 / viewmodel.ronde[viewmodel.currentRound].targetPosition.count) : 0, height: 20)
-                                .foregroundColor(.gray)
-                        }
+                        Rectangle()
+                            .frame(width: viewmodel.ronde[viewmodel.currentRound].success[index] == true ? CGFloat(310 / viewmodel.ronde[viewmodel.currentRound].targetPosition.count) : 0, height: 20)
+                            .foregroundColor(.gray)
                     }
                 }
                 .frame(width: 300, alignment: .leading)
+                .clipShape(Capsule())
                 .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(.gray, lineWidth: 4)
-                    )
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.gray, lineWidth: 4)
+                )
                 .offset(y: -230)
-                
+
 //                ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
 //                    Circle()
 //                        .fill(.yellow)
@@ -242,8 +244,6 @@ struct Game4_1: View {
 //                }
 //                .frame(width: 300, alignment: .leading)
 //                .offset(y: -180)
-                
-                
 
 //                Group {
 //                    Circle()
@@ -258,6 +258,6 @@ struct Game4_1: View {
 
 struct Game4_1View_Previews: PreviewProvider {
     static var previews: some View {
-        Game4_1View(mainOnTap: .constant(false), scene1_paralax_x: .constant(0.0), scene_main: .constant(0), scene_frame: .constant(0.0))
+        Game4_1View(mainOnTap: .constant(false), scene_main: .constant(0), scene_frame: .constant(0.0), scene1_paralax_x: .constant(0.0))
     }
 }

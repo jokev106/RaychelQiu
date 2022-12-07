@@ -24,12 +24,12 @@ struct Game4_2View: View {
                     .resizable()
                     .frame(width: 330, height: 449.6)
                     .position(x: 198, y: 275)
-                
+
                 Image("Game4_image6")
                     .resizable()
                     .frame(width: 330, height: 449.6)
                     .position(x: 198, y: 275)
-                
+
                 Image("Game4_image4")
                     .resizable()
                     .scaledToFit()
@@ -37,13 +37,13 @@ struct Game4_2View: View {
                     .scaleEffect(0.4)
                     .offset(x: 5, y: -90)
                     .blur(radius: finalSketch ? 0 : 50)
-                
+
                 Image("Game4_image7")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 330)
                     .position(x: 198, y: 360)
-                
+
                 Image("Game_Border")
                     .resizable()
                     .frame(width: 330, height: 449.6)
@@ -65,7 +65,7 @@ struct Game4_2View: View {
                                 scene_frame -= 400
                             }
                         }
-                        
+
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                             scene_main += 1
                         }
@@ -95,13 +95,13 @@ struct Game4_2: View {
 
     func animation() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2)) {
+            withAnimation(.easeInOut(duration: 2.0)) {
                 animate.toggle()
             }
             success.toggle()
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             if viewmodel.currentRound < 9 {
                 viewmodel.currentRound += 1
                 success.toggle()
@@ -153,7 +153,7 @@ struct Game4_2: View {
                     .scaledToFit()
                     .scaleEffect(1.25)
                     .offset(y: -60)
-                
+
                 // Pattern
                 Group {
                     Image(viewmodel.ronde[viewmodel.currentRound].image)
@@ -191,27 +191,28 @@ struct Game4_2: View {
                     .opacity(success ? 0.0 : 1.0)
                     .onAppear {
                         position = viewmodel.ronde[viewmodel.currentRound].startPosition
-                    }
-                
+                    } 
+
                 Image(systemName: "chevron.right")
                     .font(Font.system(size: 25, weight: .bold))
                     .rotationEffect(.degrees(viewmodel.ronde[viewmodel.currentRound].chevron))
                     .position(position)
                     .opacity(touched ? 0.0 : 1.0)
-                
+
                 // Progress Bar
                 HStack(spacing: 0) {
                     ForEach(viewmodel.ronde[viewmodel.currentRound].targetPosition.indices, id: \.self) { index in
                         Rectangle()
-                            .frame(width: viewmodel.ronde[viewmodel.currentRound].success[index] == true ? CGFloat(300 / viewmodel.ronde[viewmodel.currentRound].targetPosition.count) : 0, height: 20)
+                            .frame(width: viewmodel.ronde[viewmodel.currentRound].success[index] == true ? CGFloat(320 / viewmodel.ronde[viewmodel.currentRound].targetPosition.count) : 0, height: 20)
                             .foregroundColor(.brown)
                     }
                 }
                 .frame(width: 300, alignment: .leading)
+                .clipShape(Capsule())
                 .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(.brown, lineWidth: 4)
-                    )
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.brown, lineWidth: 4)
+                )
                 .offset(y: -260)
 
 //                Group {

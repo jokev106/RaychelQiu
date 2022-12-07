@@ -73,6 +73,11 @@ struct ChapterView: View {
                         .scaleEffect(chapterState == index ? 1.0 : 0.8)
                         .position(chapterPosition[index])
                         .opacity(chapterState == index ? 1.0 : 0.5)
+//                        .onTapGesture {
+//                            if chapterState == index{
+//                                transition(chapter: index)
+//                            }
+//                        }
                     }
                 }
                 .offset(x: CGFloat(offset))
@@ -91,7 +96,7 @@ struct ChapterView: View {
                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
                 }
                 
-                // Chapter Tittle and button next, prev
+                // Chapter Title and button next, prev
                 Group {
                     Button {
                         withAnimation(.easeInOut(duration: 1.5)) {
@@ -152,7 +157,7 @@ struct ChapterView: View {
                     if listChapter.count > 0 {
                         ForEach(0 ..< 6, id: \.self) { index in
                             Group {
-                                if listChapter[index].status == "playable" {
+//                                if listChapter[index].status == "playable" {
                                     Image("PlayButton")
                                         .resizable()
                                         .frame(width: 95, height: 95)
@@ -165,22 +170,22 @@ struct ChapterView: View {
                                         .multilineTextAlignment(.center)
                                         .position(self.playPosition)
                                     
-                                } else if listChapter[index].status == "locked" {
-                                    Text("Locked")
-                                        .multilineTextAlignment(.center)
-                                        .font(Font.custom("Hansip", size: 22))
-                                        .foregroundColor(.black)
-                                        .position(self.playButtonPosition)
-                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                                    
-                                } else {
-                                    Text("Coming Soon")
-                                        .multilineTextAlignment(.center)
-                                        .font(Font.custom("Hansip", size: 22))
-                                        .foregroundColor(.black)
-                                        .position(self.playButtonPosition)
-                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                                }
+//                                } else if listChapter[index].status == "locked" {
+//                                    Text("Locked")
+//                                        .multilineTextAlignment(.center)
+//                                        .font(Font.custom("Hansip", size: 22))
+//                                        .foregroundColor(.black)
+//                                        .position(self.playButtonPosition)
+//                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                                    
+//                                } else {
+//                                    Text("Coming Soon")
+//                                        .multilineTextAlignment(.center)
+//                                        .font(Font.custom("Hansip", size: 22))
+//                                        .foregroundColor(.black)
+//                                        .position(self.playButtonPosition)
+//                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                                }
                             }
                             .opacity(chapterState == index ? 1.0 : 0.0)
                             .onTapGesture {

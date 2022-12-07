@@ -115,9 +115,9 @@ struct HomeScreen: View {
                 .opacity(scene_opacity)
             }
             .statusBarHidden(true)
-            .onAppear {
-                SoundManager.instance.playSound(sound: .homeSong)
-            }
+//            .onAppear {
+//                SoundManager.instance.playSound(sound: .homeSong)
+//            }
         }
     }
 

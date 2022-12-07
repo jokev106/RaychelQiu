@@ -36,7 +36,7 @@ struct Chapter1_Mom: View {
             ZStack{
                 Image("Border")
                     .resizable()
-                    .scaledToFit()
+//                    .scaledToFit()
                     .frame(width: 330, height: 449.6)
                     .offset(y: -102)
                 
@@ -91,7 +91,7 @@ struct Chapter1_Mom: View {
                         }
                     }
                     
-                    if scene == 2{
+                    if scene == 2 {
                         ZStack{
                             Image("Chapter1_Mom")
                                 .resizable()

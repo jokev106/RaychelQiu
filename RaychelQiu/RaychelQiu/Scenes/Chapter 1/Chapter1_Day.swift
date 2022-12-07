@@ -70,8 +70,6 @@ struct Chapter1_Day: View {
                 .scaleEffect(1.27)
                 .offset(y: 20)
             }
-            
-            
         }
     }
     

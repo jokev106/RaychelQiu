@@ -14,6 +14,8 @@ struct Game2View: View {
     @State var bookmarks = [false, false, false, false, false]
     @State var image = ["Post1", "Post2", "Post3", "Post4", "Post5"]
     @State var positionPhone = CGPoint(x: 60, y: 480)
+    
+    @Binding var mainOnTap: Bool
     @Binding var scene_main: Int
     @Binding var scene_frame: Double
     
@@ -60,7 +62,6 @@ struct Game2View: View {
                     Image("QiustagramStory")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
                         .padding(.bottom)
                         .padding(.top, 25)
                     
@@ -68,7 +69,6 @@ struct Game2View: View {
                         Image(image[index])
                             .resizable()
                             .scaledToFit()
-                            .frame(width: .infinity)
                             .onTapGesture(count: 2) {
                                 if likes[index] == false {
                                     likes[index] = true
@@ -143,14 +143,15 @@ struct Game2View: View {
                 
                 if count >= 3 {
                     Button {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation(.easeInOut(duration: 3)) {
-                                scene_frame += 800
+                        if mainOnTap == true {
+                            mainOnTap = false
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                scene_main += 1
+                                withAnimation(.easeInOut(duration: 3)) {
+                                    scene_frame += 800
+                                }
                             }
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            scene_main += 1
                         }
                         
                     } label: {
@@ -161,6 +162,9 @@ struct Game2View: View {
                             .foregroundColor(.brown)
                     }
                     .offset(x: 0, y: 340)
+                    .onAppear{
+                        mainOnTap = true
+                    }
                 }
             }
         }
@@ -170,6 +174,6 @@ struct Game2View: View {
 
 struct Game2View_Previews: PreviewProvider {
     static var previews: some View {
-        Game2View(scene_main: .constant(0), scene_frame: .constant(0.0))
+        Game2View(mainOnTap: .constant(false), scene_main: .constant(0), scene_frame: .constant(0.0))
     }
 }

@@ -44,12 +44,12 @@ struct Prologue_Collection: View {
                     .resizable()
                     .ignoresSafeArea(.all)
                 if scene == 1 || scene == 2 {
-                    Prologue_Scene1_Kelas_Selesai(mainOnTap: $mainOnTap, raychel_stand_x: $raychel_stand_x, scene1_Prologue_Final: $scene1_Prologue_Final, moveableBook: $moveableBook)
+                    Prologue_Scene1_Kelas_Selesai(mainOnTap: $mainOnTap, raychel_stand_x: $raychel_stand_x, scene1_Prologue_Final: $scene1_Prologue_Final)
                         .onAppear {
                             startChapter()
                         }
                         .onTapGesture {
-                            if mainOnTap == true && self.moveableBook == true {
+                            if mainOnTap == true {
                                 mainOnTap = false
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     withAnimation(.easeIn(duration: 2.5)) {

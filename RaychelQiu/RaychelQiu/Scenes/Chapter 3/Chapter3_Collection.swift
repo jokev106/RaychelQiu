@@ -26,6 +26,10 @@ struct Chapter3_Collection: View {
     
     var body: some View {
         GeometryReader{ geometry in
+            Image("StoryBG")
+                .resizable()
+                .ignoresSafeArea(.all)
+
             if scene == 1 || scene == 2 {
                 Chapter3_Phone(mainOnTap: $mainOnTap, scene1_paralax_x: $scene1_paralax_x)
                     .onTapGesture{
