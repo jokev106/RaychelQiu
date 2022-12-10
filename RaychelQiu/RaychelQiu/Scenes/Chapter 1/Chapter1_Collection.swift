@@ -243,7 +243,7 @@ struct Chapter1_Collection: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 1.9)) {
-                chapter = 0
+                chapter = -1
             }
         }
     }

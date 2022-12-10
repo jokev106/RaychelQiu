@@ -168,6 +168,7 @@ struct ChapterView: View {
                                     Text("Play")
                                         .font(Font.custom("Hansip", size: 20))
                                         .multilineTextAlignment(.center)
+                                        .foregroundColor(.black)
                                         .position(self.playPosition)
                                     
 //                                } else if listChapter[index].status == "locked" {
@@ -201,7 +202,7 @@ struct ChapterView: View {
                 print(listChapter)
                 startPage()
             }
-            .navigationBarBackButtonHidden(true)
+//            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -237,7 +238,7 @@ struct ChapterView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 2.0)) {
 //                transitions[2] = 1.0
-                chapterPicked = chapter + 1
+                chapterPicked = chapter
             }
         }
     }

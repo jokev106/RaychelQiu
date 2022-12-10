@@ -261,7 +261,7 @@ struct Chapter2_Collection: View {
                     .font(Font.custom("Hansip", size: 25))
                     .foregroundColor(.black)
                 Button {
-                    CoreDataManager.instance.editChapter(chapter: 2)
+                    CoreDataManager.instance.editChapter(chapter: 3)
                     transition()
                         
                 } label: {
@@ -307,7 +307,7 @@ struct Chapter2_Collection: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 1.9)) {
-                chapter = 0
+                chapter = -1
             }
         }
     }

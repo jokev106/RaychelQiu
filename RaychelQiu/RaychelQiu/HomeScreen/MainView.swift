@@ -20,29 +20,29 @@ struct MainView: View {
 //                        .opacity(transitions[0])
                 }
                 
-                if chapter == 0 {
+                if chapter == -1 {
                     ChapterView(transitions: $transitions, chapterPicked: $chapter)
                         .frame(width: 380, height: 760)
 //                        .opacity(transitions[1])
                 }
 
-                if chapter == 1 {
+                if chapter == 0 {
                     Prologue_Collection(chapter: $chapter)
                         .frame(width: 380, height: 760)
                 }
 
-                if chapter == 2 {
+                if chapter == 1 {
                     Chapter1_Collection(chapter: $chapter)
                         .frame(width: 380, height: 760)
                 }
 
-                if chapter == 3 {
+                if chapter == 2 {
                     Chapter2_Collection(chapter: $chapter)
                         .frame(width: 380, height: 760)
                 }
                 
-                if chapter == 4 {
-                    Chapter3_Collection()
+                if chapter == 3 {
+                    Chapter3_Collection(chapter: $chapter)
                         .frame(width: 380, height: 760)
                 }
             }
