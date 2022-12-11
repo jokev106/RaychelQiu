@@ -55,6 +55,7 @@
 		01E41AE1291A5861008A04AC /* Prologue_Dinner2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */; };
 		01E41AE3291A58A2008A04AC /* Prologue_Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */; };
 		70027793293711AE008CF324 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70027792293711AE008CF324 /* CoreDataManager.swift */; };
+		7015F79E2945CAE800697B70 /* Game5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7015F79D2945CAE800697B70 /* Game5View.swift */; };
 		702514B429012EC7002E4988 /* Game2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B329012EC7002E4988 /* Game2View.swift */; };
 		702514BA29014A74002E4988 /* Game4Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514B929014A74002E4988 /* Game4Model.swift */; };
 		702514BC29014E22002E4988 /* Game4ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702514BB29014E22002E4988 /* Game4ViewModel.swift */; };
@@ -166,6 +167,7 @@
 		01E41AE0291A5861008A04AC /* Prologue_Dinner2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Dinner2.swift; sourceTree = "<group>"; };
 		01E41AE2291A58A2008A04AC /* Prologue_Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prologue_Clock.swift; sourceTree = "<group>"; };
 		70027792293711AE008CF324 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		7015F79D2945CAE800697B70 /* Game5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game5View.swift; sourceTree = "<group>"; };
 		702514B329012EC7002E4988 /* Game2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game2View.swift; sourceTree = "<group>"; };
 		702514B929014A74002E4988 /* Game4Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4Model.swift; sourceTree = "<group>"; };
 		702514BB29014E22002E4988 /* Game4ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game4ViewModel.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 			children = (
 				70B0FEE4291A317C00CD7687 /* Game5ViewModel.swift */,
 				70B0FEE6291A318B00CD7687 /* Game5Model.swift */,
+				7015F79D2945CAE800697B70 /* Game5View.swift */,
 			);
 			path = Game5;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				B3EE5E412927600100CB5163 /* Minigame3_Packing.swift in Sources */,
 				01A59F402913A2B5001CBB83 /* Prologue_Dinner.swift in Sources */,
 				01E41ADF291A321F008A04AC /* Prologue_Kelas.swift in Sources */,
+				7015F79E2945CAE800697B70 /* Game5View.swift in Sources */,
 				B32BB5B929012E4A00B812CF /* Persistence.swift in Sources */,
 				01A3384D290142E400092EEC /* SwiftUIView.swift in Sources */,
 				013EAE85290FBE06008572A7 /* Prologue_Scene2_Transisi_Hari.swift in Sources */,
