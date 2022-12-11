@@ -78,6 +78,7 @@ struct Game2View: View {
                                         count += 1
                                     }
                                 }
+                                SFXManager.instance.playSFX(sound: .pop)
                             }
                         
                         HStack {
@@ -93,6 +94,7 @@ struct Game2View: View {
                                         count -= 1
                                     }
                                 }
+                                SFXManager.instance.playSFX(sound: .pop)
                             } label: {
                                 if likes[index] == false {
                                     Image("Instalikeunclick")
@@ -121,6 +123,7 @@ struct Game2View: View {
                                         count -= 1
                                     }
                                 }
+                                SFXManager.instance.playSFX(sound: .pop)
                             } label: {
                                 if bookmarks[index] == false {
                                     Image("Bookmarkunclick")

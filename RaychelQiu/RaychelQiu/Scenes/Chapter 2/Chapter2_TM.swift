@@ -238,6 +238,11 @@ struct Chapter2_TM: View {
                 chat_3_opacity = 1.0
             }
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.25) {
+            withAnimation(.easeInOut(duration: 1)) {
+                SFXManager.instance.playSFX(sound: .burstPop)
+            }
+        }
     }
 }
 

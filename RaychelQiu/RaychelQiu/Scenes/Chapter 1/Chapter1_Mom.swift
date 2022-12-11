@@ -79,7 +79,7 @@ struct Chapter1_Mom: View {
                         }
                         .onAppear{
                             chapter1_room_scene1_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                                 onTap = true
                             }
                         }
@@ -131,6 +131,7 @@ struct Chapter1_Mom: View {
             withAnimation(.easeInOut(duration: 0.7)) {
                 handle_up_opac -= 1.0
                 handle_down_opac += 1.0
+                SFXManager.instance.playSFX(sound: .doorOpen)
             }
         }
         
@@ -141,7 +142,7 @@ struct Chapter1_Mom: View {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             withAnimation(.easeInOut(duration: 0.7)) {
                 door_open_opac += 1.0
                 handle_down_opac -= 1.0
@@ -149,11 +150,11 @@ struct Chapter1_Mom: View {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 door_normal -= 1.0
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             withAnimation(.easeInOut(duration: 0.7)) {
                 door_open_opac -= 1.0
                 door_open_mini_opac += 1.0
@@ -165,6 +166,7 @@ struct Chapter1_Mom: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 mom_opacity += 1.0
+                SFXManager.instance.playSFX(sound: .running1)
             }
         }
         

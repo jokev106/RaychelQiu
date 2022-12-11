@@ -130,6 +130,7 @@ struct Game4_1: View {
                 animate[viewmodel.currentRound].toggle()
             }
             success.toggle()
+            SFXManager.instance.playSFX(sound: .drawing2)
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {

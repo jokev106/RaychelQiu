@@ -17,11 +17,17 @@ class SFXManager {
     enum soundOption:String {
         case alarm
         case birds1
+        case breaking
+        case burstPop
+        case bus
+        case crack
         case chair
         case click1
         case chewing3
         case doorOpen
         case drawing
+        case drawing2
+        case drawing3
         case eating1
         case night1
         case paperSlide1

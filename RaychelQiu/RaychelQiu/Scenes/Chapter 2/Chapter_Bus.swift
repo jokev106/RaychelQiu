@@ -188,6 +188,12 @@ struct Chapter2_Bus: View {
             }
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
+            withAnimation(.easeInOut(duration: 3)) {
+                SFXManager.instance.playSFX(sound: .bus)
+            }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
             raychel_2_opacity = 1.0
             withAnimation(.easeInOut(duration: 3)) {

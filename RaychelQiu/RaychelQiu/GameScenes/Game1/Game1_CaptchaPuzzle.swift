@@ -44,6 +44,7 @@ struct Game1_CaptchaPuzzle: View {
                             .cornerRadius(4)
                             .onTapGesture {
                                 isWinter1.toggle()
+                                SFXManager.instance.playSFX(sound: .pop)
                             }
                             .position(self.positionWinterJacket1)
                         Image("WinterJacket2")
@@ -54,6 +55,7 @@ struct Game1_CaptchaPuzzle: View {
 
                             .onTapGesture {
                                 isWinter2.toggle()
+                                SFXManager.instance.playSFX(sound: .pop)
                             }
                             .position(self.positionWinterJacket2)
                         Image("WinterJacket3")
@@ -63,6 +65,7 @@ struct Game1_CaptchaPuzzle: View {
                             .cornerRadius(4)
                             .onTapGesture {
                                 isWinter3.toggle()
+                                SFXManager.instance.playSFX(sound: .pop)
                             }
                             .position(self.positionWinterJacket3)
                     }
