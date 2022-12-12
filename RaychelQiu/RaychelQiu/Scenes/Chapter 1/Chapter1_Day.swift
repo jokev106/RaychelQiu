@@ -24,7 +24,7 @@ struct Chapter1_Day: View {
             ZStack{
                 Image("Border")
                     .resizable()
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 ZStack{

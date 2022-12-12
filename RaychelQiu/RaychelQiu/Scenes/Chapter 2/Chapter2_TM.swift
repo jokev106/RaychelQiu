@@ -17,12 +17,14 @@ struct Chapter2_TM: View {
     @State var stand_1_opacity = 1.0
     @State var stand_1_x = 100.0
     @State var stand_1_y = -70.0
+    @State var scene_1_opacity = 1.0
     @State var sit_1_opacity = 0.0
     
     // Scene2
     @State var stage_2_opacity = 1.0
     @State var ppt_2_opacity = 0.0
     @State var ppt_2_blur = 5.0
+    @State var scene_2_opacity = 0.0
     
     // Scene3
     @State var group_3_scale = 1.0
@@ -30,6 +32,7 @@ struct Chapter2_TM: View {
     @Binding var group_3_x: Double
     @State var chat_3_scale = 0.4
     @State var chat_3_opacity = 0.0
+    @State var scene_3_opacity = 0.0
     
     var body: some View {
         GeometryReader { geometry in
@@ -38,11 +41,11 @@ struct Chapter2_TM: View {
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 ZStack {
-                    if scene == 1 {
+                    if scene == 1 || scene == 2{
                         ZStack {
                             Image("Calendar_BG")
                                 .resizable()
@@ -86,9 +89,11 @@ struct Chapter2_TM: View {
                                 scene += 1
                             }
                         }
+                        .opacity(scene_1_opacity)
                     }
                     
-                    if scene == 2 {
+                    
+                    if scene == 2 || scene == 3 {
                         ZStack {
                             Image("Calendar_BG")
                                 .resizable()
@@ -120,7 +125,9 @@ struct Chapter2_TM: View {
                                 scene += 1
                             }
                         }
+                        .opacity(scene_2_opacity)
                     }
+                    
                     
                     if scene == 3 {
                         ZStack {
@@ -165,7 +172,6 @@ struct Chapter2_TM: View {
                             .scaleEffect(group_3_scale)
                             .offset(x: group_3_x, y: group_3_y)
                         }
-                        
                         .onAppear {
                             chapter2_TM_scene3_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -173,6 +179,7 @@ struct Chapter2_TM: View {
 //                                onTap = true
                             }
                         }
+                        .opacity(scene_3_opacity)
 //                        .onTapGesture {
 //                            if onTap == true {
 //                                onTap = false
@@ -180,6 +187,7 @@ struct Chapter2_TM: View {
 //                            }
 //                        }
                     }
+                   
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .mask {
@@ -211,6 +219,11 @@ struct Chapter2_TM: View {
     
     func chapter2_TM_scene2_in() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2)) {
+                scene_2_opacity = 1.0
+                scene_1_opacity = 0.0
+            }
+            
             withAnimation(.easeInOut(duration: 3)) {
                 ppt_2_opacity = 1.0
             }
@@ -225,6 +238,11 @@ struct Chapter2_TM: View {
     
     func chapter2_TM_scene3_in() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2)) {
+                scene_3_opacity = 1.0
+                scene_2_opacity = 0.0
+            }
+            
             withAnimation(.easeInOut(duration: 0)) {
                 group_3_scale = 1.2
                 group_3_y = 50

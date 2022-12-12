@@ -51,8 +51,9 @@ struct Prologue_Dinner2: View {
 //                    .scaleEffect(0.92)
 //                    .offset(y: -geometry.size.height * 0.151)
 //                    .position(self.positionBorder)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
+                
                 ZStack{
                     Image("Dinner_BG")
                         .resizable()
@@ -60,7 +61,6 @@ struct Prologue_Dinner2: View {
                         .frame(width: 330 , height: 449.6)
                     
                     ZStack{
-                        
                         Image("Dinner_Table")
                             .resizable()
                             .scaledToFit()

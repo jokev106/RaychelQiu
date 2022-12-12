@@ -11,6 +11,9 @@ struct Chapter1_Collection: View {
     @State var scene = 0
     @State var onTap = false
     @State var mainOnTap = false
+    @State var dialog_scale = 0.0
+    @State var dialog_opacity = 0.0
+    @State var scene_blur = 0.0
     @Binding var chapter: Int
     
     // Scene0
@@ -145,7 +148,6 @@ struct Chapter1_Collection: View {
                                 }
                             }
                         }
-                        .offset(x: scene2_offset_x)
                         .onTapGesture {
                             if mainOnTap == true {
                                 mainOnTap = false
@@ -158,6 +160,7 @@ struct Chapter1_Collection: View {
                                 }
                             }
                         }
+                        .offset(x: scene2_offset_x)
                 }
                 
                 if scene == 6 {
@@ -188,8 +191,47 @@ struct Chapter1_Collection: View {
                         }
                         .offset(x: scene1_offset_x)
                 }
+                
+                Button {
+                    openAlert()
+                } label: {
+                    Text("<")
+                        .font(Font.custom("Hansip", size: 80))
+                        .foregroundColor(Color("buttonColor"))
+                }
+                .position(x: 40, y: 30)
             }
             .opacity(scene_opacity)
+            .blur(radius: scene_blur)
+            
+            ZStack {
+                Image("Alert_Dialog")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 350)
+                    .offset(y: -20)
+                
+                Image("Alert_Yes")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150)
+                    .offset(x: -80, y: 150)
+                    .onTapGesture {
+                        backTransition()
+                    }
+                
+                Image("Alert_No")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 150)
+                    .offset(x: 80, y: 150)
+                    .onTapGesture {
+                        closeAlert()
+                    }
+            }
+            .scaleEffect(dialog_scale)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .opacity(dialog_opacity)
             
             ZStack {
                 Text("To Be Continued....")
@@ -214,7 +256,7 @@ struct Chapter1_Collection: View {
     
     func startChapter() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2.0)) {
+            withAnimation(.easeInOut(duration: 1.5)) {
                 scene_opacity = 1.0
             }
         }
@@ -242,9 +284,41 @@ struct Chapter1_Collection: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 1.9)) {
-                chapter = -1
+            chapter = -1
+        }
+    }
+    
+    func openAlert() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 1)) {
+                dialog_scale = 1.0
+                dialog_opacity = 1.0
+                scene_blur = 20.0
             }
+        }
+    }
+    
+    func closeAlert() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 1)) {
+                dialog_scale = 0.0
+                dialog_opacity = 0.0
+                scene_blur = 0.0
+            }
+        }
+    }
+    
+    func backTransition() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2)) {
+                dialog_scale = 0.0
+                dialog_opacity = 0.0
+                scene_opacity = 0.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            chapter = -1
         }
     }
 }

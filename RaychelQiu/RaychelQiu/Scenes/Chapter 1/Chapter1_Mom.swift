@@ -37,19 +37,19 @@ struct Chapter1_Mom: View {
                 Image("Border")
                     .resizable()
 //                    .scaledToFit()
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 
                 ZStack{
-                    Image("Chapter1_BG")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geometry.size.width, height: geometry.size.height)
-                                 
                     //Scene1
                     if scene == 1 || scene == 2 {
                         ZStack{
+                            Image("Chapter1_BG")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                            
                             Image("Chapter1_Door_Normal")
                                 .resizable()
                                 .scaledToFit()
@@ -74,8 +74,8 @@ struct Chapter1_Mom: View {
                                 .resizable()
                                 .scaledToFit()
                                 .opacity(door_open_mini_opac)
-                                .scaleEffect(door_scaled_scale)
-                                .offset(x: mom_scaled_x, y: door_scaled_y)
+//                                .scaleEffect(door_scaled_scale)
+//                                .offset(x: mom_scaled_x, y: door_scaled_y)
                         }
                         .onAppear{
                             chapter1_room_scene1_in()
@@ -93,12 +93,52 @@ struct Chapter1_Mom: View {
                     
                     if scene == 2 {
                         ZStack{
+                            Image("Chapter1_BG")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: geometry.size.width, height: geometry.size.height)
+                            
+                            ZStack{
+                                Image("Chapter1_BG")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: geometry.size.width, height: geometry.size.height)
+                                
+                                Image("Chapter1_Door_Normal")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(door_normal)
+                                Image("Chapter1_Handle_Up")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(handle_up_opac)
+                                Image("Chapter1_Handle_Down")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(handle_down_opac)
+                                Image("Chapter1_Door_Open")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(door_open_opac)
+                                Image("Chapter1_BG")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(door_open_mini_opac)
+                                Image("Chapter1_Door_Open_Mini")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .opacity(door_open_mini_opac)
+                                //                                .scaleEffect(door_scaled_scale)
+                                //                                .offset(x: mom_scaled_x, y: door_scaled_y)
+                            }
+                            
                             Image("Chapter1_Mom")
                                 .resizable()
                                 .scaledToFit()
                                 .opacity(mom_opacity)
-                                .scaleEffect(mom_scale)
-                                .offset(y: mom_y)
+//                                .scaleEffect(mom_scale)
+//                                .offset(y: mom_y)
+                            
                             Image("Chapter1_Mom_Scaled")
                                 .resizable()
                                 .scaledToFit()
@@ -115,6 +155,7 @@ struct Chapter1_Mom: View {
                     }
                     
                 }
+                .frame(width: geometry.size.width, height: geometry.size.height)
                 .mask {
                     Image("Day")
                         .resizable()
@@ -170,16 +211,16 @@ struct Chapter1_Mom: View {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            withAnimation(.easeInOut(duration: 2.2)) {
-                mom_scale += 1.5
-                mom_y += 250
-                door_scaled_y += 250
-                door_scaled_scale += 1.3
-            }
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//            withAnimation(.easeInOut(duration: 2.2)) {
+//                mom_scale += 1.5
+//                mom_y += 250
+//                door_scaled_y += 250
+//                door_scaled_scale += 1.3
+//            }
+//        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 mom_scaled_opac += 1.0
                 mom_scaled_scale += 0.1

@@ -14,6 +14,8 @@ struct Game4_2View: View {
     @State var animate = false
     @State var finalSketch = false
     @State var nextScene = false
+    
+    @Binding var mainOnTap: Bool
     @Binding var scene_main: Int
     @Binding var scene_frame: Double
 
@@ -61,13 +63,16 @@ struct Game4_2View: View {
                 } else {
                     Button {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation(.easeInOut(duration: 2)) {
-                                scene_frame -= 400
-                            }
-                        }
+                            if mainOnTap == true {
+                                mainOnTap = false
 
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            scene_main += 1
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                    scene_main += 1
+                                    withAnimation(.easeInOut(duration: 2)) {
+                                        scene_frame -= 400
+                                    }
+                                }
+                            }
                         }
                     } label: {
                         Image(systemName: "chevron.right.circle")
@@ -77,6 +82,9 @@ struct Game4_2View: View {
                             .foregroundColor(.brown)
                     }
                     .offset(x: 0, y: 250)
+                    .onAppear {
+                        mainOnTap = true
+                    }
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
@@ -228,6 +236,6 @@ struct Game4_2: View {
 
 struct Game4View_Previews: PreviewProvider {
     static var previews: some View {
-        Game4_2View(scene_main: .constant(0), scene_frame: .constant(0.0))
+        Game4_2View(mainOnTap: .constant(false), scene_main: .constant(0), scene_frame: .constant(0.0))
     }
 }

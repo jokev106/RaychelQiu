@@ -61,7 +61,7 @@ struct Prologue_Room_Mad: View {
     @State var isDoneRegis: Bool = false
 //
 //    @State var laptop_x = 0.0
-    @State var laptop_y = 0.0
+    @State var laptop_y = 250.0
 
     var body: some View {
         GeometryReader { geometry in
@@ -69,7 +69,7 @@ struct Prologue_Room_Mad: View {
                 Image("Border")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 ZStack {
@@ -170,7 +170,7 @@ struct Prologue_Room_Mad: View {
                         }
                         .onAppear {
                             prologue_room_scene3_in()
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 4.7) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                                 onTap = true
                             }
                         }
@@ -178,9 +178,6 @@ struct Prologue_Room_Mad: View {
                             if onTap == true {
                                 onTap = false
                                 prologue_room_scene4_in()
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
-                                    scene += 1
-                                }
                             }
                         }
                     }
@@ -195,14 +192,15 @@ struct Prologue_Room_Mad: View {
             }
             
             ZStack {
-                Image("RaychelBorder")
-                    .resizable()
-                    .frame(width: 330, height: 224)
-                    .position(self.positionRegisBox)
-                Image("DInnerBG")
-                    .resizable()
-                    .frame(width: 322, height: 219)
-                    .position(self.positionRegisBox)
+//                Image("RaychelBorder")
+//                    .resizable()
+//                    .frame(width: 330, height: 224)
+//                    .position(self.positionRegisBox)
+//                Image("DInnerBG")
+//                    .resizable()
+//                    .frame(width: 322, height: 219)
+//                    .position(self.positionRegisBox)
+                
                 if scene == 4 {
                     ZStack {
                         Image("homescreen")
@@ -238,13 +236,15 @@ struct Prologue_Room_Mad: View {
                             .opacity(timelineOpac)
                             .position(self.positionRegisLaptop)
                     }
-                    .mask {
-                        Image("Day")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 470, height: 1200)
-                            .position(self.positionRegisBoxMask1)
-                    }.position(self.positionRegisBoxMask2)
+//                    .mask {
+//                        Image("Day")
+//                            .resizable()
+//                            .scaledToFit()
+//                            .frame(width: 470, height: 1200)
+//                            .position(self.positionRegisBoxMask1)
+//
+//                    }
+                    .position(self.positionRegisBoxMask2)
                 }
                 
                 // HomeScreen Button
@@ -356,8 +356,9 @@ struct Prologue_Room_Mad: View {
                             Text("Back")
                                 .font(Font.custom("Hansip", size: 12))
                                 .foregroundColor(.yellow)
-                        }.frame(width: 80, height: 30)
-                            .position(self.positionBackButton)
+                        }
+                        .frame(width: 80, height: 30)
+                        .position(self.positionBackButton)
                     }
                     if isRegis == true {
                         Button {
@@ -381,24 +382,37 @@ struct Prologue_Room_Mad: View {
                             .position(self.positionTimeButton)
                     }
                     if isDoneRegis == true {
-                        Button {
-                            // To be Continued
-//                            prologue_game()
-//                            scene += 1
-//                            presentationMode.wrappedValue.dismiss()
-//                            print("\(mainOnTap)")
-                            SFXManager.instance.playSFX(sound: .click1)
-                            mainOnTap = true
-                        } label: {
-                            Text("Done")
-                                .font(Font.custom("Hansip", size: 12))
-                                .foregroundColor(.yellow)
-                        }.frame(width: 100, height: 30)
+                        Text("Done")
+                            .font(Font.custom("Hansip", size: 12))
+                            .foregroundColor(.yellow)
+                            .frame(width: 100, height: 30)
                             .position(self.positionDoneRegisButton)
+                            .onAppear {
+                                SFXManager.instance.playSFX(sound: .click1)
+                                mainOnTap = true
+                            }
+                        
+//                        Button {
+//                            // To be Continued
+////                            prologue_game()
+////                            scene += 1
+////                            presentationMode.wrappedValue.dismiss()
+////                            print("\(mainOnTap)")
+//                            SFXManager.instance.playSFX(sound: .click1)
+//                            mainOnTap = true
+//                        } label: {
+//                            Text("Done")
+//                                .font(Font.custom("Hansip", size: 12))
+//                                .foregroundColor(.yellow)
+//                        }.frame(width: 100, height: 30)
+//                            .position(self.positionDoneRegisButton)
                     }
                 }
                 
-            }.offset(y: laptop_y)
+            }
+            .frame(width: 400)
+            .scaleEffect(1.4)
+            .offset(x: -20, y: laptop_y)
         }
     }
     
@@ -424,13 +438,13 @@ struct Prologue_Room_Mad: View {
     }
     
     func prologue_room_scene3_in() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 nyfw_paper_opac -= 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 nyfw_scale += 0.45
                 nyfw_y -= 95
@@ -442,17 +456,24 @@ struct Prologue_Room_Mad: View {
     func prologue_room_scene4_in() {
         raychel_normal_opac = 1.0
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 raychel_papers_opac -= 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 nyfw_scale -= 0.45
                 nyfw_y += 95
                 nyfw_blur -= 5.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            scene += 1
+            withAnimation(.easeInOut(duration: 1.5)) {
+                laptop_y = -100.0
             }
         }
     }
@@ -460,19 +481,18 @@ struct Prologue_Room_Mad: View {
     func prologue_room_scene4_out() {
 //        raychel_normal_opac = 1.0
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             withAnimation(.easeInOut(duration: 1.0)) {
                 raychel_papers_opac += 1.0
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 nyfw_scale = 0.0
                 nyfw_y = 0.0
                 nyfw_blur = 0.0
                 raychel_normal_opac = 1.0
-                laptop_y = 0.0
 //                homeOpac += 1.0
             }
         }

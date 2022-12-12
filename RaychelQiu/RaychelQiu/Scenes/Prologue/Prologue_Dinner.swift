@@ -250,7 +250,7 @@ struct Prologue_Dinner: View {
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                     .opacity(animSceneOpac)
                 

@@ -118,11 +118,11 @@ struct ChapterView: View {
                     .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
                     .position(self.prevButton)
                     
-                    Text(chapterState == 0 ? "bored of routine" :
-                        chapterState == 1 ? "she can’t talk." :
-                        chapterState == 2 ? "everything happen \n at once." :
-                        chapterState == 3 ? "cover the hole \n of sadness." :
-                        chapterState == 4 ? "I’m not ready yet." : "the day has come"
+                    Text(chapterState == 0 ? "Bored of routine" :
+                        chapterState == 1 ? "She can’t talk" :
+                        chapterState == 2 ? "Everything happen \n at once" :
+                        chapterState == 3 ? "Cover the hole \n of sadness" :
+                        chapterState == 4 ? "I’m not ready yet" : "The day has come"
                     )
                     .multilineTextAlignment(.center)
                     .font(Font.custom("Hansip", size: 22))
@@ -157,7 +157,7 @@ struct ChapterView: View {
                     if listChapter.count > 0 {
                         ForEach(0 ..< 6, id: \.self) { index in
                             Group {
-//                                if listChapter[index].status == "playable" {
+                                if listChapter[index].status == "playable" {
                                     Image("PlayButton")
                                         .resizable()
                                         .frame(width: 95, height: 95)
@@ -171,22 +171,22 @@ struct ChapterView: View {
                                         .foregroundColor(.black)
                                         .position(self.playPosition)
                                     
-//                                } else if listChapter[index].status == "locked" {
-//                                    Text("Locked")
-//                                        .multilineTextAlignment(.center)
-//                                        .font(Font.custom("Hansip", size: 22))
-//                                        .foregroundColor(.black)
-//                                        .position(self.playButtonPosition)
-//                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-//                                    
-//                                } else {
-//                                    Text("Coming Soon")
-//                                        .multilineTextAlignment(.center)
-//                                        .font(Font.custom("Hansip", size: 22))
-//                                        .foregroundColor(.black)
-//                                        .position(self.playButtonPosition)
-//                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-//                                }
+                                } else if listChapter[index].status == "locked" {
+                                    Text("Locked")
+                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("Hansip", size: 22))
+                                        .foregroundColor(.black)
+                                        .position(self.playButtonPosition)
+                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+                                    
+                                } else {
+                                    Text("Coming Soon")
+                                        .multilineTextAlignment(.center)
+                                        .font(Font.custom("Hansip", size: 22))
+                                        .foregroundColor(.black)
+                                        .position(self.playButtonPosition)
+                                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+                                }
                             }
                             .opacity(chapterState == index ? 1.0 : 0.0)
                             .onTapGesture {
@@ -203,25 +203,25 @@ struct ChapterView: View {
                 startPage()
             }
 //            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        withAnimation(.easeInOut(duration: 1)) {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    } label: {
-                        Text("<")
-                            .font(Font.custom("Hansip", size: 80))
-                            .foregroundColor(Color("buttonColor"))
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button {
+//                        withAnimation(.easeInOut(duration: 1)) {
+//                            presentationMode.wrappedValue.dismiss()
+//                        }
+//                    } label: {
+//                        Text("<")
+//                            .font(Font.custom("Hansip", size: 80))
+//                            .foregroundColor(Color("buttonColor"))
+//                    }
+//                }
+//            }
         }
     }
     
     func startPage() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2.0)) {
+            withAnimation(.easeInOut(duration: 1.5)) {
                 scene_opacity = 1.0
             }
         }
@@ -236,10 +236,7 @@ struct ChapterView: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 2.0)) {
-//                transitions[2] = 1.0
-                chapterPicked = chapter
-            }
+            chapterPicked = chapter
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Prologue_Scene1_Kelas_Selesai: View {
-    @State var scene = 1
+    @State var scene = 3
     @State var onTap = false
     @Binding var mainOnTap: Bool
     
@@ -63,7 +63,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         let dragBook = DragGesture(coordinateSpace: .local)
             .onChanged { gesture in
 //                if moveableBook == false {
-                    self.positionBook = gesture.location
+                self.positionBook = gesture.location
 //                }
             }
             .onEnded { _ in
@@ -88,7 +88,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         let dragPencil = DragGesture(coordinateSpace: .local)
             .onChanged { gesture in
 //                if moveablePencil == false {
-                    self.positionPencil = gesture.location
+                self.positionPencil = gesture.location
 //                }
             }
             .onEnded { _ in
@@ -113,7 +113,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         let dragBottle = DragGesture(coordinateSpace: .local)
             .onChanged { gesture in
 //                if moveableBottle == false {
-                    self.positionBottle = gesture.location
+                self.positionBottle = gesture.location
 //                }
             }
             .onEnded { _ in
@@ -140,7 +140,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 ZStack {
@@ -267,14 +267,15 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 .scaleEffect(1.27)
                 .offset(y: 20)
                 
-                if isBook == true && isPencil == true && isBottle == true {
-                    Image("Bag")
-                        .resizable()
-                        .frame(width: 140, height: 190)
-                        .position(self.positionBag)
-                        .shadow(color: .black.opacity(0.3), radius: 0.5)
-                        .offset(x: bagOffset_x)
-                }
+//                if isBook == true && isPencil == true && isBottle == true {
+                Image("Bag")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 130)
+                    .position(self.positionBag)
+                    .shadow(color: .black.opacity(0.3), radius: 0.5)
+                    .offset(x: bagOffset_x)
+//                }
                 ZStack {
                     Image("PlayBox")
                         .resizable()
@@ -289,36 +290,85 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         .offset(y: 260)
                     
                     Group {
-                        if isBottle == false {
-                            Image("Bag1")
+                        if isBook == false {
+                            Image("Books")
                                 .resizable()
-                                .frame(width: 140, height: 190)
-                                .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+                                .scaledToFit()
+                                .frame(width: 75)
+                                .rotationEffect(.degrees(70))
+                                .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
+                                .offset(x: 110, y: 20)
                                 .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }
+                            
+                            Image("Bag0")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 88)
+                                .position(self.positionBag)
+                                .offset(x: bagOffset_x + 21, y: 33)
+                            
+//                            Image("Bag3")
+//                                .resizable()
+//                                .frame(width: 140, height: 190)
+//                                .position(self.positionBag)
+//                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+//                                .opacity(bag3Opac)
+                        }
+                        if isBottle == false {
+                            Image("WaterBottle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25)
+                                .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
+                                .offset(x: 130, y: 10)
+                                .onAppear {
+                                    SFXManager.instance.playSFX(sound: .pop)
+                                }
+                            
+                            Image("Bag0")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 88)
+                                .position(self.positionBag)
+                                .offset(x: bagOffset_x + 21, y: 33)
+                            
+//                            Image("Bag1")
+//                                .resizable()
+//                                .frame(width: 140, height: 190)
+//                                .position(self.positionBag)
+//                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+//                                .onAppear {
+//                                    SFXManager.instance.playSFX(sound: .pop)
+//                                }
                         }
                         if isPencil == false {
-                            Image("Bag2")
+                            Image("PencilCase")
                                 .resizable()
-                                .frame(width: 140, height: 190)
-                                .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+                                .scaledToFit()
+                                .frame(width: 60)
+                                .rotationEffect(.degrees(130))
+                                .offset(x: 100, y: 45)
                                 .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }
-                        }
-                        if isBook == false {
-                            Image("Bag3")
+                            
+                            Image("Bag0")
                                 .resizable()
-                                .frame(width: 140, height: 190)
+                                .scaledToFit()
+                                .frame(width: 88)
                                 .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 0.5)
-                                .opacity(bag3Opac)
-                                .onAppear {
-                                    SFXManager.instance.playSFX(sound: .pop)
-                                }
+                                .offset(x: bagOffset_x + 21, y: 33)
+                            
+//                            Image("Bag2")
+//                                .resizable()
+//                                .frame(width: 140, height: 190)
+//                                .position(self.positionBag)
+//                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+//                                .onAppear {
+//                                    SFXManager.instance.playSFX(sound: .pop)
+//                                }
                         }
                     }
                     
