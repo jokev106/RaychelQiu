@@ -73,6 +73,11 @@ struct ChapterView: View {
                         .scaleEffect(chapterState == index ? 1.0 : 0.8)
                         .position(chapterPosition[index])
                         .opacity(chapterState == index ? 1.0 : 0.5)
+//                        .onTapGesture {
+//                            if chapterState == index{
+//                                transition(chapter: index)
+//                            }
+//                        }
                     }
                 }
                 .offset(x: CGFloat(offset))
@@ -91,7 +96,7 @@ struct ChapterView: View {
                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
                 }
                 
-                // Chapter Tittle and button next, prev
+                // Chapter Title and button next, prev
                 Group {
                     Button {
                         withAnimation(.easeInOut(duration: 1.5)) {
@@ -113,11 +118,11 @@ struct ChapterView: View {
                     .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
                     .position(self.prevButton)
                     
-                    Text(chapterState == 0 ? "bored of routine" :
-                        chapterState == 1 ? "she can’t talk." :
-                        chapterState == 2 ? "everything happen \n at once." :
-                        chapterState == 3 ? "cover the hole \n of sadness." :
-                        chapterState == 4 ? "I’m not ready yet." : "the day has come"
+                    Text(chapterState == 0 ? "Bored of routine" :
+                        chapterState == 1 ? "She can’t talk" :
+                        chapterState == 2 ? "Everything happen \n at once" :
+                        chapterState == 3 ? "Cover the hole \n of sadness" :
+                        chapterState == 4 ? "I’m not ready yet" : "The day has come"
                     )
                     .multilineTextAlignment(.center)
                     .font(Font.custom("Hansip", size: 22))
@@ -163,6 +168,7 @@ struct ChapterView: View {
                                     Text("Play")
                                         .font(Font.custom("Hansip", size: 20))
                                         .multilineTextAlignment(.center)
+                                        .foregroundColor(.black)
                                         .position(self.playPosition)
                                     
                                 } else if listChapter[index].status == "locked" {
@@ -196,26 +202,26 @@ struct ChapterView: View {
                 print(listChapter)
                 startPage()
             }
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        withAnimation(.easeInOut(duration: 1)) {
-                            presentationMode.wrappedValue.dismiss()
-                        }
-                    } label: {
-                        Text("<")
-                            .font(Font.custom("Hansip", size: 80))
-                            .foregroundColor(Color("buttonColor"))
-                    }
-                }
-            }
+//            .navigationBarBackButtonHidden(true)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button {
+//                        withAnimation(.easeInOut(duration: 1)) {
+//                            presentationMode.wrappedValue.dismiss()
+//                        }
+//                    } label: {
+//                        Text("<")
+//                            .font(Font.custom("Hansip", size: 80))
+//                            .foregroundColor(Color("buttonColor"))
+//                    }
+//                }
+//            }
         }
     }
     
     func startPage() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2.0)) {
+            withAnimation(.easeInOut(duration: 1.5)) {
                 scene_opacity = 1.0
             }
         }
@@ -230,10 +236,7 @@ struct ChapterView: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            withAnimation(.easeInOut(duration: 2.0)) {
-//                transitions[2] = 1.0
-                chapterPicked = chapter + 1
-            }
+            chapterPicked = chapter
         }
     }
 }

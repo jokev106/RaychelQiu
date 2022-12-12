@@ -13,12 +13,14 @@ struct Game2View: View {
     @State var likes = [false, false, false, false, false]
     @State var bookmarks = [false, false, false, false, false]
     @State var image = ["Post1", "Post2", "Post3", "Post4", "Post5"]
-    @State var positionPhone = CGPoint(x: 60, y: 480)
+    @State var positionPhone = CGPoint(x: 59, y: 480)
+    
+    @Binding var mainOnTap: Bool
     @Binding var scene_main: Int
     @Binding var scene_frame: Double
     
     var body: some View {
-        GeometryReader{geometry in
+        GeometryReader { _ in
             ZStack {
 //                Image("Phone")
 //                    .resizable()
@@ -27,9 +29,11 @@ struct Game2View: View {
                 
                 Image("CaptchaPhone")
                     .resizable()
-                    .frame(width: 660, height: 800)
+                    .scaledToFit()
+                    .scaleEffect(1.7)
                     .position(self.positionPhone)
                     .shadow(color: .black.opacity(0.3), radius: 2, x: 2, y: 2)
+//                    .offset(x: -138, y: 100)
                 
                 VStack {
                     if count == 1 {
@@ -60,7 +64,6 @@ struct Game2View: View {
                     Image("QiustagramStory")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: .infinity)
                         .padding(.bottom)
                         .padding(.top, 25)
                     
@@ -68,7 +71,6 @@ struct Game2View: View {
                         Image(image[index])
                             .resizable()
                             .scaledToFit()
-                            .frame(width: .infinity)
                             .onTapGesture(count: 2) {
                                 if likes[index] == false {
                                     likes[index] = true
@@ -76,6 +78,7 @@ struct Game2View: View {
                                         count += 1
                                     }
                                 }
+                                SFXManager.instance.playSFX(sound: .pop)
                             }
                         
                         HStack {
@@ -91,6 +94,7 @@ struct Game2View: View {
                                         count -= 1
                                     }
                                 }
+                                SFXManager.instance.playSFX(sound: .pop)
                             } label: {
                                 if likes[index] == false {
                                     Image("Instalikeunclick")
@@ -119,6 +123,7 @@ struct Game2View: View {
                                         count -= 1
                                     }
                                 }
+                                SFXManager.instance.playSFX(sound: .pop)
                             } label: {
                                 if bookmarks[index] == false {
                                     Image("Bookmarkunclick")
@@ -136,21 +141,30 @@ struct Game2View: View {
                         .padding(.vertical)
                     }
                 }
+                .background(.white)
                 .cornerRadius(40)
                 .padding(.horizontal, 15)
                 .scaleEffect(0.72)
                 .offset(x: 0, y: 10)
                 
+                Image("Finger")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 350)
+                    .position(self.positionPhone)
+                    .offset(x: 281, y: -110)
+                
                 if count >= 3 {
                     Button {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            withAnimation(.easeInOut(duration: 3)) {
-                                scene_frame += 800
+                        if mainOnTap == true {
+                            mainOnTap = false
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                scene_main += 1
+                                withAnimation(.easeInOut(duration: 3)) {
+                                    scene_frame += 800
+                                }
                             }
-                        }
-                        
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            scene_main += 1
                         }
                         
                     } label: {
@@ -161,15 +175,18 @@ struct Game2View: View {
                             .foregroundColor(.brown)
                     }
                     .offset(x: 0, y: 340)
+                    .onAppear {
+                        mainOnTap = true
+                    }
                 }
             }
+            .frame(width: 393, height: 760, alignment: .center)
         }
-        
     }
 }
 
 struct Game2View_Previews: PreviewProvider {
     static var previews: some View {
-        Game2View(scene_main: .constant(0), scene_frame: .constant(0.0))
+        Game2View(mainOnTap: .constant(false), scene_main: .constant(0), scene_frame: .constant(0.0))
     }
 }

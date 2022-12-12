@@ -27,9 +27,8 @@ struct Chapter3_Lift: View {
                 Image("Border")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 361, height: 491)
-                    .offset(y: -114)
-                
+                    .frame(width: 330, height: 448)
+                    .offset(y: -102)
                 
                 ZStack{
                     Image("Chapter3_Lift_BG")
@@ -94,8 +93,8 @@ struct Chapter3_Lift: View {
                         .resizable()
                         .scaledToFit()
                 }
-                .scaleEffect(geometry.size.width * 0.00356)
-                .offset(y: geometry.size.height * 0.026)
+                .scaleEffect(1.27)
+                .offset(y: 20)
             }
             
             

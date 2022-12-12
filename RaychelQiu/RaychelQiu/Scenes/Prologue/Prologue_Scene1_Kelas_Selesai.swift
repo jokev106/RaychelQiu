@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct Prologue_Scene1_Kelas_Selesai: View {
-    
-    @State var scene = 1
+    @State var scene = 3
     @State var onTap = false
     @Binding var mainOnTap: Bool
     
-    //Scene1
+    // Scene1
     @State var raychel_1_x = 300.0
     @State var raychel_1_y = 0.0
     @State var table_1_opacity = 0.0
@@ -23,7 +22,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var paper_1_x = -115.0
     @State var paper_1_y = 60.0
     
-    //Scene2
+    // Scene2
     @State var clock_2_y = -300.0
     @State var clock_2_x = 0.0
     @State var long_2_y_offset = -300.0
@@ -33,130 +32,125 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var short_2_x_offset = -2.0
     @State var short_2_rotation = 0.0
     
-    //Scene3
+    // Scene3
     @State var raychel_stand_opac = 0.0
     @Binding var raychel_stand_x: Double
     @State var raychel_opac = 1.0
     @Binding var scene1_Prologue_Final: Bool
     
-    //Minigame Backpack
-    
+    // Minigame Backpack
     @State var bagOffset_x = 200.0
     @State var gameOffset_x = 500.0
     
     @State var positionBook = CGPoint(x: 285, y: 633)
     @State var positionPencil = CGPoint(x: 180, y: 633)
-    @State var positionBootle = CGPoint(x: 95, y: 633)
-    @State var positionBag = CGPoint(x:295, y: 400)
+    @State var positionBottle = CGPoint(x: 95, y: 633)
+    @State var positionBag = CGPoint(x: 295, y: 400)
     @State var positionPlayBox = CGPoint(x: 196, y: 635)
 
-    @Binding var moveableBook: Bool
-    @State var moveablePencil: Bool = true
-    @State var moveableBottle: Bool = false
+//    @State var moveableBook: Bool = false
+//    @State var moveablePencil: Bool = false
+//    @State var moveableBottle: Bool = false
     
-    @State var book: Bool = false
-    @State var pencil: Bool = false
-    @State var bottle: Bool = false
-    
-    //Visible item
-    @State var isBook:Bool = true
-    @State var isPencil:Bool = true
-    @State var isBottle:Bool = true
+    // Visible item
+    @State var isBook: Bool = true
+    @State var isPencil: Bool = true
+    @State var isBottle: Bool = true
     @State var bag3Opac = 1.0
     
     var body: some View {
-        
-        //Dragable for Book
+        // Dragable for Book
         let dragBook = DragGesture(coordinateSpace: .local)
-            .onChanged({ gesture in
-                if moveableBook == false {
-                    self.positionBook = gesture.location
-                }
-            })
-               .onEnded {gesture in
-                   if self.positionBook.x > 250 &&
-                        self.positionBook.x < 360 &&
-                        self.positionBook.y > 320 && self.positionBook.y < 490{
-                       self.moveableBook = true
-                       book = true
-                       isBook = false
-                   }else {
-                       withAnimation(.default){
-                           self.positionBook.x = 285
-                           self.positionBook.y = 633
-                       }
-                   }
-               }
-        //Dragable for PencilCase
-        let dragPencil = DragGesture(coordinateSpace: .local)
-        .onChanged({ gesture in
-            if moveablePencil == false {
-                self.positionPencil = gesture.location
+            .onChanged { gesture in
+//                if moveableBook == false {
+                self.positionBook = gesture.location
+//                }
             }
-        })
-           .onEnded {gesture in
-               if self.positionPencil.x > 250 &&
-                    self.positionPencil.x < 360 &&
-                    self.positionPencil.y > 320 && self.positionPencil.y < 490 {
-                   self.moveablePencil = true
-                   pencil = true
-                   isPencil = false
-                   self.moveableBook = false
-               }else {
-                   withAnimation(.default){
-                       self.positionPencil.x = 180
-                       self.positionPencil.y = 633
-                   }
-               }
-           }
-        
-        //Dragable for Bottle
-        let dragBottle = DragGesture(coordinateSpace: .local)
-            .onChanged({ gesture in
-                    if  moveableBottle == false {
-                        self.positionBootle = gesture.location
+            .onEnded { _ in
+                if self.positionBook.x > 250 &&
+                    self.positionBook.x < 360 &&
+                    self.positionBook.y > 320 && self.positionBook.y < 490
+                {
+                    isBook = false
+                } else {
+                    withAnimation(.default) {
+                        self.positionBook.x = 285
+                        self.positionBook.y = 633
+                    }
                 }
-            })
-               .onEnded {gesture in
-                   if self.positionBootle.x > 250 &&
-                        self.positionBootle.x < 360 &&
-                        self.positionBootle.y > 320 && self.positionBootle.y < 490 {
-                       self.moveableBottle = true
-                       bottle = true
-                       isBottle = false
-                       self.moveablePencil = false
-                   }else {
-                       withAnimation(.default){
-                           self.positionBootle.x = 95
-                           self.positionBootle.y = 180
-                       }
-                   }
-               }
+                
+                if isBook == false && isPencil == true && isBottle == true {
+                    mainOnTap = true
+                }
+            }
         
+        // Dragable for PencilCase
+        let dragPencil = DragGesture(coordinateSpace: .local)
+            .onChanged { gesture in
+//                if moveablePencil == false {
+                self.positionPencil = gesture.location
+//                }
+            }
+            .onEnded { _ in
+                if self.positionPencil.x > 250 &&
+                    self.positionPencil.x < 360 &&
+                    self.positionPencil.y > 320 && self.positionPencil.y < 490
+                {
+                    isPencil = false
+                } else {
+                    withAnimation(.default) {
+                        self.positionPencil.x = 180
+                        self.positionPencil.y = 633
+                    }
+                }
+                
+                if isBook == false && isPencil == true && isBottle == true {
+                    mainOnTap = true
+                }
+            }
         
-        GeometryReader{ geometry in
-            ZStack{
+        // Dragable for Bottle
+        let dragBottle = DragGesture(coordinateSpace: .local)
+            .onChanged { gesture in
+//                if moveableBottle == false {
+                self.positionBottle = gesture.location
+//                }
+            }
+            .onEnded { _ in
+                if self.positionBottle.x > 250 &&
+                    self.positionBottle.x < 360 &&
+                    self.positionBottle.y > 320 && self.positionBottle.y < 490
+                {
+                    isBottle = false
+                } else {
+                    withAnimation(.default) {
+                        self.positionBottle.x = 95
+                        self.positionBottle.y = 633
+                    }
+                }
+                
+                if isBook == false && isPencil == true && isBottle == true {
+                    mainOnTap = true
+                }
+            }
+        
+        GeometryReader { geometry in
+            ZStack {
                 Image("Border")
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
-//                ZStack{
-//                    if gameStart == true {
-                      
-//                    }
-//                }
-                
-                ZStack{
+                ZStack {
                     Image("School_BG")
                         .resizable()
                         .frame(width: geometry.size.width, height: geometry.size.height)
                     
-                    //Scene1
-                    if scene == 1{
-                        ZStack{
+                    // Scene1
+                    if scene == 1 {
+                        ZStack {
                             Image("School_Bulletin")
                                 .resizable()
                                 .scaledToFit()
@@ -169,15 +163,14 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                             Image("School_Paper")
                                 .resizable()
                                 .scaledToFit()
-                            //                        .opacity(paper_1_opacity)
+                                //                        .opacity(paper_1_opacity)
                                 .offset(x: paper_1_x, y: paper_1_y)
                             Image("School_Raychel")
                                 .resizable()
                                 .scaledToFit()
                                 .offset(x: raychel_1_x, y: raychel_1_y)
-                            
                         }
-                        .onAppear{
+                        .onAppear {
                             prologue_scene1_animation_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
                                 onTap = true
@@ -192,12 +185,11 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 }
                             }
                         }
-                        
                     }
                     
-                    //Scene2
-                    if scene == 2{
-                        ZStack{
+                    // Scene2
+                    if scene == 2 {
+                        ZStack {
                             Image("Clock")
                                 .resizable()
                                 .scaledToFit()
@@ -205,28 +197,27 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                             Image("Clock_LongPoint")
                                 .resizable()
                                 .scaledToFit()
-                            //                        .frame(width: 15)
+                                //                        .frame(width: 15)
                                 .frame(width: geometry.size.width * 0.039)
                                 .scaleEffect(1)
                                 .rotationEffect(.degrees(long_2_rotation), anchor: .bottom)
-                            //                        .position(x: 196.5, y: 242)
+                                //                        .position(x: 196.5, y: 242)
                                 .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.318)
                                 .offset(x: long_2_x_offset, y: long_2_y_offset)
                             
                             Image("Clock_ShortPoint")
                                 .resizable()
                                 .scaledToFit()
-                            //                        .frame(width: 11)
+                                //                        .frame(width: 11)
                                 .frame(width: geometry.size.width * 0.028)
                                 .scaleEffect(1)
                                 .offset(x: short_2_x_offset, y: short_2_y_offset)
                                 .rotationEffect(.degrees(short_2_rotation), anchor: .bottom)
-                            //                        .background(.red)
-                            //                        .position(x: 196.5, y: 242)
+                                //                        .background(.red)
+                                //                        .position(x: 196.5, y: 242)
                                 .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.331)
-                            
                         }
-                        .onAppear{
+                        .onAppear {
                             prologue_scene2_animation_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
                                 scene += 1
@@ -234,9 +225,9 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         }
                     }
                     
-                    //Scene3
-                    if scene == 3{
-                        ZStack{
+                    // Scene3
+                    if scene == 3 {
+                        ZStack {
                             Image("School_Bulletin")
                                 .resizable()
                                 .scaledToFit()
@@ -254,22 +245,19 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                             Image("School_Paper")
                                 .resizable()
                                 .scaledToFit()
-                            //                        .opacity(paper_1_opacity)
+//                                .opacity(paper_1_opacity)
                                 .offset(x: paper_1_x, y: paper_1_y)
                             Image("School_Raychel")
                                 .resizable()
                                 .scaledToFit()
                                 .offset(x: raychel_1_x, y: raychel_1_y)
                                 .opacity(raychel_opac)
-                            
                         }
-                        .onAppear{
+                        .onAppear {
                             prologue_scene3_animation_in()
                             mainOnTap = true
                         }
                     }
-                    
-                    
                 }
                 .mask {
                     Image("Day")
@@ -279,56 +267,108 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 .scaleEffect(1.27)
                 .offset(y: 20)
                 
-                if isBook == true && isPencil == true && isBottle == true {
-                        Image("Bag")
-                            .resizable()
-                            .frame(width: 140, height: 190)
-                            .position(self.positionBag)
-                            .shadow(color: .black.opacity(0.3), radius: 0.5)
-                            .offset(x: bagOffset_x)
-                }
-                ZStack{
+//                if isBook == true && isPencil == true && isBottle == true {
+                Image("Bag")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 130)
+                    .position(self.positionBag)
+                    .shadow(color: .black.opacity(0.3), radius: 0.5)
+                    .offset(x: bagOffset_x)
+//                }
+                ZStack {
                     Image("PlayBox")
                         .resizable()
                         .frame(width: 330, height: 224)
-                        .position(self.positionPlayBox)
+//                        .position(self.positionPlayBox)
+                        .offset(y: 260)
+                    
                     Image("DInnerBG")
                         .resizable()
                         .frame(width: 324, height: 219)
-                        .position(self.positionPlayBox)
+//                        .position(self.positionPlayBox)
+                        .offset(y: 260)
                     
-    //                    ZStack{
-                    Group{
-                        if isBottle == false {
-                            Image("Bag1")
+                    Group {
+                        if isBook == false {
+                            Image("Books")
                                 .resizable()
-                                .frame(width: 140, height: 190)
-                                .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 0.5)
-                                .onAppear{
+                                .scaledToFit()
+                                .frame(width: 75)
+                                .rotationEffect(.degrees(70))
+                                .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
+                                .offset(x: 110, y: 20)
+                                .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }
+                            
+                            Image("Bag0")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 88)
+                                .position(self.positionBag)
+                                .offset(x: bagOffset_x + 21, y: 33)
+                            
+//                            Image("Bag3")
+//                                .resizable()
+//                                .frame(width: 140, height: 190)
+//                                .position(self.positionBag)
+//                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+//                                .opacity(bag3Opac)
+                        }
+                        if isBottle == false {
+                            Image("WaterBottle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25)
+                                .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
+                                .offset(x: 130, y: 10)
+                                .onAppear {
+                                    SFXManager.instance.playSFX(sound: .pop)
+                                }
+                            
+                            Image("Bag0")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 88)
+                                .position(self.positionBag)
+                                .offset(x: bagOffset_x + 21, y: 33)
+                            
+//                            Image("Bag1")
+//                                .resizable()
+//                                .frame(width: 140, height: 190)
+//                                .position(self.positionBag)
+//                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+//                                .onAppear {
+//                                    SFXManager.instance.playSFX(sound: .pop)
+//                                }
                         }
                         if isPencil == false {
-                            Image("Bag2")
+                            Image("PencilCase")
                                 .resizable()
-                                .frame(width: 140, height: 190)
-                                .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 0.5)
-                                .onAppear{
+                                .scaledToFit()
+                                .frame(width: 60)
+                                .rotationEffect(.degrees(130))
+                                .offset(x: 100, y: 45)
+                                .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }
-                        }
-                        if isBook == false {
-                            Image("Bag3")
+                            
+                            Image("Bag0")
                                 .resizable()
-                                .frame(width: 140, height: 190)
+                                .scaledToFit()
+                                .frame(width: 88)
                                 .position(self.positionBag)
-                                .shadow(color: .black.opacity(0.3), radius: 0.5)
-                                .opacity(bag3Opac)
-                                .onAppear{
-                                    SFXManager.instance.playSFX(sound: .pop)
-                                }
+                                .offset(x: bagOffset_x + 21, y: 33)
+                            
+//                            Image("Bag2")
+//                                .resizable()
+//                                .frame(width: 140, height: 190)
+//                                .position(self.positionBag)
+//                                .shadow(color: .black.opacity(0.3), radius: 0.5)
+//                                .onAppear {
+//                                    SFXManager.instance.playSFX(sound: .pop)
+//                                }
                         }
                     }
                     
@@ -347,35 +387,22 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                             .position(self.positionPencil)
                             .gesture(dragPencil)
                             .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
-                        
                     }
                     if isBottle == true {
                         Image("WaterBottle")
                             .resizable()
                             .frame(width: 40, height: 100)
-                            .position(self.positionBootle)
+                            .position(self.positionBottle)
                             .gesture(dragBottle)
                             .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
                     }
 
                 }.offset(x: gameOffset_x)
-               
-                
-//                .background(Color.white)
-    //            .mask{
-    //                Image("FullScreen_Mask")
-    //                    .resizable()
-    //                    .scaledToFit()
-    //            }
-                
-                
             }
-            
         }
     }
     
     func prologue_scene1_animation_in() {
-        
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeInOut(duration: 1)) {
                 bulletin_1_opacity += 1
@@ -403,7 +430,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                SFXManager.instance.playSFX(sound: .paperSlide2)
+            SFXManager.instance.playSFX(sound: .paperSlide2)
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
@@ -427,7 +454,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 paper_1_y += 300
             }
         }
-        
     }
     
     func prologue_scene2_animation_in() {
@@ -445,7 +471,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
             }
         }
         
-        for i in 1...5{
+        for i in 1 ... 5 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25 + CGFloat(i) * 1.0) {
                 withAnimation(.linear(duration: 1).speed(3.0)) {
                     long_2_rotation += 10.0
@@ -494,7 +520,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 raychel_1_y -= 300
                 table_1_y -= 300
                 paper_1_y -= 300
-                
             }
         }
         
@@ -503,7 +528,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                 raychel_stand_opac += 1
             }
         }
-        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             withAnimation(.easeIn(duration: 0.7)) {
@@ -523,12 +547,11 @@ struct Prologue_Scene1_Kelas_Selesai: View {
 //                raychel_stand_x += 300
 //            }
 //        }
-        
     }
 }
 
 struct Prologue_Scene1_Kelas_Selesai_Previews: PreviewProvider {
     static var previews: some View {
-        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), raychel_stand_x: .constant(0), scene1_Prologue_Final: .constant(false), moveableBook: .constant(false))
+        Prologue_Scene1_Kelas_Selesai(mainOnTap: .constant(false), raychel_stand_x: .constant(0), scene1_Prologue_Final: .constant(false))
     }
 }

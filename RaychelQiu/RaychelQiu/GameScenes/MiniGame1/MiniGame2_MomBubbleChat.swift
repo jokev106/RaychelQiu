@@ -59,6 +59,7 @@ struct MiniGame2_MomBubbleChat: View {
             .onChanged { gesture in
                 if moveableTextBox_1 == false {
                     self.positionTextBox_1 = gesture.location
+                    SFXManager.instance.playSFX(sound: .crack)
                 }
             }
             .onEnded { _ in
@@ -80,6 +81,7 @@ struct MiniGame2_MomBubbleChat: View {
             .onChanged { gesture in
                 if moveableTextBox_2 == false {
                     self.positionTextBox_2 = gesture.location
+                    SFXManager.instance.playSFX(sound: .crack)
                 }
             }
             .onEnded { _ in
@@ -101,6 +103,7 @@ struct MiniGame2_MomBubbleChat: View {
             .onChanged { gesture in
                 if moveableTextBox_3 == false {
                     self.positionTextBox_3 = gesture.location
+                    SFXManager.instance.playSFX(sound: .crack)
                 }
             }
             .onEnded { _ in
@@ -122,6 +125,7 @@ struct MiniGame2_MomBubbleChat: View {
             .onChanged { gesture in
                 if moveableTextBox_4 == false {
                     self.positionTextBox_4 = gesture.location
+                    SFXManager.instance.playSFX(sound: .crack)
                 }
             }
             .onEnded { _ in
@@ -143,6 +147,7 @@ struct MiniGame2_MomBubbleChat: View {
             .onChanged { gesture in
                 if moveableTextBox_5 == false {
                     self.positionTextBox_5 = gesture.location
+                    SFXManager.instance.playSFX(sound: .crack)
                 }
             }
             .onEnded { _ in

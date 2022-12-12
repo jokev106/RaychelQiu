@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Prologue_Dinner: View {
-    
     @Binding var mainOnTap: Bool
     
     @State var scene = 1
@@ -17,35 +16,35 @@ struct Prologue_Dinner: View {
     @State var table_shadow_opac = 1.0
     @State var table_shadow_y = 0.0
     
-    //Scene1
+    // Scene1
     @State var raychel_initial_back_x = -80.0
     @State var parent_initial_visible_x = -50.0
     
-    //Scene2
+    // Scene2
     @State var raychel_visible_x = -270.0
     @State var raychel_visible_opac = 1.0
     @State var parent_back_x = 270.0
     @State var parent_back_y = 0.0
     @State var parent_back_opac = 1.0
     
-    //Scene3
+    // Scene3
     @State var law_y = 80.0
     @State var hand_y = 80.0
     @State var raychel_akward_opac = 0.0
     @State var raychel_akward_x = 0.0
     
-    //Scene4
+    // Scene4
     @State var raychel_back_x = 250.0
     @Binding var parent_visible_x: Double
     
-    //Dinner Game
+    // Dinner Game
     @State var positionDinnerBox = CGPoint(x: 198, y: 635)
     @State var positionBorder = CGPoint(x: 198, y: 270)
     @State var positionBorderBG = CGPoint(x: 198, y: 390)
     @State var positionRaychelEat = CGPoint(x: 205, y: 165)
     @State var positionRaychelPickUp = CGPoint(x: 198, y: 180)
     @State var positionTable = CGPoint(x: 198, y: 450)
-    @State var positionPlate = CGPoint(x: 198, y: 460)
+    @State var positionPlate = CGPoint(x: 198, y: 430)
     @State var positionDumplingLeft = CGPoint(x: 128, y: 665)
     @State var positionDumplingRight = CGPoint(x: 268, y: 595)
     @State var positionDumplingRight1 = CGPoint(x: 268, y: 570)
@@ -54,219 +53,213 @@ struct Prologue_Dinner: View {
     @State var positionDumplingLeft2 = CGPoint(x: 115, y: 640)
     @State var positionDumplingLeft3 = CGPoint(x: 140, y: 638)
     
-    
     @State var moveableDumplingLeft1: Bool = false
     @State var moveableDumplingLeft2: Bool = false
     @State var moveableDumplingLeft3: Bool = false
     @State var moveableDumplingRight1: Bool = false
     @State var moveableDumplingRight2: Bool = false
     
-    @State var eatLeft1:Bool = false
-    @State var eatLeft2:Bool = false
-    @State var eatLeft3:Bool = false
-    @State var eatRight1:Bool = false
-    @State var eatRight2:Bool = false
+    @State var eatLeft1: Bool = false
+    @State var eatLeft2: Bool = false
+    @State var eatLeft3: Bool = false
+    @State var eatRight1: Bool = false
+    @State var eatRight2: Bool = false
     
-    @State var eatLeft1Done:Bool = false
-    @State var eatLeft2Done:Bool = false
-    @State var eatLeft3Done:Bool = false
-    @State var eatRight1Done:Bool = false
-    @State var eatRight2Done:Bool = false
+    @State var eatLeft1Done: Bool = false
+    @State var eatLeft2Done: Bool = false
+    @State var eatLeft3Done: Bool = false
+    @State var eatRight1Done: Bool = false
+    @State var eatRight2Done: Bool = false
     
-    @State var eatScene:Bool = false
+    @State var eatScene: Bool = false
     
-    //Game Opacity
+    // Game Opacity
     @State var animSceneOpac = 1.0
     @State var gameSceneOpac = 0.0
     
     let timer = Timer.publish(every: 1.0, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        
-        //Dragable for Dumpling Left1
+        // Dragable for Dumpling Left1
         let DumplingLeft1Drag = DragGesture(coordinateSpace: .local)
-            .onChanged{ gesture in
+            .onChanged { gesture in
                 if eatScene == false {
-                    if moveableDumplingLeft1 == false{
+                    if moveableDumplingLeft1 == false {
                         self.positionDumplingLeft1 = gesture.location
                     }
                 }
             }
-               .onEnded {gesture in
-                       if self.positionDumplingLeft1.y > 435 && self.positionDumplingLeft1.y < 490 && self.positionDumplingLeft1.x > 130 && self.positionDumplingLeft1.x < 260 {
-                           withAnimation(Animation.easeInOut(duration: 1)){
-                               DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                                   eatScene = true
-                                   eatLeft1 = true
-                                   DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                                       eatScene = false
-                                       eatLeft1Done = true
-                                   }
-                               }
-                               moveableDumplingLeft1 = true
-                               self.positionDumplingLeft1.x = 215.3
-                               self.positionDumplingLeft1.y = 456.3
-                           }
-                       }
-                   if self.positionDumplingLeft1.y < 435 || self.positionDumplingLeft1.y > 490 || self.positionDumplingLeft1.x < 130 || self.positionDumplingLeft1.x > 260 {
-                       withAnimation(.default){
-                           self.positionDumplingLeft1.x = 127
-                           self.positionDumplingLeft1.y = 625
-                       }
-                   }
-               }
+            .onEnded { _ in
+                if self.positionDumplingLeft1.y > 435 && self.positionDumplingLeft1.y < 490 && self.positionDumplingLeft1.x > 130 && self.positionDumplingLeft1.x < 260 {
+                    withAnimation(Animation.easeInOut(duration: 1)) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            eatScene = true
+                            eatLeft1 = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                eatScene = false
+                                eatLeft1Done = true
+                            }
+                        }
+                        moveableDumplingLeft1 = true
+                        self.positionDumplingLeft1.x = 215.3
+                        self.positionDumplingLeft1.y = 456.3
+                    }
+                }
+                if self.positionDumplingLeft1.y < 435 || self.positionDumplingLeft1.y > 490 || self.positionDumplingLeft1.x < 130 || self.positionDumplingLeft1.x > 260 {
+                    withAnimation(.default) {
+                        self.positionDumplingLeft1.x = 127
+                        self.positionDumplingLeft1.y = 625
+                    }
+                }
+            }
         
-        //Dragable for Dumpling Left2
+        // Dragable for Dumpling Left2
         let DumplingLeft2Drag = DragGesture(coordinateSpace: .local)
-            .onChanged{ gesture in
+            .onChanged { gesture in
                 if eatScene == false {
-                    if moveableDumplingLeft2 == false{
+                    if moveableDumplingLeft2 == false {
                         self.positionDumplingLeft2 = gesture.location
                     }
                 }
             }
-               .onEnded {gesture in
-                   if self.positionDumplingLeft2.y > 435 && self.positionDumplingLeft2.y < 490 && self.positionDumplingLeft2.x > 130 && self.positionDumplingLeft2.x < 260 {
-                       withAnimation(.default){
-                           DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                               eatScene = true
-                               eatLeft2 = true
-                               DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                                   eatScene = false
-                                   eatLeft2Done = true
-                               }
-                           }
-                           moveableDumplingLeft2 = true
-                           self.positionDumplingLeft2.x = 215.3
-                           self.positionDumplingLeft2.y = 456.3
-                       }
-                   }
-                   if self.positionDumplingLeft2.y < 435 || self.positionDumplingLeft2.y > 490 || self.positionDumplingLeft2.x < 130 || self.positionDumplingLeft2.x > 260 {
-                       withAnimation(.default){
-                           self.positionDumplingLeft2.x = 115
-                           self.positionDumplingLeft2.y = 640
-                       }
-                   }
-
-               }
+            .onEnded { _ in
+                if self.positionDumplingLeft2.y > 435 && self.positionDumplingLeft2.y < 490 && self.positionDumplingLeft2.x > 130 && self.positionDumplingLeft2.x < 260 {
+                    withAnimation(.default) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            eatScene = true
+                            eatLeft2 = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                eatScene = false
+                                eatLeft2Done = true
+                            }
+                        }
+                        moveableDumplingLeft2 = true
+                        self.positionDumplingLeft2.x = 215.3
+                        self.positionDumplingLeft2.y = 456.3
+                    }
+                }
+                if self.positionDumplingLeft2.y < 435 || self.positionDumplingLeft2.y > 490 || self.positionDumplingLeft2.x < 130 || self.positionDumplingLeft2.x > 260 {
+                    withAnimation(.default) {
+                        self.positionDumplingLeft2.x = 115
+                        self.positionDumplingLeft2.y = 640
+                    }
+                }
+            }
         
-        //Dragable for Dumpling Left3
+        // Dragable for Dumpling Left3
         let DumplingLeft3Drag = DragGesture(coordinateSpace: .local)
-            .onChanged{ gesture in
+            .onChanged { gesture in
                 if eatScene == false {
-                    if moveableDumplingLeft3 == false{
+                    if moveableDumplingLeft3 == false {
                         self.positionDumplingLeft3 = gesture.location
                     }
                 }
             }
-               .onEnded {gesture in
-                   if self.positionDumplingLeft3.y > 435 && self.positionDumplingLeft3.y < 490 && self.positionDumplingLeft3.x > 130 && self.positionDumplingLeft3.x < 260 {
-                       withAnimation(.default){
-                           DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                               eatScene = true
-                               eatLeft3 = true
-                               DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                                   eatScene = false
-                                   eatLeft3Done = true
-
-                               }
-                           }
-                           moveableDumplingLeft3 = true
-                           self.positionDumplingLeft3.x = 215.3
-                           self.positionDumplingLeft3.y = 456.3
-                       }
-                   }
-                   if self.positionDumplingLeft3.y < 435 || self.positionDumplingLeft3.y > 490 || self.positionDumplingLeft3.x < 130 || self.positionDumplingLeft3.x > 260 {
-                       withAnimation(.default){
-                           self.positionDumplingLeft3.x = 140
-                           self.positionDumplingLeft3.y = 638
-                       }
-                   }
-
-               }
+            .onEnded { _ in
+                if self.positionDumplingLeft3.y > 435 && self.positionDumplingLeft3.y < 490 && self.positionDumplingLeft3.x > 130 && self.positionDumplingLeft3.x < 260 {
+                    withAnimation(.default) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            eatScene = true
+                            eatLeft3 = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                eatScene = false
+                                eatLeft3Done = true
+                            }
+                        }
+                        moveableDumplingLeft3 = true
+                        self.positionDumplingLeft3.x = 215.3
+                        self.positionDumplingLeft3.y = 456.3
+                    }
+                }
+                if self.positionDumplingLeft3.y < 435 || self.positionDumplingLeft3.y > 490 || self.positionDumplingLeft3.x < 130 || self.positionDumplingLeft3.x > 260 {
+                    withAnimation(.default) {
+                        self.positionDumplingLeft3.x = 140
+                        self.positionDumplingLeft3.y = 638
+                    }
+                }
+            }
         
-        //Dragable for Dumpling Right1
+        // Dragable for Dumpling Right1
         let DumplingRight1Drag = DragGesture(coordinateSpace: .local)
-            .onChanged{ gesture in
+            .onChanged { gesture in
                 if eatScene == false {
-                    if moveableDumplingRight1 == false{
+                    if moveableDumplingRight1 == false {
                         self.positionDumplingRight1 = gesture.location
                     }
                 }
             }
-               .onEnded {gesture in
-                   if self.positionDumplingRight1.y > 435 && self.positionDumplingRight1.y < 490 && self.positionDumplingRight1.x > 130 && self.positionDumplingRight1.x < 260 {
-                       withAnimation(.default){
-                           DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                               eatScene = true
-                               eatRight1 = true
-                               DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                                   eatScene = false
-                                   eatRight1Done = true
-                               }
-                           }
-                           moveableDumplingRight1 = true
-                           self.positionDumplingRight1.x = 215.3
-                           self.positionDumplingRight1.y = 456.3
-                       }
-                   }
-                   if self.positionDumplingRight1.y < 435 || self.positionDumplingRight1.y > 490 || self.positionDumplingRight1.x < 130 || self.positionDumplingRight1.x > 260 {
-                       withAnimation(.default){
-                           self.positionDumplingRight1.x = 268
-                           self.positionDumplingRight1.y = 570
-                       }
-                   }
-               }
-        //Dragable for Dumpling Right2
+            .onEnded { _ in
+                if self.positionDumplingRight1.y > 435 && self.positionDumplingRight1.y < 490 && self.positionDumplingRight1.x > 130 && self.positionDumplingRight1.x < 260 {
+                    withAnimation(.default) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            eatScene = true
+                            eatRight1 = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                eatScene = false
+                                eatRight1Done = true
+                            }
+                        }
+                        moveableDumplingRight1 = true
+                        self.positionDumplingRight1.x = 215.3
+                        self.positionDumplingRight1.y = 456.3
+                    }
+                }
+                if self.positionDumplingRight1.y < 435 || self.positionDumplingRight1.y > 490 || self.positionDumplingRight1.x < 130 || self.positionDumplingRight1.x > 260 {
+                    withAnimation(.default) {
+                        self.positionDumplingRight1.x = 268
+                        self.positionDumplingRight1.y = 570
+                    }
+                }
+            }
+        // Dragable for Dumpling Right2
         let DumplingRight2Drag = DragGesture(coordinateSpace: .local)
-            .onChanged{ gesture in
+            .onChanged { gesture in
                 if eatScene == false {
-                    if moveableDumplingRight2 == false{
+                    if moveableDumplingRight2 == false {
                         self.positionDumplingRight2 = gesture.location
                     }
                 }
             }
-               .onEnded {gesture in
-                   if self.positionDumplingRight2.y > 435 && self.positionDumplingRight2.y < 490 && self.positionDumplingRight2.x > 130 && self.positionDumplingRight2.x < 260 {
-                       withAnimation(.default){
-                           DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                               eatScene = true
-                               eatRight2 = true
-                               DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                                   eatScene = false
-                                   eatRight2Done = true
-                               }
-                           }
-                           moveableDumplingRight2 = true
-                           self.positionDumplingRight2.x = 215.3
-                           self.positionDumplingRight2.y = 456.3
-                       }
-                   }
-                   if self.positionDumplingRight2.y < 435 || self.positionDumplingRight2.y > 490 || self.positionDumplingRight2.x < 130 || self.positionDumplingRight2.x > 260 {
-                       withAnimation(.default){
-                           self.positionDumplingRight2.x = 275
-                           self.positionDumplingRight2.y = 580
-                       }
-                   }
-               }
+            .onEnded { _ in
+                if self.positionDumplingRight2.y > 435 && self.positionDumplingRight2.y < 490 && self.positionDumplingRight2.x > 130 && self.positionDumplingRight2.x < 260 {
+                    withAnimation(.default) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            eatScene = true
+                            eatRight2 = true
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                                eatScene = false
+                                eatRight2Done = true
+                            }
+                        }
+                        moveableDumplingRight2 = true
+                        self.positionDumplingRight2.x = 215.3
+                        self.positionDumplingRight2.y = 456.3
+                    }
+                }
+                if self.positionDumplingRight2.y < 435 || self.positionDumplingRight2.y > 490 || self.positionDumplingRight2.x < 130 || self.positionDumplingRight2.x > 260 {
+                    withAnimation(.default) {
+                        self.positionDumplingRight2.x = 275
+                        self.positionDumplingRight2.y = 580
+                    }
+                }
+            }
         
-        GeometryReader{ geometry in
-            ZStack{
+        GeometryReader { geometry in
+            ZStack {
                 Image("Border")
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-//                    .offset(y: -geometry.size.height * 0.151)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                     .opacity(animSceneOpac)
-                ZStack{
-                    Image("Dinner_BG")
-                        .resizable()
-                        .scaledToFit()
+                
+                ZStack {
+//                    Image("Dinner_BG")
+//                        .resizable()
+//                        .scaledToFit()
                     
-                    ZStack{
-                        
+                    ZStack {
                         Image("Dinner_Table")
                             .resizable()
                             .scaledToFit()
@@ -276,8 +269,8 @@ struct Prologue_Dinner: View {
                             .opacity(table_shadow_opac)
                             .offset(y: table_shadow_y)
                         
-                        //Scene1
-                        if scene == 1{
+                        // Scene1
+                        if scene == 1 {
                             Image("Dinner_Parent_Visible_2")
                                 .resizable()
                                 .scaledToFit()
@@ -286,14 +279,14 @@ struct Prologue_Dinner: View {
                                 .resizable()
                                 .scaledToFit()
                                 .offset(x: raychel_initial_back_x)
-                                .onAppear{
+                                .onAppear {
                                     prologue_dinner_scene1_in()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.2) {
                                         onTap = true
                                     }
                                 }
-                                .onTapGesture{
-                                    if onTap == true{
+                                .onTapGesture {
+                                    if onTap == true {
                                         onTap = false
                                         prologue_dinner_scene1_out()
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
@@ -303,7 +296,7 @@ struct Prologue_Dinner: View {
                                 }
                         }
                         
-                        //Scene2
+                        // Scene2
                         if scene == 2 || scene == 3 {
                             Image("Dinner_Raychel_Visible")
                                 .resizable()
@@ -315,14 +308,14 @@ struct Prologue_Dinner: View {
                                 .scaledToFit()
                                 .offset(x: parent_back_x, y: parent_back_y)
                                 .opacity(parent_back_opac)
-                                .onAppear{
+                                .onAppear {
                                     prologue_dinner_scene2_in()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
                                         onTap = true
                                     }
                                 }
-                                .onTapGesture{
-                                    if onTap == true{
+                                .onTapGesture {
+                                    if onTap == true {
                                         onTap = false
                                         prologue_dinner_scene2_out()
                                         prologue_dinner_gamescene_in()
@@ -333,7 +326,7 @@ struct Prologue_Dinner: View {
                                 }
                         }
                         
-                        //Scene3 Law
+                        // Scene3 Law
                         if scene == 3 {
                             Image("Dinner_Law")
                                 .resizable()
@@ -343,19 +336,19 @@ struct Prologue_Dinner: View {
                                 .resizable()
                                 .scaledToFit()
                                 .offset(y: hand_y)
-                                .onAppear{
+                                .onAppear {
                                     prologue_dinner_scene3_in()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 5.2) {
                                         onTap = true
                                     }
                                 }
-                            Image ("Dinner_Raychel_Visible_Akward")
+                            Image("Dinner_Raychel_Visible_Akward")
                                 .resizable()
                                 .scaledToFit()
                                 .opacity(raychel_akward_opac)
                                 .offset(x: raychel_akward_x)
-                                .onTapGesture{
-                                    if onTap == true{
+                                .onTapGesture {
+                                    if onTap == true {
                                         onTap = false
                                         prologue_dinner_scene3_out()
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
@@ -365,7 +358,7 @@ struct Prologue_Dinner: View {
                                 }
                         }
                         
-                        //Scene4
+                        // Scene4
                         if scene == 4 {
                             Image("Dinner_Parent_Visible_1")
                                 .resizable()
@@ -376,17 +369,14 @@ struct Prologue_Dinner: View {
                                 .scaledToFit()
                                 .offset(x: raychel_back_x)
                                 .opacity(0.0)
-                                .onAppear{
+                                .onAppear {
                                     prologue_dinner_scene4_in()
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
                                         mainOnTap = true
                                     }
                                 }
                         }
-                        
                     }
-                    
-                    
                 }
                 .mask {
                     Image("Day")
@@ -397,53 +387,68 @@ struct Prologue_Dinner: View {
                 .scaleEffect(1.27)
                 .offset(y: 20)
                 
-                //Game Scene
-                ZStack{
-              
-                    //Border
-                    Group{
-                        Image("RaychelBG")
-                            .resizable()
-                            .frame(width: 440, height: 970)
-                            .position(self.positionBorderBG)
-                        Image("RaychelBorder")
-                            .resizable()
-                            .frame(width: 330, height: 449.6)
-                            .position(self.positionBorder)
+                // Game Scene
+                ZStack {
+                    Image("Border")
+                        .resizable()
+                        //                    .scaledToFit()
+                        //                    .scaleEffect(0.92)
+                        .frame(width: 330, height: 449.6)
+                        .offset(y: -102)
+                    
+                    ZStack {
+//                        Image("RaychelBG")
+//                            .resizable()
+//                            .frame(width: 440, height: 970)
+//                            .position(self.positionBorderBG)
                         
                         Image("DInnerBG")
                             .resizable()
-                            .frame(width: 322, height: 219)
-                            .position(self.positionDinnerBox)
-                        Image("RaychelBorder")
-                            .resizable()
-                            .frame(width: 330, height: 224)
-                            .position(self.positionDinnerBox)
-                    }
-                    
-                    //Raychel Eat
-                    Group{
-                        Image("DInnerBG")
-                            .resizable()
-                            .frame(width: 324, height: 85)
-                            .position(self.positionTable)
+                            .frame(width: 324, height: 100)
+                            .offset(y: 50)
+                        
                         Image("Plate")
                             .resizable()
-                            .frame(width: 130, height: 50)
+                            .scaledToFit()
+                            .frame(width: 130)
                             .position(self.positionPlate)
                             .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
                     }
+                    .mask {
+                        Image("Day")
+                            .resizable()
+                            .scaledToFit()
+                    }
+                    .scaleEffect(1.27)
+                    .offset(y: 20)
                     
-                    //Bowl
-                    Group{
-                        //Dumpling  Right Bowl
+                    // Bowl
+                    Group {
+                        Image("PlayBox")
+                            .resizable()
+                            .frame(width: 330, height: 224)
+                            //                        .position(self.positionPlayBox)
+                            .offset(y: 260)
+                        
+                        Image("DInnerBG")
+                            .resizable()
+                            .frame(width: 324, height: 219)
+//                            .position(self.positionDinnerBox)
+                            .offset(y: 260)
+                        
+//                        Image("RaychelBorder")
+//                            .resizable()
+//                            .frame(width: 330, height: 224)
+//                            .position(self.positionDinnerBox)
+                        
+                        // Dumpling  Right Bowl
                         Image("Bowl")
                             .resizable()
                             .frame(width: 100, height: 100)
                             .position(self.positionDumplingRight)
                             .shadow(color: .black.opacity(0.2), radius: 1, x: 1, y: 1)
                         
-                        //Dumpling left Bowl
+                        // Dumpling left Bowl
                         Image("Bowl")
                             .resizable()
                             .frame(width: 120, height: 120)
@@ -451,8 +456,8 @@ struct Prologue_Dinner: View {
                             .shadow(color: .black.opacity(0.2), radius: 1, x: 1, y: 1)
                     }
                     
-                    //Dumplings
-                    Group{
+                    // Dumplings
+                    Group {
                         if eatRight1 == false {
                             Image("Dumpling2")
                                 .resizable()
@@ -493,11 +498,10 @@ struct Prologue_Dinner: View {
                                 .gesture(DumplingLeft2Drag)
                                 .shadow(color: .black.opacity(0.1), radius: 1, x: 1, y: 1)
                         }
-                        
                     }
                     
-                    //Raychel Eat
-                    Group{
+                    // Raychel Eat
+                    Group {
                         if eatScene == true {
                             Image("RaychelEat")
                                 .resizable()
@@ -505,7 +509,7 @@ struct Prologue_Dinner: View {
                                 .position(self.positionRaychelEat)
                                 .scaledToFit()
                                 .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
-                                .onAppear{
+                                .onAppear {
                                     SFXManager.instance.playSFX(sound: .chewing3)
                                 }
                         }
@@ -519,7 +523,7 @@ struct Prologue_Dinner: View {
                         }
                     }
                 }.opacity(gameSceneOpac)
-                    .onTapGesture{
+                    .onTapGesture {
                         if eatLeft1Done == true && eatLeft2Done == true && eatLeft3Done == true && eatRight1Done == true && eatRight2Done == true {
                             prologue_dinner_gamescene_out()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 3.2) {
@@ -531,7 +535,7 @@ struct Prologue_Dinner: View {
         }
     }
     
-    func prologue_dinner_scene1_in(){
+    func prologue_dinner_scene1_in() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 parent_initial_visible_x += 50.0
@@ -540,7 +544,7 @@ struct Prologue_Dinner: View {
         }
     }
     
-    func prologue_dinner_scene1_out(){
+    func prologue_dinner_scene1_out() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             withAnimation(.easeIn(duration: 1.5).speed(1.5)) {
                 parent_initial_visible_x += 250.0
@@ -549,7 +553,7 @@ struct Prologue_Dinner: View {
         }
     }
     
-    func prologue_dinner_scene2_in(){
+    func prologue_dinner_scene2_in() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeOut(duration: 1.5)) {
                 raychel_visible_x += 270.0
@@ -558,7 +562,7 @@ struct Prologue_Dinner: View {
         }
     }
     
-    func prologue_dinner_scene2_out(){
+    func prologue_dinner_scene2_out() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeIn(duration: 3)) {
                 parent_back_y += 300
@@ -575,7 +579,7 @@ struct Prologue_Dinner: View {
         }
     }
     
-    func prologue_dinner_scene3_in(){
+    func prologue_dinner_scene3_in() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeInOut(duration: 1.5)) {
                 law_y -= 80
@@ -606,10 +610,9 @@ struct Prologue_Dinner: View {
                 raychel_visible_opac -= 1
             }
         }
-
     }
     
-    func prologue_dinner_scene3_out(){
+    func prologue_dinner_scene3_out() {
         parent_visible_x = -250.0
 //        raychel_back_x = 250.0
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -635,10 +638,9 @@ struct Prologue_Dinner: View {
 //                table_shadow_y -= 150
 //            }
 //        }
-
     }
     
-    func prologue_dinner_scene4_in(){
+    func prologue_dinner_scene4_in() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeOut(duration: 1.5)) {
                 parent_visible_x += 250.0
@@ -647,8 +649,8 @@ struct Prologue_Dinner: View {
         }
     }
     
-    func prologue_dinner_gamescene_in(){
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+    func prologue_dinner_gamescene_in() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             withAnimation(.easeOut(duration: 3)) {
                 animSceneOpac -= 1
                 gameSceneOpac += 1
@@ -656,7 +658,7 @@ struct Prologue_Dinner: View {
         }
     }
 
-    func prologue_dinner_gamescene_out(){
+    func prologue_dinner_gamescene_out() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeOut(duration: 1.5)) {
                 animSceneOpac += 1
@@ -664,7 +666,6 @@ struct Prologue_Dinner: View {
             }
         }
     }
-
 }
 
 struct Prologue_Dinner_Previews: PreviewProvider {

@@ -24,7 +24,7 @@ struct Chapter1_Day: View {
             ZStack{
                 Image("Border")
                     .resizable()
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 ZStack{
@@ -70,8 +70,6 @@ struct Chapter1_Day: View {
                 .scaleEffect(1.27)
                 .offset(y: 20)
             }
-            
-            
         }
     }
     
@@ -87,6 +85,12 @@ struct Chapter1_Day: View {
             withAnimation(.easeInOut(duration: 2.5)) {
                 night_opac += 1
                 moon_angle += 140
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            withAnimation(.easeInOut(duration: 2.5)) {
+                SFXManager.instance.playSFX(sound: .night1)
             }
         }
     }

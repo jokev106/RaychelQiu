@@ -37,7 +37,7 @@ struct Chapter2_Bus: View {
                     .resizable()
 //                    .scaledToFit()
 //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                 
                 ZStack {
@@ -185,6 +185,12 @@ struct Chapter2_Bus: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 3)) {
                 bus_2_x = 75
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
+            withAnimation(.easeInOut(duration: 3)) {
+                SFXManager.instance.playSFX(sound: .bus)
             }
         }
         

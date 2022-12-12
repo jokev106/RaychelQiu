@@ -106,6 +106,7 @@ struct HomeScreen: View {
                         Text("Play")
                             .font(Font.custom("Hansip", size: 20))
                             .multilineTextAlignment(.center)
+                            .foregroundColor(.black)
                             .position(self.playPosition)
                     }
                     .onTapGesture {
@@ -114,7 +115,7 @@ struct HomeScreen: View {
                 }
                 .opacity(scene_opacity)
             }
-            .statusBarHidden(true)
+//            .statusBarHidden(true)
             .onAppear {
                 SoundManager.instance.playSound(sound: .homeSong)
             }
@@ -132,7 +133,7 @@ struct HomeScreen: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             withAnimation(.easeInOut(duration: 2.0)) {
 //                transitions[1] = 1.0
-                chapterPicked = 0
+                chapterPicked = -1
             }
         }
     }

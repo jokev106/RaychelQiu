@@ -40,11 +40,13 @@ struct Minigame3_Packing: View {
                            self.positionClothes.y = 456.3
                            moveableClothes = true
                        }
+                       SFXManager.instance.playSFX(sound: .pop)
                    }
                    if self.positionClothes.y > 745 || self.positionClothes.y < 370 || self.positionClothes.x > 360 || self.positionClothes.x < 35 {
                        withAnimation(.default){
                            self.positionClothes.x = 110.6
                            self.positionClothes.y = 676.3
+                           
                        }
                    }
                }
@@ -64,6 +66,7 @@ struct Minigame3_Packing: View {
                            self.positionSketchBook.y = 461.3
                            moveableSketchBook = true
                        }
+                       SFXManager.instance.playSFX(sound: .pop)
                    }
                    if self.positionSketchBook.y > 745 || self.positionSketchBook.y < 370 || self.positionSketchBook.x > 360 || self.positionSketchBook.x < 35 {
                        withAnimation(.default){
@@ -88,6 +91,7 @@ struct Minigame3_Packing: View {
                            self.positionPencilCase.y = 441.3
                            moveablePencilCase = true
                        }
+                       SFXManager.instance.playSFX(sound: .pop)
                    }
                    if self.positionPencilCase.y > 745 || self.positionPencilCase.y < 370 || self.positionPencilCase.x > 360 || self.positionPencilCase.x < 35 {
                        withAnimation(.default){
@@ -112,6 +116,7 @@ struct Minigame3_Packing: View {
                            self.positionCamera.y = 479.3
                            moveableCamera = true
                        }
+                       SFXManager.instance.playSFX(sound: .pop)
                    }
                    if self.positionCamera.y > 745 || self.positionCamera.y < 370 || self.positionCamera.x > 360 || self.positionCamera.x < 35 {
                        withAnimation(.default){
@@ -136,6 +141,7 @@ struct Minigame3_Packing: View {
                            self.positionMakeUp.y = 475.6
                            moveableMakeUp = true
                        }
+                       SFXManager.instance.playSFX(sound: .pop)
                    }
                    if self.positionMakeUp.y > 745 || self.positionMakeUp.y < 370 || self.positionMakeUp.x > 360 || self.positionMakeUp.x < 35{
                        withAnimation(.default){

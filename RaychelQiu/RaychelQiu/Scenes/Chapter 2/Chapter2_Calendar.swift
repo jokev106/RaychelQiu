@@ -34,7 +34,7 @@ struct Chapter2_Calendar: View {
                     .resizable()
                     //                    .scaledToFit()
                     //                    .scaleEffect(0.92)
-                    .frame(width: 330, height: 449.6)
+                    .frame(width: 330, height: 448)
                     .offset(y: -102)
                     
                 ZStack {
@@ -143,42 +143,49 @@ struct Chapter2_Calendar: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[0] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[1] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[2] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[3] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[4] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 6.5) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[5] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
             withAnimation(.easeInOut(duration: 1)) {
                 mark_1_opacity[6] = 1.0
+                SFXManager.instance.playSFX(sound: .drawing3)
             }
         }
         
@@ -219,9 +226,21 @@ struct Chapter2_Calendar: View {
             }
         }
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
+            withAnimation(.easeOut(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .ticking_5)
+            }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.25) {
             withAnimation(.linear(duration: 1).speed(3.0)) {
                 short_2_rotation += 3.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+            withAnimation(.linear(duration: 1.5)) {
+                SFXManager.instance.playSFX(sound: .alarm)
             }
         }
         

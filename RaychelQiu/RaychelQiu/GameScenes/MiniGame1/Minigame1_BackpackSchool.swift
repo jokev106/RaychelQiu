@@ -30,8 +30,6 @@ struct Minigame1_BackpackSchool: View {
     @State var isPencil:Bool = true
     @State var isBottle:Bool = true
     
-    //
-    
     var body: some View {
         //Dragable for Book
         let dragBook = DragGesture(coordinateSpace: .local)
