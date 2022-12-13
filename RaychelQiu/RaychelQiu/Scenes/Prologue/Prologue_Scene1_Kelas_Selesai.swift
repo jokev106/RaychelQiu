@@ -31,6 +31,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var short_2_y_offset = -300.0
     @State var short_2_x_offset = -2.0
     @State var short_2_rotation = 0.0
+    @State var scene_2_y = 0.0
     
     // Scene3
     @State var raychel_stand_opac = 0.0
@@ -56,7 +57,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
     @State var isBook: Bool = true
     @State var isPencil: Bool = true
     @State var isBottle: Bool = true
-    @State var bag3Opac = 1.0
     
     var body: some View {
         // Dragable for Book
@@ -189,11 +189,12 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                     
                     // Scene2
                     if scene == 2 {
-                        ZStack {
+                        Group {
                             Image("Clock")
                                 .resizable()
                                 .scaledToFit()
                                 .offset(x: clock_2_x, y: clock_2_y)
+                            
                             Image("Clock_LongPoint")
                                 .resizable()
                                 .scaledToFit()
@@ -217,6 +218,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 //                        .position(x: 196.5, y: 242)
                                 .position(x: geometry.size.width * 0.499, y: geometry.size.height * 0.331)
                         }
+                        .offset(y: scene_2_y)
                         .onAppear {
                             prologue_scene2_animation_in()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 8.5) {
@@ -500,9 +502,10 @@ struct Prologue_Scene1_Kelas_Selesai: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 7.5) {
             withAnimation(.easeIn(duration: 1)) {
-                clock_2_y -= 300.0
-                long_2_y_offset -= 300.0
-                short_2_y_offset -= 300.0
+//                clock_2_y -= 300.0
+                scene_2_y -= 300.0
+//                long_2_y_offset -= 300.0
+//                short_2_y_offset -= 300.0
             }
         }
     }

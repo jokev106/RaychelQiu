@@ -268,7 +268,7 @@ struct Chapter2_Collection: View {
             .opacity(scene_opacity)
             
             ZStack {
-                Text("To Be Continued....")
+                Text("End of Chapter 2")
                     .position(x: 198, y: 400)
                     .font(Font.custom("Hansip", size: 25))
                     .foregroundColor(.black)
@@ -277,7 +277,7 @@ struct Chapter2_Collection: View {
                     transition()
                         
                 } label: {
-                    Text("Back")
+                    Text("Back to Chapter Select")
                         .font(Font.custom("Hansip", size: 25))
                         .foregroundColor(Color("buttonColor"))
                 }.frame(width: 200, height: 150)

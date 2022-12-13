@@ -259,12 +259,12 @@ struct Prologue_Collection: View {
                         .scaledToFit()
                         .frame(width: 50)
                 }
-                .position(x: 30, y: 0)
+                .position(x: 30, y: 10)
             }
             .opacity(scene_opacity)
         
             ZStack {
-                Text("To Be Continued....")
+                Text("End of Prologue")
                     .position(x: 198, y: 400)
                     .font(Font.custom("Hansip", size: 25))
                     .foregroundColor(.black)
@@ -273,7 +273,7 @@ struct Prologue_Collection: View {
                     transition()
                     
                 } label: {
-                    Text("Back")
+                    Text("Back to Chapter Select")
                         .font(Font.custom("Hansip", size: 25))
                         .foregroundColor(Color("buttonColor"))
                 }.frame(width: 200, height: 150)

@@ -56,14 +56,14 @@ struct ChapterView: View {
                                 .scaledToFit()
                                 .frame(width: 400, height: 530)
                                 .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                                .offset(x: 37, y: 30)
+                                .offset(x: 32, y: 30)
 //                                .position(self.imageB3order)
                             
                             Image(chapterImage[index])
                                 .resizable()
-                                .frame(width: 210, height: 275)
+                                .frame(width: 210, height: 273)
                                 .rotationEffect(.degrees(-8))
-                                .offset(y: 5)
+                                .offset(x: -5, y: 6)
 //                                .position(chapterImage)
                         }
                         .frame(width: 400, alignment: .center)
@@ -113,7 +113,8 @@ struct ChapterView: View {
                             .foregroundColor(.black)
                     }
                     .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                    .position(self.prevButton)
+//                    .position(self.prevButton)
+                    .offset(x: -130, y: 110)
                     
                     Text(chapterState == 0 ? "Bored of routine" :
                         chapterState == 1 ? "She can’t talk" :
@@ -124,8 +125,9 @@ struct ChapterView: View {
                     .multilineTextAlignment(.center)
                     .font(Font.custom("Hansip", size: 22))
                     .foregroundColor(.black)
-                    .position(self.titleChapter)
                     .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                    .position(self.titleChapter)
+                    .offset(y: 110)
                     
                     Button {
                         withAnimation(.easeInOut(duration: 1.5)) {
@@ -145,7 +147,8 @@ struct ChapterView: View {
                             .foregroundColor(.black)
                     }
                     .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                    .position(self.nextButton)
+//                    .position(self.nextButton)
+                    .offset(x: 130, y: 110)
                 }
                 .offset(y: 50)
                 
@@ -159,30 +162,35 @@ struct ChapterView: View {
                                         .resizable()
                                         .frame(width: 95, height: 95)
                                         .scaledToFit()
-                                        .position(self.playButtonPosition)
                                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                                        .position(self.playButtonPosition)
+                                        .offset(y: 280)
                                     
                                     Text("Play")
                                         .font(Font.custom("Hansip", size: 20))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
-                                        .position(self.playPosition)
+//                                        .position(self.playPosition)
+                                        .offset(y: 350)
                                     
                                 } else if listChapter[index].status == "locked" {
                                     Text("Locked")
                                         .multilineTextAlignment(.center)
                                         .font(Font.custom("Hansip", size: 22))
                                         .foregroundColor(.black)
-                                        .position(self.playButtonPosition)
                                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                                        .position(self.playButtonPosition)
+                                        .offset(y: 280)
+                                        
                                     
                                 } else {
                                     Text("Coming Soon")
                                         .multilineTextAlignment(.center)
                                         .font(Font.custom("Hansip", size: 22))
                                         .foregroundColor(.black)
-                                        .position(self.playButtonPosition)
                                         .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                                        .position(self.playButtonPosition)
+                                        .offset(y: 280)
                                 }
                             }
                             .opacity(chapterState == index ? 1.0 : 0.0)
@@ -193,9 +201,14 @@ struct ChapterView: View {
                     }
                 }
                 
-                Text("<")
-                    .font(Font.custom("Hansip", size: 80))
-                    .foregroundColor(Color("buttonColor"))
+                Button {
+                    backTransition()
+                } label: {
+                    Text("<")
+                        .font(Font.custom("Hansip", size: 80))
+                        .foregroundColor(Color("buttonColor"))
+                }
+                .position(x: 30, y: 10)
             }
             .onAppear {
                 loadChapter()
@@ -227,6 +240,21 @@ struct ChapterView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             chapterPicked = chapter
+            withAnimation(.easeInOut(duration: 1.5)) {
+                transitions = 1.0
+            }
+        }
+    }
+    
+    func backTransition() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            withAnimation(.easeInOut(duration: 2)) {
+                transitions = 0.0
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            chapterPicked = -2
             withAnimation(.easeInOut(duration: 1.5)) {
                 transitions = 1.0
             }

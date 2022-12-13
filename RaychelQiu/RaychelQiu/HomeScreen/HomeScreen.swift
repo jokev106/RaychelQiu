@@ -25,62 +25,62 @@ struct HomeScreen: View {
     var body: some View {
         GeometryReader { _ in
 //            NavigationView {
-                ZStack {
-                    // Image Home Screen
-                    Group {
+            ZStack {
+                // Image Home Screen
+                Group {
 //                        Image("ScreenBG")
 //                            .resizable()
 //                            .edgesIgnoringSafeArea(.all)
-                        Image("CharPhotos")
-                            .resizable()
-                            .frame(width: 340, height: 460)
-                            .scaledToFit()
-                            .position(self.charPhotosPosition)
-                            .shadow(color: .black.opacity(0.3), radius: 4)
-                        Image("SpiralHomePage")
-                            .resizable()
-                            .frame(width: 390, height: 930)
-                            .scaledToFit()
-                            .position(self.spiralPhotosPosition)
-                    }
+                    Image("CharPhotos")
+                        .resizable()
+                        .frame(width: 340, height: 460)
+                        .scaledToFit()
+                        .position(self.charPhotosPosition)
+                        .shadow(color: .black.opacity(0.3), radius: 4)
+                    Image("SpiralHomePage")
+                        .resizable()
+                        .frame(width: 390, height: 930)
+                        .scaledToFit()
+                        .position(self.spiralPhotosPosition)
+                }
 
-                    // Character Names
-                    Group {
-                        Text("Hola! \n It's Raychel")
-                            .font(Font.custom("Hansip", size: 22))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
-                            .position(self.raychelNamePosition)
-                        Text("CHLOE <3")
-                            .font(Font.custom("Hansip", size: 22))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
-                            .position(self.chloe1NamePosition)
-                        Text("MY BEST BEST \n FRIEND EVER!")
-                            .font(Font.custom("Hansip", size: 12))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
-                            .position(self.chloe2NamePosition)
-                        Text("Mom \n Number 1 Chef!")
-                            .font(Font.custom("Hansip", size: 16))
-                            .multilineTextAlignment(.center)
-                            .position(self.momNamePosition)
-                            .foregroundColor(.black)
-                            .rotationEffect(.degrees(-8))
-                        Text("Dad \n My Hero!<3")
-                            .font(Font.custom("Hansip", size: 17))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
-                            .position(self.dadNamePosition)
-                        Text("My Familia!")
-                            .font(Font.custom("Hansip", size: 24))
-                            .multilineTextAlignment(.center)
-                            .position(self.familiaPosition)
-                            .foregroundColor(.black)
-                            .rotationEffect(.degrees(15))
-                    }
+                // Character Names
+                Group {
+                    Text("Hola! \n It's Raychel")
+                        .font(Font.custom("Hansip", size: 22))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .position(self.raychelNamePosition)
+                    Text("CHLOE <3")
+                        .font(Font.custom("Hansip", size: 22))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .position(self.chloe1NamePosition)
+                    Text("MY BEST BEST \n FRIEND EVER!")
+                        .font(Font.custom("Hansip", size: 12))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .position(self.chloe2NamePosition)
+                    Text("Mom \n Number 1 Chef!")
+                        .font(Font.custom("Hansip", size: 16))
+                        .multilineTextAlignment(.center)
+                        .position(self.momNamePosition)
+                        .foregroundColor(.black)
+                        .rotationEffect(.degrees(-8))
+                    Text("Dad \n My Hero!<3")
+                        .font(Font.custom("Hansip", size: 17))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+                        .position(self.dadNamePosition)
+                    Text("My Familia!")
+                        .font(Font.custom("Hansip", size: 24))
+                        .multilineTextAlignment(.center)
+                        .position(self.familiaPosition)
+                        .foregroundColor(.black)
+                        .rotationEffect(.degrees(15))
+                }
 
-                    // Play Button
+                // Play Button
 //                    NavigationLink {
 //                        withAnimation(.default){
 //                            ChapterView()
@@ -92,29 +92,31 @@ struct HomeScreen: View {
 //                    .scaledToFit()
 //                    .position(self.playButtonPosition)
 //                    .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
-                    Group {
-                        Image("PlayButton")
-                            .resizable()
-                            .frame(width: 95, height: 95)
-                            .scaledToFit()
-                            .position(self.playButtonPosition)
-                            .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+                Group {
+                    Image("PlayButton")
+                        .resizable()
+                        .frame(width: 95, height: 95)
+                        .scaledToFit()
+                        .shadow(color: .black.opacity(0.3), radius: 0.2, x: 0.2)
+//                        .position(self.playButtonPosition)
+                        .offset(y: 280)
 
-                        Text("Play")
-                            .font(Font.custom("Hansip", size: 20))
-                            .multilineTextAlignment(.center)
-                            .foregroundColor(.black)
-                            .position(self.playPosition)
-                    }
-                    .onTapGesture {
-                        transition()
-                    }
+                    Text("Play")
+                        .font(Font.custom("Hansip", size: 20))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.black)
+//                        .position(self.playPosition)
+                        .offset(y: 350)
+                }
+                .onTapGesture {
+                    transition()
                 }
             }
-//            .statusBarHidden(true)
             .onAppear {
-//                SoundManager.instance.playSound(sound: .homeSong)
-//            }
+                SoundManager.instance.playSound(sound: .homeSong)
+            }
+//            .statusBarHidden(true)
+//        }
         }
     }
 
