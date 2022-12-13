@@ -194,11 +194,12 @@ struct Chapter1_Collection: View {
                 Button {
                     openAlert()
                 } label: {
-                    Text("<")
-                        .font(Font.custom("Hansip", size: 80))
-                        .foregroundColor(Color("buttonColor"))
+                    Image("pause")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50)
                 }
-                .position(x: 40, y: 30)
+                .position(x: 30, y: 10)
             }
             .opacity(scene_opacity)
             

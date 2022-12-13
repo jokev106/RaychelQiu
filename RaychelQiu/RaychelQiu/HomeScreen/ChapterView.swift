@@ -192,6 +192,10 @@ struct ChapterView: View {
                         }
                     }
                 }
+                
+                Text("<")
+                    .font(Font.custom("Hansip", size: 80))
+                    .foregroundColor(Color("buttonColor"))
             }
             .onAppear {
                 loadChapter()

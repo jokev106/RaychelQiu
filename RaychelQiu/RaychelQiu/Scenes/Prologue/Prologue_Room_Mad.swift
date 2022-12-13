@@ -411,8 +411,8 @@ struct Prologue_Room_Mad: View {
                 
             }
             .frame(width: 400, alignment: .center)
+            .offset(x: 7, y: laptop_y)
             .scaleEffect(1.4)
-            .offset(x: -15, y: laptop_y)
         }
     }
     
