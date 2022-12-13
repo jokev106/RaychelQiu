@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Prologue_Scene1_Kelas_Selesai: View {
-    @State var scene = 3
+    @State var scene = 1
     @State var onTap = false
     @Binding var mainOnTap: Bool
     
@@ -79,7 +79,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                     }
                 }
                 
-                if isBook == false && isPencil == true && isBottle == true {
+                if isBook == false && isPencil == false && isBottle == false {
                     mainOnTap = true
                 }
             }
@@ -104,7 +104,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                     }
                 }
                 
-                if isBook == false && isPencil == true && isBottle == true {
+                if isBook == false && isPencil == false && isBottle == false {
                     mainOnTap = true
                 }
             }
@@ -129,7 +129,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                     }
                 }
                 
-                if isBook == false && isPencil == true && isBottle == true {
+                if isBook == false && isPencil == false && isBottle == false {
                     mainOnTap = true
                 }
             }
@@ -255,7 +255,6 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                         }
                         .onAppear {
                             prologue_scene3_animation_in()
-                            mainOnTap = true
                         }
                     }
                 }
@@ -297,7 +296,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .frame(width: 75)
                                 .rotationEffect(.degrees(70))
                                 .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
-                                .offset(x: 110, y: 20)
+                                .offset(x: 113, y: 20)
                                 .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }
@@ -322,7 +321,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .scaledToFit()
                                 .frame(width: 25)
                                 .shadow(color: .black.opacity(0.3), radius: 1, x: 1, y: 1)
-                                .offset(x: 130, y: 10)
+                                .offset(x: 133, y: 10)
                                 .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }
@@ -349,7 +348,7 @@ struct Prologue_Scene1_Kelas_Selesai: View {
                                 .scaledToFit()
                                 .frame(width: 60)
                                 .rotationEffect(.degrees(130))
-                                .offset(x: 100, y: 45)
+                                .offset(x: 103, y: 45)
                                 .onAppear {
                                     SFXManager.instance.playSFX(sound: .pop)
                                 }

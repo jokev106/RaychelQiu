@@ -11,10 +11,12 @@ struct Chapter3_Collection: View {
     @State var scene = 3
     @State var onTap = false
     @State var mainOnTap = false
-    @State var dialog_scale = 0.0
-    @State var dialog_opacity = 0.0
-    @State var scene_blur = 0.0
+    
+    @Binding var scene_blur: CGFloat
+    @Binding var transitions: CGFloat
     @Binding var chapter: Int
+    @Binding var dialog_scale: CGFloat
+    @Binding var dialog_opacity: CGFloat
     
     // Scene1
     @State var scene1_paralax_x = 50.0
@@ -35,15 +37,12 @@ struct Chapter3_Collection: View {
         GeometryReader { _ in
             ZStack {
                 Group {
-                    Image("StoryBG")
-                        .resizable()
-                        .ignoresSafeArea(.all)
+//                    Image("StoryBG")
+//                        .resizable()
+//                        .ignoresSafeArea(.all)
                     
                     if scene == 1 || scene == 2 {
                         Chapter3_Phone(mainOnTap: $mainOnTap, scene1_paralax_x: $scene1_paralax_x)
-                            .onAppear {
-                                startChapter()
-                            }
                             .onTapGesture {
                                 if mainOnTap == true {
                                     mainOnTap = false
@@ -203,36 +202,6 @@ struct Chapter3_Collection: View {
                 }
             }
             .opacity(scene_opacity)
-            .blur(radius: scene_blur)
-            
-            ZStack{
-                Image("Alert_Dialog")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 350)
-                    .offset(y: -20)
-                
-                Image("Alert_Yes")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
-                    .offset(x: -80, y: 150)
-                    .onTapGesture {
-                        backTransition()
-                    }
-                
-                Image("Alert_No")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
-                    .offset(x: 80, y: 150)
-                    .onTapGesture{
-                        closeAlert()
-                    }
-            }
-            .scaleEffect(dialog_scale)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .opacity(dialog_opacity)
             
             ZStack {
                 Text("To Be Continued....")
@@ -280,12 +249,16 @@ struct Chapter3_Collection: View {
     func transition() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeInOut(duration: 2.0)) {
+                transitions = 1.0
                 end_opacity = 0.0
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             chapter = -1
+            withAnimation(.easeInOut(duration: 1.5)) {
+                transitions = 0.0
+            }
         }
     }
     
@@ -315,17 +288,21 @@ struct Chapter3_Collection: View {
                 dialog_scale = 0.0
                 dialog_opacity = 0.0
                 scene_opacity = 0.0
+                transitions = 0.0
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             chapter = -1
+            withAnimation(.easeInOut(duration: 1.5)) {
+                transitions = 1.0
+            }
         }
     }
 }
 
 struct Chapter3_Collection_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter3_Collection(chapter: .constant(3))
+        Chapter3_Collection(scene_blur: .constant(0.0), transitions: .constant(0.0), chapter: .constant(3), dialog_scale: .constant(0.0), dialog_opacity: .constant(0.0))
     }
 }

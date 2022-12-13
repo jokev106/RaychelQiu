@@ -10,7 +10,7 @@ import SwiftUI
 struct ChapterView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @Binding var transitions: [CGFloat]
+    @Binding var transitions: CGFloat
     @Binding var chapterPicked: Int
     
     // Current chapter tittle
@@ -30,9 +30,6 @@ struct ChapterView: View {
 
     @State var offset = 0
     
-    // EndPage
-    @State var scene_opacity = 0.0
-    
     @State var listChapter = [SaveChapter]()
     
     func loadChapter() {
@@ -46,9 +43,9 @@ struct ChapterView: View {
     var body: some View {
         GeometryReader { _ in
             ZStack {
-                Image("ScreenBG")
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
+//                Image("ScreenBG")
+//                    .resizable()
+//                    .edgesIgnoringSafeArea(.all)
                 
                 // Image Chapter
                 Group {
@@ -196,11 +193,9 @@ struct ChapterView: View {
                     }
                 }
             }
-            .opacity(scene_opacity)
             .onAppear {
                 loadChapter()
                 print(listChapter)
-                startPage()
             }
 //            .navigationBarBackButtonHidden(true)
 //            .toolbar {
@@ -219,30 +214,24 @@ struct ChapterView: View {
         }
     }
     
-    func startPage() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 1.5)) {
-                scene_opacity = 1.0
-            }
-        }
-    }
-    
     func transition(chapter: Int) {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeInOut(duration: 2.0)) {
-                scene_opacity = 0.0
-//                transitions[1] = 0.0
+                transitions = 0.0
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             chapterPicked = chapter
+            withAnimation(.easeInOut(duration: 1.5)) {
+                transitions = 1.0
+            }
         }
     }
 }
 
 struct ChapterView_Previews: PreviewProvider {
     static var previews: some View {
-        ChapterView(transitions: .constant([0.0]), chapterPicked: .constant(0))
+        ChapterView(transitions: .constant(0.0), chapterPicked: .constant(0))
     }
 }

@@ -11,10 +11,12 @@ struct Chapter1_Collection: View {
     @State var scene = 0
     @State var onTap = false
     @State var mainOnTap = false
-    @State var dialog_scale = 0.0
-    @State var dialog_opacity = 0.0
-    @State var scene_blur = 0.0
+    
+    @Binding var scene_blur: CGFloat
+    @Binding var transitions: CGFloat
     @Binding var chapter: Int
+    @Binding var dialog_scale: CGFloat
+    @Binding var dialog_opacity: CGFloat
     
     // Scene0
     @State var moon_x = 0.0
@@ -41,20 +43,17 @@ struct Chapter1_Collection: View {
     
     // EndChapter
     @State var end_opacity = 0.0
-    @State var scene_opacity = 0.0
+    @State var scene_opacity = 1.0
     
     var body: some View {
         GeometryReader { _ in
             ZStack {
-                Image("StoryBG")
-                    .resizable()
-                    .ignoresSafeArea(.all)
+//                Image("StoryBG")
+//                    .resizable()
+//                    .ignoresSafeArea(.all)
                 
                 if scene == 0 || scene == 1 {
                     Chapter1_Day(mainOnTap: $mainOnTap, moon_x: $moon_x, night_x: $night_x)
-                        .onAppear {
-                            startChapter()
-                        }
                         .offset(x: scene2_offset_x)
                         .onTapGesture {
                             withAnimation {
@@ -202,36 +201,6 @@ struct Chapter1_Collection: View {
                 .position(x: 40, y: 30)
             }
             .opacity(scene_opacity)
-            .blur(radius: scene_blur)
-            
-            ZStack {
-                Image("Alert_Dialog")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 350)
-                    .offset(y: -20)
-                
-                Image("Alert_Yes")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
-                    .offset(x: -80, y: 150)
-                    .onTapGesture {
-                        backTransition()
-                    }
-                
-                Image("Alert_No")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150)
-                    .offset(x: 80, y: 150)
-                    .onTapGesture {
-                        closeAlert()
-                    }
-            }
-            .scaleEffect(dialog_scale)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .opacity(dialog_opacity)
             
             ZStack {
                 Text("To Be Continued....")
@@ -251,7 +220,6 @@ struct Chapter1_Collection: View {
             }
             .opacity(end_opacity)
         }
-        .background(.white)
     }
     
     func startChapter() {
@@ -280,51 +248,31 @@ struct Chapter1_Collection: View {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeInOut(duration: 2.0)) {
                 end_opacity = 0.0
+                transitions = 0.0
             }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             chapter = -1
+            withAnimation(.easeInOut(duration: 1.5)) {
+                transitions = 1.0
+            }
         }
     }
     
     func openAlert() {
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             withAnimation(.easeInOut(duration: 1)) {
-                dialog_scale = 1.0
+                dialog_scale = 0.8
                 dialog_opacity = 1.0
                 scene_blur = 20.0
             }
-        }
-    }
-    
-    func closeAlert() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 1)) {
-                dialog_scale = 0.0
-                dialog_opacity = 0.0
-                scene_blur = 0.0
-            }
-        }
-    }
-    
-    func backTransition() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            withAnimation(.easeInOut(duration: 2)) {
-                dialog_scale = 0.0
-                dialog_opacity = 0.0
-                scene_opacity = 0.0
-            }
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            chapter = -1
         }
     }
 }
 
 struct Chapter1_Collection_Previews: PreviewProvider {
     static var previews: some View {
-        Chapter1_Collection(chapter: .constant(2))
+        Chapter1_Collection(scene_blur: .constant(0.0), transitions: .constant(0.0), chapter: .constant(1), dialog_scale: .constant(0.0), dialog_opacity: .constant(0.0))
     }
 }
